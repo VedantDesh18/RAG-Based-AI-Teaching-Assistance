@@ -1,0 +1,453 @@
+{
+  "chunks": [
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 0.0,
+      "end": 19.0,
+      "text": " Hello friends, welcome to the javascript tutorial  Today we are going to talk about operators  Let's create a file  Name of the file will be 06-operators.js  We are going to talk about different operators"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 19.0,
+      "end": 37.0,
+      "text": " I am going to create a list of operators  In the list we are going to talk about total 7 operators  If we write it directly, it will create a problem for the file  So I will have to comment it  If you want to comment a single line, you can use double slash"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 37.0,
+      "end": 57.0,
+      "text": " So that the compiler will not read the line  It will not understand the code part  If you have multiple lines, you can use simply slash star  After that, you have to comment the code  And then write star slash"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 57.0,
+      "end": 80.0,
+      "text": " So no line will be the code part  It is generally used to make notes or to write comments  Let's start with arithmetic operators  If you are familiar with other programming languages, you will know all these operators  Let's quickly revise all these operators"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 80.0,
+      "end": 96.0,
+      "text": " For arithmetic operators, we need some variables  Let's create a variable  Let's create a variable  Let's assign some value to it  In computer science, the value is always assigned right to left"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 96.0,
+      "end": 111.0,
+      "text": " I have written another number  Let's write number 2  Let's assign another value to it  Let's assign another value to it  Now we can do whatever operation we want on these two variables"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 111.0,
+      "end": 135.0,
+      "text": " If I print directly, that is console.log  If we write num1 and num2 in this bracket  Then the addition of these two will be printed on our console  Let's run it directly  You have to write the file name as 06-operators.js"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 135.0,
+      "end": 153.0,
+      "text": " So here the addition is 12  So all these arithmetic operators, addition, subtraction  Let's run all the operators  Then you change it  Write division and multiplication"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 154.0,
+      "end": 179.0,
+      "text": " Then comes the modulus operator  If you save this file and run it again, you will get to know  Addition, here the output is 12  Second output is subtraction, so 5-7, that is minus 2  Third is division, num1 divided by 7, that is 5 divided by 7"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 179.0,
+      "end": 201.0,
+      "text": " So the answer is 0.719  Then you multiply it, so the output is 35  And on this line you have written mod, mod means remainder  If you divide 5 by 7, then the mod will be 5, that is remainder  So these are our traditional operators"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 201.0,
+      "end": 227.0,
+      "text": " In addition to this, an operator in JavaScript will help you  Let's take another example  Let's take a variable x, whose value is 5  Then we take another variable, let, whose variable name is y, whose value is 2  Then I write console.log"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 227.0,
+      "end": 252.0,
+      "text": " And then I write x**y  ** means exponential, so x's exponential is y  So 5 exponential of 2  So this means, whatever output you get, that is x to the power y  So obviously our output will be 25"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 252.0,
+      "end": 281.0,
+      "text": " So whenever you have to find an exponent of a number, square, cube or any other number  So if I write 4, then the fourth exponent of 5 will come in front of you, that is 625  So you can use all these operators independently  So if you have to make a variable, let result is equal to x plus y  So you can copy their addition in result"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 281.0,
+      "end": 303.0,
+      "text": " In computer science, the assignment is always right to left  So whatever result x plus y will get, in this case 5 plus 4 is 9  That result will be assigned right to left  So the final value of result will be 9, so you have to write console.log  You can use the value wherever you want to use, so you will write result"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 303.0,
+      "end": 329.0,
+      "text": " So the final output will be 9  So these were arithmetic operators  Next we will talk about assignment operators  So we will comment all the code, so you have to select code in VS Code  And you have to press shift slash or command slash, so all the code will be commented"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 329.0,
+      "end": 357.0,
+      "text": " So let's make some variables again, so you write let x equals to 5  So you have assigned 5 value to x variable  This is assignment operator, and assignment is always right to left  If I write some other variable, let y equals to x  So it means whatever value of x is in y"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 357.0,
+      "end": 381.0,
+      "text": " So if I print it, console.log  And print the value of y, so you will get 5  So this is assignment operator right to left  Then there are some other operators in assignment operator  Like if we want to write something like this"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 382.0,
+      "end": 408.0,
+      "text": " So let x equals to 5, so x value is 5  If we write x plus is equal to 3  So this line means x is equal to x plus 3  So you can see, whatever is the old value of x, 3 will be added to it  And the updated value will be updated in x"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 408.0,
+      "end": 441.0,
+      "text": " And if we print it, so the final value of x will be 8 in this case  So whenever we want to update something in our variable, you can use this syntax  It's not necessary that you have to add 3 every time, you can add some other value  Like if I want to do multiplication, so updated value is 8, 8 is square  So if I want to multiply 8 by 2, so you can write a into x equals to 2"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 441.0,
+      "end": 466.0,
+      "text": " So this means whatever is the current value of x, multiply it by 2 and store it in x  And then you can print x  So the final output will be the double of the last value of x  So you can see here it is 16  So we can use this syntax whenever we want to write something like this"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 466.0,
+      "end": 490.0,
+      "text": " But we have to write this when we want to store something in the same variable  So this was the assignment operator  So next operator is our comparison operator  It is also called relational operator  So I will comment all the codes and we will talk about relational operator i.e. comparison operator"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 490.0,
+      "end": 522.0,
+      "text": " So we will practice all these operators on our problems in the coming series  For now we just have to understand what is comparison  So whenever we make a software or write a code, there are such conditions where we have to compare two different values for our system  For example, if we want to assign a particular grade to a student  If the student's grade is more than 90%, then I have to assign grade A"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 522.0,
+      "end": 547.0,
+      "text": " If the grade is less than 90%, then I have to assign grade B  But it should be more than 80%  So in all these cases, we have to check the condition and compare the grade with different values  So to do this comparison, we have to take the help of which operator  So let's take a variable here"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 547.0,
+      "end": 568.0,
+      "text": " Let's write age as a variable and assign a value to it  For example, let's say 21  Now I have to compare the age of this value  So generally how do we compare age?  If age is more than 18, then I have to allow"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 568.0,
+      "end": 586.0,
+      "text": " If it is less than 18, then I have to not allow  So I have to apply the logic of comparison on this condition  So how do we use that operator?  Generally, in comparison operators, you have to use different operators  So I make a list of their operators"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 586.0,
+      "end": 603.0,
+      "text": " For example, less than operator, greater than operator  Then less than equals to operator, greater than equals to operator  Then not equals to operator  In JavaScript, there are two more operators  For example, double equals to operator"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 603.0,
+      "end": 622.0,
+      "text": " Then triple equals to operator  Then not double equals to operator  So through all these operators, you can do different types of comparisons  So let's write this value here  Let age equals to 21"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 622.0,
+      "end": 639.0,
+      "text": " Then we print and see what our answer will be  So we will write console.log  And we will write here  Is our age greater than 18 or not?  Any value can come in age"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 639.0,
+      "end": 648.0,
+      "text": " For now, we have given 21  This will be the age of the user  So in future, we have to take a decision  If age is more than 18, then what to do?  If age is less than 18, then what to do?"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 648.0,
+      "end": 664.0,
+      "text": " So for now, we just have to check its output  What will be the actual output?  So you can see that its output is true  Means 21 is greater than 18  If you reverse this, then your expected output will be false"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 664.0,
+      "end": 675.0,
+      "text": " Means it is working properly  But you also have to remember  Whatever output we are getting from this operator  In which form is it getting?  In the form of true or false"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 675.0,
+      "end": 687.0,
+      "text": " So the return type of this  Which is going to be very important in our logic  That will be true or false  So let's talk about  Suppose our value is 18"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 687.0,
+      "end": 697.0,
+      "text": " Value itself is 18  And we are comparing with 18  So what will happen in that case?  In both cases, it will give false  You write greater than or smaller than"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 697.0,
+      "end": 709.0,
+      "text": " Then your output will be false  So we have to allow 18  If it is 18 or less than 18  Then I have to allow  So we will write less than or equal to"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 709.0,
+      "end": 720.0,
+      "text": " Always remember that space is not allowed here  There should not be space between these two operators  So if we run this  Then you will understand  See it is still saying true"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 720.0,
+      "end": 731.0,
+      "text": " That the value of age should be either small or equal to 18  So if 18 is equal then true  If we also make it 17  Then also your output will be true  But as soon as we make it 19"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 731.0,
+      "end": 741.0,
+      "text": " Means greater than 18  Then your output will be false  So this is the comparison operator  So you understood less than, greater than  Similarly greater than or equal to"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 741.0,
+      "end": 751.0,
+      "text": " Now not equals to  So here for not equals to  We have to write  Like  Our age not equals to 18"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 751.0,
+      "end": 761.0,
+      "text": " Age is not equals to 18  Means current value of age is 19  Which is not equal to 18  So obviously  Its output will be true"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 761.0,
+      "end": 771.0,
+      "text": " Because that statement is correct  Age whose value is 19  Not equals to 18  If its value is same  18 not equals to 18"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 771.0,
+      "end": 781.0,
+      "text": " False  So in that case its output will be false  So this is not equals to  Then double equals to  So you have to strictly follow"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 781.0,
+      "end": 791.0,
+      "text": " That age value should be double equals to 18  Means  Value of left hand side and right hand side  Should be exactly same  Only then you have to take some decision"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 791.0,
+      "end": 801.0,
+      "text": " So here we have to follow  That age value should be double equals to 18  Only then you have to take some decision  So in that case you have to use  Double equals to"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 801.0,
+      "end": 813.0,
+      "text": " If you put any value other than this  Then your output will be false  So in this  There is a little dilemma  Like I will show you"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 813.0,
+      "end": 823.0,
+      "text": " We take a variable  Like let x is equals to  We write  Capital A  Then we write"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 823.0,
+      "end": 833.0,
+      "text": " y is equals to  Then we write  Console.log  Then we write  Comparison"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 833.0,
+      "end": 843.0,
+      "text": " Like  x is greater than y  x is greater than y  So comparison should be  Always in same type"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 843.0,
+      "end": 853.0,
+      "text": " But here x type is  String which you have given in double quotes  And y type is  Number which you have given in  Double quotes"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 853.0,
+      "end": 863.0,
+      "text": " If you check its output  It is false  So we should have got  Output 2  But here it is false"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 863.0,
+      "end": 873.0,
+      "text": " It is not working properly  Because there are two different types  If I write 5 in one place  We have written 5 in one place  And then we check the output"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 873.0,
+      "end": 883.0,
+      "text": " In that case also  The output is false  Now we use equals to  If you use single equals to  It will go to assignment operator"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 883.0,
+      "end": 893.0,
+      "text": " So we are going to use  Double equals to  Our output is true  It means  In this case"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 893.0,
+      "end": 903.0,
+      "text": " x is equals to 5  Which is in string  I will print the type  Console.log  Type of x"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 903.0,
+      "end": 913.0,
+      "text": " Which is in string  Then we will check  Type of y  And then we will check  Its output"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 913.0,
+      "end": 923.0,
+      "text": " If we run it  We get x type  Which is in string  5 type which is in y  Which is number"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 923.0,
+      "end": 933.0,
+      "text": " And when we compare both  We get true output  It means  Double equals to  Is ignoring both types"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 933.0,
+      "end": 943.0,
+      "text": " It is just checking the value  Ok  That's why the third operator  Triple equals to  We should use it"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 943.0,
+      "end": 953.0,
+      "text": " With these two equals to  If I write third equals to  And then if I run it  You can see  Your output is false"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 953.0,
+      "end": 963.0,
+      "text": " Triple equals to means  That both  Should have same type  Value should be same  But both should have same type"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 963.0,
+      "end": 975.0,
+      "text": " You can't compare both  Same not double equals to  Normal double equals to  If we see here 4  And we write"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 975.0,
+      "end": 985.0,
+      "text": " Not double equals to y  It means  Both should not have  Same type  So the answer is true"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 985.0,
+      "end": 995.0,
+      "text": " x is not double equals to y  They are not equal  In any case  If you write 4  You will get true output"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 995.0,
+      "end": 1005.0,
+      "text": " Because they are not equal  By the types  Because their types are different  So these were your comparison operators  In the next video"
+    },
+    {
+      "number": "06",
+      "title": "operators in javascript part 1",
+      "start": 1005.0,
+      "end": 1007.0,
+      "text": " We will see other operators"
+    }
+  ],
+  "text": " Hello friends, welcome to the javascript tutorial Today we are going to talk about operators Let's create a file Name of the file will be 06-operators.js We are going to talk about different operators I am going to create a list of operators In the list we are going to talk about total 7 operators If we write it directly, it will create a problem for the file So I will have to comment it If you want to comment a single line, you can use double slash So that the compiler will not read the line It will not understand the code part If you have multiple lines, you can use simply slash star After that, you have to comment the code And then write star slash So no line will be the code part It is generally used to make notes or to write comments Let's start with arithmetic operators If you are familiar with other programming languages, you will know all these operators Let's quickly revise all these operators For arithmetic operators, we need some variables Let's create a variable Let's create a variable Let's assign some value to it In computer science, the value is always assigned right to left I have written another number Let's write number 2 Let's assign another value to it Let's assign another value to it Now we can do whatever operation we want on these two variables If I print directly, that is console.log If we write num1 and num2 in this bracket Then the addition of these two will be printed on our console Let's run it directly You have to write the file name as 06-operators.js So here the addition is 12 So all these arithmetic operators, addition, subtraction Let's run all the operators Then you change it Write division and multiplication Then comes the modulus operator If you save this file and run it again, you will get to know Addition, here the output is 12 Second output is subtraction, so 5-7, that is minus 2 Third is division, num1 divided by 7, that is 5 divided by 7 So the answer is 0.719 Then you multiply it, so the output is 35 And on this line you have written mod, mod means remainder If you divide 5 by 7, then the mod will be 5, that is remainder So these are our traditional operators In addition to this, an operator in JavaScript will help you Let's take another example Let's take a variable x, whose value is 5 Then we take another variable, let, whose variable name is y, whose value is 2 Then I write console.log And then I write x**y ** means exponential, so x's exponential is y So 5 exponential of 2 So this means, whatever output you get, that is x to the power y So obviously our output will be 25 So whenever you have to find an exponent of a number, square, cube or any other number So if I write 4, then the fourth exponent of 5 will come in front of you, that is 625 So you can use all these operators independently So if you have to make a variable, let result is equal to x plus y So you can copy their addition in result In computer science, the assignment is always right to left So whatever result x plus y will get, in this case 5 plus 4 is 9 That result will be assigned right to left So the final value of result will be 9, so you have to write console.log You can use the value wherever you want to use, so you will write result So the final output will be 9 So these were arithmetic operators Next we will talk about assignment operators So we will comment all the code, so you have to select code in VS Code And you have to press shift slash or command slash, so all the code will be commented So let's make some variables again, so you write let x equals to 5 So you have assigned 5 value to x variable This is assignment operator, and assignment is always right to left If I write some other variable, let y equals to x So it means whatever value of x is in y So if I print it, console.log And print the value of y, so you will get 5 So this is assignment operator right to left Then there are some other operators in assignment operator Like if we want to write something like this So let x equals to 5, so x value is 5 If we write x plus is equal to 3 So this line means x is equal to x plus 3 So you can see, whatever is the old value of x, 3 will be added to it And the updated value will be updated in x And if we print it, so the final value of x will be 8 in this case So whenever we want to update something in our variable, you can use this syntax It's not necessary that you have to add 3 every time, you can add some other value Like if I want to do multiplication, so updated value is 8, 8 is square So if I want to multiply 8 by 2, so you can write a into x equals to 2 So this means whatever is the current value of x, multiply it by 2 and store it in x And then you can print x So the final output will be the double of the last value of x So you can see here it is 16 So we can use this syntax whenever we want to write something like this But we have to write this when we want to store something in the same variable So this was the assignment operator So next operator is our comparison operator It is also called relational operator So I will comment all the codes and we will talk about relational operator i.e. comparison operator So we will practice all these operators on our problems in the coming series For now we just have to understand what is comparison So whenever we make a software or write a code, there are such conditions where we have to compare two different values for our system For example, if we want to assign a particular grade to a student If the student's grade is more than 90%, then I have to assign grade A If the grade is less than 90%, then I have to assign grade B But it should be more than 80% So in all these cases, we have to check the condition and compare the grade with different values So to do this comparison, we have to take the help of which operator So let's take a variable here Let's write age as a variable and assign a value to it For example, let's say 21 Now I have to compare the age of this value So generally how do we compare age? If age is more than 18, then I have to allow If it is less than 18, then I have to not allow So I have to apply the logic of comparison on this condition So how do we use that operator? Generally, in comparison operators, you have to use different operators So I make a list of their operators For example, less than operator, greater than operator Then less than equals to operator, greater than equals to operator Then not equals to operator In JavaScript, there are two more operators For example, double equals to operator Then triple equals to operator Then not double equals to operator So through all these operators, you can do different types of comparisons So let's write this value here Let age equals to 21 Then we print and see what our answer will be So we will write console.log And we will write here Is our age greater than 18 or not? Any value can come in age For now, we have given 21 This will be the age of the user So in future, we have to take a decision If age is more than 18, then what to do? If age is less than 18, then what to do? So for now, we just have to check its output What will be the actual output? So you can see that its output is true Means 21 is greater than 18 If you reverse this, then your expected output will be false Means it is working properly But you also have to remember Whatever output we are getting from this operator In which form is it getting? In the form of true or false So the return type of this Which is going to be very important in our logic That will be true or false So let's talk about Suppose our value is 18 Value itself is 18 And we are comparing with 18 So what will happen in that case? In both cases, it will give false You write greater than or smaller than Then your output will be false So we have to allow 18 If it is 18 or less than 18 Then I have to allow So we will write less than or equal to Always remember that space is not allowed here There should not be space between these two operators So if we run this Then you will understand See it is still saying true That the value of age should be either small or equal to 18 So if 18 is equal then true If we also make it 17 Then also your output will be true But as soon as we make it 19 Means greater than 18 Then your output will be false So this is the comparison operator So you understood less than, greater than Similarly greater than or equal to Now not equals to So here for not equals to We have to write Like Our age not equals to 18 Age is not equals to 18 Means current value of age is 19 Which is not equal to 18 So obviously Its output will be true Because that statement is correct Age whose value is 19 Not equals to 18 If its value is same 18 not equals to 18 False So in that case its output will be false So this is not equals to Then double equals to So you have to strictly follow That age value should be double equals to 18 Means Value of left hand side and right hand side Should be exactly same Only then you have to take some decision So here we have to follow That age value should be double equals to 18 Only then you have to take some decision So in that case you have to use Double equals to If you put any value other than this Then your output will be false So in this There is a little dilemma Like I will show you We take a variable Like let x is equals to We write Capital A Then we write y is equals to Then we write Console.log Then we write Comparison Like x is greater than y x is greater than y So comparison should be Always in same type But here x type is String which you have given in double quotes And y type is Number which you have given in Double quotes If you check its output It is false So we should have got Output 2 But here it is false It is not working properly Because there are two different types If I write 5 in one place We have written 5 in one place And then we check the output In that case also The output is false Now we use equals to If you use single equals to It will go to assignment operator So we are going to use Double equals to Our output is true It means In this case x is equals to 5 Which is in string I will print the type Console.log Type of x Which is in string Then we will check Type of y And then we will check Its output If we run it We get x type Which is in string 5 type which is in y Which is number And when we compare both We get true output It means Double equals to Is ignoring both types It is just checking the value Ok That's why the third operator Triple equals to We should use it With these two equals to If I write third equals to And then if I run it You can see Your output is false Triple equals to means That both Should have same type Value should be same But both should have same type You can't compare both Same not double equals to Normal double equals to If we see here 4 And we write Not double equals to y It means Both should not have Same type So the answer is true x is not double equals to y They are not equal In any case If you write 4 You will get true output Because they are not equal By the types Because their types are different So these were your comparison operators In the next video We will see other operators"
+}

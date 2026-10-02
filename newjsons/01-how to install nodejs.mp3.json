@@ -1,0 +1,194 @@
+{
+  "chunks": [
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 0.0,
+      "end": 25.0,
+      "text": " Hello friends, welcome to the ytech Yogesh's channel  Today we will talk about how to install NodeJS  NodeJS is a package which will help you to run your JavaScript code  So let's start directly how to install it  You have to switch to any browser like I am using Chrome"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 26.0,
+      "end": 46.0,
+      "text": " After coming to your browser, you have to search for NodeJS  You will get an official website of NodeJS  You can see here that Node.js is the official website of Node  You have to select NodeJS  Here you will get the latest version of NodeJS"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 46.0,
+      "end": 70.0,
+      "text": " You can get the latest version of NodeJS whenever you want to try  If you want to download any other version or you want to download Node.js according to your operating system  Then you have to click on the download option  After going to download, you will get the options of your operating system  You should know the type of your operating system"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 70.0,
+      "end": 85.0,
+      "text": " And accordingly you have to download your Node.js  So you can see here that my system is Mac OS  You can see here that my system is Mac OS  Because we are working in 2023  And now that time has gone"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 85.0,
+      "end": 100.0,
+      "text": " When we used to take tension for operating system and software  That this software will work or not  It is completely open source  So from installation process to code usability  We get all similar environment"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 100.0,
+      "end": 122.0,
+      "text": " So here you have to download the setup for your operating system  So as soon as you click here, your setup will start downloading  It can take a few minutes depending on your internet speed  So as soon as your downloading is complete, you have to run the setup  So here we have downloaded the 20th version of Node.js"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 122.0,
+      "end": 139.0,
+      "text": " I have clicked it and started the installation  So as soon as this installation starts, you will get the option to continue  You have to continue  You have to accept the terms and conditions and proceed  Then you have to agree and start the installation"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 139.0,
+      "end": 157.0,
+      "text": " Here you will get the password of your system  Then the packages of the installation will start loading in your system  And after this installation is over, you don't have to do any setting  You don't have to set any environment path  It will set the path by itself"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 157.0,
+      "end": 177.0,
+      "text": " You have to close it directly  And then to check whether your installation is successful or not  If you are working on Windows system, you have to open the command prompt  If you are working on Mac OS, you have to open the terminal  So as soon as you open your terminal"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 177.0,
+      "end": 206.0,
+      "text": " On that terminal or on the command prompt  You have to type node-v or hyphen-2 times version  You can use any of the two options  And if you enter, then the version of the node installed on your system will be shown here  As we can see 20.10.0 is installed on our system"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 206.0,
+      "end": 234.0,
+      "text": " Now I have to check how to work on the node installed on my system  In the coming series of JavaScript, we will work on the node  But for now, I have to test whether my node is working or not  So you have to simply type node and enter  As soon as you type node and enter, the node command prompt will be activated"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 234.0,
+      "end": 247.0,
+      "text": " And you can write your code here  For example, I want to write a simple message  Console.log  In the round brackets, we write some message  For example, Hello World"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 247.0,
+      "end": 261.0,
+      "text": " And close the double quotes  And enter  So you can see your output has come as a Hello World  So this is the same statement that we read in C language  C++ had Cout, Python had Print"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 261.0,
+      "end": 277.0,
+      "text": " Java had System.out.println  Today we are reading Console.log in JavaScript  Which is printing your output on your console  This is one way  There are many other ways that you can use for JavaScript code"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 277.0,
+      "end": 301.0,
+      "text": " So let's try another way in which we can run our JavaScript code through the node  So you can use any editor  For example, we used VS Code for our web development series  So let's open VS Code here  You have to create a folder for your system"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 301.0,
+      "end": 317.0,
+      "text": " Where you want to store your data  For example, for this series, we have created a folder on the desktop  Which is called JavaScript Tutorial  So let's open that folder  We have named it JS Tutorial"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 317.0,
+      "end": 332.0,
+      "text": " I have opened that folder  If you haven't created a folder, you can create a new one  So after opening that folder  Let's create a file in that folder  So here is the option for New File"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 332.0,
+      "end": 346.0,
+      "text": " And we have named the file  For example, demo.js  So it is very important that your file extension is JS  For example, we have written HTML for HTML  CSS for CSS"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 346.0,
+      "end": 357.0,
+      "text": " So for JavaScript file, you have to write demo.js  JS stands for JavaScript  Then you can write code in this file  Like I am writing the same message  That is console.log"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 357.0,
+      "end": 373.0,
+      "text": " And then you can write your message here  Like I have written hello world  Now the code we wrote last time was written directly on command prompt  So here we are writing our code in the file called demo.js  Now we have to run this file"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 373.0,
+      "end": 386.0,
+      "text": " So we have to go back to our terminal  So in VS Code, you get the default option of the terminal  First, open the terminal directly from the bottom  Or you will get an option on the top  Open the terminal from there"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 386.0,
+      "end": 394.0,
+      "text": " So see, we are in this folder by default  JS Tutorial  In which folder we had created a file  demo.js  Now we have to run this file"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 395.0,
+      "end": 406.0,
+      "text": " Before that, let's check if our node is available for this folder  So how to check?  node-v  So we will get the version number from this  If this version number is available"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 406.0,
+      "end": 417.0,
+      "text": " It means that node is also available for this folder  Now you have to run your file  So you have to write node  Then the name of your file which we have kept  demo.js"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 417.0,
+      "end": 425.0,
+      "text": " So the code we wrote in that file  The same output is expected for us  So I have entered  So you can see  The line you wrote in this file"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 425.0,
+      "end": 438.0,
+      "text": " That's your output  So this was the installation of node  And how to use node to run your javascript code  So in the coming javascript series  We will explore javascript completely"
+    },
+    {
+      "number": "01",
+      "title": "how to install nodejs",
+      "start": 438.0,
+      "end": 440.0,
+      "text": " See you in the next video"
+    }
+  ],
+  "text": " Hello friends, welcome to the VITEC Yogesh's channel Today we will talk about how to install NodeJS NodeJS is a package which will help you to run your JavaScript code So let's start directly how to install it You have to switch to any browser like I am using Chrome After coming to your browser, you have to search for NodeJS You will get an official website of NodeJS You can see here that Node.js is the official website of Node You have to select NodeJS Here you will get the latest version of NodeJS You can get the latest version of NodeJS whenever you want to try If you want to download any other version or you want to download Node.js according to your operating system Then you have to click on the download option After going to download, you will get the options of your operating system You should know the type of your operating system And accordingly you have to download your Node.js So you can see here that my system is Mac OS You can see here that my system is Mac OS Because we are working in 2023 And now that time has gone When we used to take tension for operating system and software That this software will work or not It is completely open source So from installation process to code usability We get all similar environment So here you have to download the setup for your operating system So as soon as you click here, your setup will start downloading It can take a few minutes depending on your internet speed So as soon as your downloading is complete, you have to run the setup So here we have downloaded the 20th version of Node.js I have clicked it and started the installation So as soon as this installation starts, you will get the option to continue You have to continue You have to accept the terms and conditions and proceed Then you have to agree and start the installation Here you will get the password of your system Then the packages of the installation will start loading in your system And after this installation is over, you don't have to do any setting You don't have to set any environment path It will set the path by itself You have to close it directly And then to check whether your installation is successful or not If you are working on Windows system, you have to open the command prompt If you are working on Mac OS, you have to open the terminal So as soon as you open your terminal On that terminal or on the command prompt You have to type node-v or hyphen-2 times version You can use any of the two options And if you enter, then the version of the node installed on your system will be shown here As we can see 20.10.0 is installed on our system Now I have to check how to work on the node installed on my system In the coming series of JavaScript, we will work on the node But for now, I have to test whether my node is working or not So you have to simply type node and enter As soon as you type node and enter, the node command prompt will be activated And you can write your code here For example, I want to write a simple message Console.log In the round brackets, we write some message For example, Hello World And close the double quotes And enter So you can see your output has come as a Hello World So this is the same statement that we read in C language C++ had Cout, Python had Print Java had System.out.println Today we are reading Console.log in JavaScript Which is printing your output on your console This is one way There are many other ways that you can use for JavaScript code So let's try another way in which we can run our JavaScript code through the node So you can use any editor For example, we used VS Code for our web development series So let's open VS Code here You have to create a folder for your system Where you want to store your data For example, for this series, we have created a folder on the desktop Which is called JavaScript Tutorial So let's open that folder We have named it JS Tutorial I have opened that folder If you haven't created a folder, you can create a new one So after opening that folder Let's create a file in that folder So here is the option for New File And we have named the file For example, demo.js So it is very important that your file extension is JS For example, we have written HTML for HTML CSS for CSS So for JavaScript file, you have to write demo.js JS stands for JavaScript Then you can write code in this file Like I am writing the same message That is console.log And then you can write your message here Like I have written hello world Now the code we wrote last time was written directly on command prompt So here we are writing our code in the file called demo.js Now we have to run this file So we have to go back to our terminal So in VS Code, you get the default option of the terminal First, open the terminal directly from the bottom Or you will get an option on the top Open the terminal from there So see, we are in this folder by default JS Tutorial In which folder we had created a file demo.js Now we have to run this file Before that, let's check if our node is available for this folder So how to check? node-v So we will get the version number from this If this version number is available It means that node is also available for this folder Now you have to run your file So you have to write node Then the name of your file which we have kept demo.js So the code we wrote in that file The same output is expected for us So I have entered So you can see The line you wrote in this file That's your output So this was the installation of node And how to use node to run your javascript code So in the coming javascript series We will explore javascript completely See you in the next video"
+}

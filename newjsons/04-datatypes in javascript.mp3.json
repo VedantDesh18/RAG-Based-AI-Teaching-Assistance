@@ -1,0 +1,61 @@
+{
+  "chunks": [
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 0.0,
+      "end": 67.0,
+      "text": " Hello friends, welcome back to the JavaScript tutorial and today we will talk about data types in JavaScript  In last video we saw how to declare a variable and what is the difference between let, where and const keyword  Data types is a very important concept for us because the type of data we want to store, we should know what type of values are coming in that data and accordingly we have to use them and also have to do operations on them  So let's start with our code, let's create a file in our folder, I am creating a fourth file, let's name it 04 underscore data type dot js  Let's consider an example, let's create a variable using let keyword, I am using ACC for account, let's give a value to the account number, let's say 232345"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 67.0,
+      "end": 145.0,
+      "text": " Let's create another variable using let account holder name, let's give a name to it  Let's create another variable using let account holder name, let's give a name to it  Let's give a name to it, let's give a name to it, let's give a name to it  Let's print all the variables we have used, to print them we have to write console.log and in this bracket we have to write all the variables  Till now we have printed all the variables on different lines but today we are printing all the variables in one line only"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 145.0,
+      "end": 220.0,
+      "text": " Let's see what is our output, you have to write node file name that is 04 underscore data type dot js  You can see there is some error, so we have to correct the spelling mistake  You can see your account number, account holder name, rate of interest and validation  You can see your account number, account holder name, rate of interest and validation  You can see your output, your values are printed in tabular format"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 220.0,
+      "end": 302.0,
+      "text": " Now we have to print the types of variables, so let's print the types of variables  Let's print the type of variable, let's print the type of variable  There are two ways to print this, you can either give a space or a bracket  If you want to print all the types, you have to write the same  Let's use table instead of log"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 302.0,
+      "end": 373.0,
+      "text": " Let's run this, the first variable is account number and the second variable is string  String means collection of characters in double or single quotes  There is no provision in JavaScript, all the numbers are printed in numbers  You can see the data type of the variable, it is true or false  Let's print the type of variable, let's print the type of variable, it is true or false"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 373.0,
+      "end": 481.0,
+      "text": " You can see the data type of the variable, it is true or false  Let's run this, the value is undefined  Let's print the type of variable, let's print the type of variable, it is true or false  Let's print the type of variable, let's print the type of variable, it is true or false  Let's run this, the value is undefined"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 481.0,
+      "end": 574.0,
+      "text": " Let's print the type of variable, let's print the type of variable, it is true or false  Let's learn how to read this, you have to prepare for the exam, you have to write the notes, you have to write the code, you have to do all this by yourself  You have to type ECMA documentation, you have to enter and search  You will get all the documentation for every concept, you can see here, you can see ECMA script data types and values  You can see all the documentation for data types, you can see all the documentation for data types"
+    },
+    {
+      "number": "04",
+      "title": "datatypes in javascript",
+      "start": 574.0,
+      "end": 609.0,
+      "text": " You can search for Mozilla documentation for JavaScript  So these were the data types, we will talk about them more, till then you try this much, we will see you in the next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial and today we will talk about data types in JavaScript In last video we saw how to declare a variable and what is the difference between let, where and const keyword Data types is a very important concept for us because the type of data we want to store, we should know what type of values are coming in that data and accordingly we have to use them and also have to do operations on them So let's start with our code, let's create a file in our folder, I am creating a fourth file, let's name it 04 underscore data type dot js Let's consider an example, let's create a variable using let keyword, I am using ACC for account, let's give a value to the account number, let's say 232345 Let's create another variable using let account holder name, let's give a name to it Let's create another variable using let account holder name, let's give a name to it Let's give a name to it, let's give a name to it, let's give a name to it Let's print all the variables we have used, to print them we have to write console.log and in this bracket we have to write all the variables Till now we have printed all the variables on different lines but today we are printing all the variables in one line only Let's see what is our output, you have to write node file name that is 04 underscore data type dot js You can see there is some error, so we have to correct the spelling mistake You can see your account number, account holder name, rate of interest and validation You can see your account number, account holder name, rate of interest and validation You can see your output, your values are printed in tabular format Now we have to print the types of variables, so let's print the types of variables Let's print the type of variable, let's print the type of variable There are two ways to print this, you can either give a space or a bracket If you want to print all the types, you have to write the same Let's use table instead of log Let's run this, the first variable is account number and the second variable is string String means collection of characters in double or single quotes There is no provision in JavaScript, all the numbers are printed in numbers You can see the data type of the variable, it is true or false Let's print the type of variable, let's print the type of variable, it is true or false You can see the data type of the variable, it is true or false Let's run this, the value is undefined Let's print the type of variable, let's print the type of variable, it is true or false Let's print the type of variable, let's print the type of variable, it is true or false Let's run this, the value is undefined Let's print the type of variable, let's print the type of variable, it is true or false Let's learn how to read this, you have to prepare for the exam, you have to write the notes, you have to write the code, you have to do all this by yourself You have to type ECMA documentation, you have to enter and search You will get all the documentation for every concept, you can see here, you can see ECMA script data types and values You can see all the documentation for data types, you can see all the documentation for data types You can search for Mozilla documentation for JavaScript So these were the data types, we will talk about them more, till then you try this much, we will see you in the next video"
+}

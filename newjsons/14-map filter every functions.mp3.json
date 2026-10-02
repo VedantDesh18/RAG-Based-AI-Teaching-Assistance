@@ -1,0 +1,229 @@
+{
+  "chunks": [
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 0.0,
+      "end": 23.0,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  and today we will talk about filter and map function  In last video we saw how to use for loop and for each function with array  Similar working is there for map and filter function which is predefined in JavaScript  They give access to each variable in the list"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 23.0,
+      "end": 56.0,
+      "text": " Let's create a file in our folder  Name it as 13__map__filter.js  Create a list named as const mylist  In that list we will take some elements  We have an array of 5 elements"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 56.0,
+      "end": 69.0,
+      "text": " Now we have to call map function which is predefined  So how do we call it?  List.map  This is a predefined function  Now we will call a function in this list"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 69.0,
+      "end": 89.0,
+      "text": " Name it as myfunction  Like last example we don't have to give a bracket  And directly your function will be called  Now we are talking about writing a body of my function  So you have to write a function and body of my function"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 90.0,
+      "end": 108.0,
+      "text": " In this my function you will get each data in your list  So here you will write data  So you have 5 elements in my list  For that list you have called map function  And in map function you have called myfunction"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 108.0,
+      "end": 123.0,
+      "text": " And when you call that function  You will get each data in line 5  So let's print it  Console.log  Is it really giving us data or not?"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 123.0,
+      "end": 139.0,
+      "text": " So let's run it  To run it we have to write  Node  And our file name is 13__map__filter.js  So here you can see we are getting access to all the elements"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 139.0,
+      "end": 157.0,
+      "text": " So same thing your for each function was doing  So here map function can return some value  So you will write here return data  Now what is the use of this?  This will make your original list unchanged"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 157.0,
+      "end": 174.0,
+      "text": " Now the return value will go to line 3  And here you can make a new list  So you called my function in map function  And in my function you returned the same data  And the return data is in my list"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 174.0,
+      "end": 191.0,
+      "text": " So here we will print console.log and new list  So we should get the same list  So if we check the output  We get the same list in new list  So if you want to do something here"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 191.0,
+      "end": 205.0,
+      "text": " For example, in the list of elements  Suppose I want to multiply each element  By some values  For example, I wrote 2  If you check this"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 205.0,
+      "end": 225.0,
+      "text": " The new list will multiply each element by 2  If you want to access your old list  So if you write here console.log  And if you print my list  So you will understand that your old list is as it is"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 225.0,
+      "end": 242.0,
+      "text": " And in new list, each value is multiplied by 2  So this is map function  Many times when we read advanced topics  This function is written differently  So I want to explain this function in a simplified way"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 242.0,
+      "end": 255.0,
+      "text": " So here you called the function in line 3  And there you called its body  Now I don't want to write this function separately  I want to write body in it  So what you will do is"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 255.0,
+      "end": 270.0,
+      "text": " This is actual body of function  I removed it from here  And wrote it where you called it  Same thing  So we got a function"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 270.0,
+      "end": 281.0,
+      "text": " This is its body  And we did some work in body  But we got some error here  Because if you want to use this function  Then you have to use arrow function"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 282.0,
+      "end": 294.0,
+      "text": " So how do we write arrow function  Something like this  We saw this in some videos before  If you are getting confusion  Then I will modify it here"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 294.0,
+      "end": 308.0,
+      "text": " You can write this function like this  const my function  Is equal to data and arrow  This is your arrow function  Now you just removed this part from here"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 309.0,
+      "end": 323.0,
+      "text": " And wrote it where you called it  Your output will be same  So when you read advanced topics in javascript  In react or angular  You have to use this function there"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 323.0,
+      "end": 337.0,
+      "text": " So this is how we are going to write our body  So this was our map function  Let's talk about filter function  What is there in filter function  We will write filter in place of map"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 338.0,
+      "end": 354.0,
+      "text": " Now the work is done  So filter function will return some value  So we can write some condition here  So if we were using map function  And if you write some condition like this"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 354.0,
+      "end": 374.0,
+      "text": " If the value inside the data is greater than 50  Then what will your new list print  So let's check  So if we see the output here  Then you are getting value in boolean"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 374.0,
+      "end": 386.0,
+      "text": " False, true, true, true  Means there is only one value in your list  Which is less than 50  For the rest all of them it is true  But if I write filter in place of map"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 386.0,
+      "end": 401.0,
+      "text": " And run the same program  Then you will get your values  So this is the difference between map and filter  In filter when you are returning condition value  Then your value will go in return"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 401.0,
+      "end": 412.0,
+      "text": " But in map function your result will go in return  That is true or false  So whenever we have to apply filters in future  We will have a lot of data  Like we have a lot of products"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 412.0,
+      "end": 427.0,
+      "text": " We have to filter by their category  So at that time we have to use map and filter function  There is one more function in this  Which is called every  So here I have written every in place of filter"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 429.0,
+      "end": 445.0,
+      "text": " So here if I write every  Then it means in this function  Like we have called every here for my list  So if every value is greater than 50  Then the value of new list will be true"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 445.0,
+      "end": 457.0,
+      "text": " If any value is less than 50  Then its value will be false  So let's check  Here you can see your final output is false  Which means this function has also checked"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 457.0,
+      "end": 472.0,
+      "text": " That every value in my list should be greater than 50  But here 34 is less than 50  If I value 34 as 84  And then if you run this program  Then you will get your result as true"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 472.0,
+      "end": 492.0,
+      "text": " So these were our map function, filter function and every function  If this code is still creating confusion  Then you just have to remove it from here  And up to here  And here you have to call your function"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 492.0,
+      "end": 511.0,
+      "text": " That is my function  And you have to write body of that function here  Like this  My function equals to  You can use arrow function or normal function"
+    },
+    {
+      "number": "14",
+      "title": "map filter every functions",
+      "start": 511.0,
+      "end": 517.0,
+      "text": " It's the same thing  So these were our map, filter and every function  We will see you in the next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial and today we will talk about filter and map function In last video we saw how to use for loop and for each function with array Similar working is there for map and filter function which is predefined in JavaScript They give access to each variable in the list Let's create a file in our folder Name it as 13__map__filter.js Create a list named as const mylist In that list we will take some elements We have an array of 5 elements Now we have to call map function which is predefined So how do we call it? List.map This is a predefined function Now we will call a function in this list Name it as myfunction Like last example we don't have to give a bracket And directly your function will be called Now we are talking about writing a body of my function So you have to write a function and body of my function In this my function you will get each data in your list So here you will write data So you have 5 elements in my list For that list you have called map function And in map function you have called myfunction And when you call that function You will get each data in line 5 So let's print it Console.log Is it really giving us data or not? So let's run it To run it we have to write Node And our file name is 13__map__filter.js So here you can see we are getting access to all the elements So same thing your for each function was doing So here map function can return some value So you will write here return data Now what is the use of this? This will make your original list unchanged Now the return value will go to line 3 And here you can make a new list So you called my function in map function And in my function you returned the same data And the return data is in my list So here we will print console.log and new list So we should get the same list So if we check the output We get the same list in new list So if you want to do something here For example, in the list of elements Suppose I want to multiply each element By some values For example, I wrote 2 If you check this The new list will multiply each element by 2 If you want to access your old list So if you write here console.log And if you print my list So you will understand that your old list is as it is And in new list, each value is multiplied by 2 So this is map function Many times when we read advanced topics This function is written differently So I want to explain this function in a simplified way So here you called the function in line 3 And there you called its body Now I don't want to write this function separately I want to write body in it So what you will do is This is actual body of function I removed it from here And wrote it where you called it Same thing So we got a function This is its body And we did some work in body But we got some error here Because if you want to use this function Then you have to use arrow function So how do we write arrow function Something like this We saw this in some videos before If you are getting confusion Then I will modify it here You can write this function like this const my function Is equal to data and arrow This is your arrow function Now you just removed this part from here And wrote it where you called it Your output will be same So when you read advanced topics in javascript In react or angular You have to use this function there So this is how we are going to write our body So this was our map function Let's talk about filter function What is there in filter function We will write filter in place of map Now the work is done So filter function will return some value So we can write some condition here So if we were using map function And if you write some condition like this If the value inside the data is greater than 50 Then what will your new list print So let's check So if we see the output here Then you are getting value in boolean False, true, true, true Means there is only one value in your list Which is less than 50 For the rest all of them it is true But if I write filter in place of map And run the same program Then you will get your values So this is the difference between map and filter In filter when you are returning condition value Then your value will go in return But in map function your result will go in return That is true or false So whenever we have to apply filters in future We will have a lot of data Like we have a lot of products We have to filter by their category So at that time we have to use map and filter function There is one more function in this Which is called every So here I have written every in place of filter So here if I write every Then it means in this function Like we have called every here for my list So if every value is greater than 50 Then the value of new list will be true If any value is less than 50 Then its value will be false So let's check Here you can see your final output is false Which means this function has also checked That every value in my list should be greater than 50 But here 34 is less than 50 If I value 34 as 84 And then if you run this program Then you will get your result as true So these were our map function, filter function and every function If this code is still creating confusion Then you just have to remove it from here And up to here And here you have to call your function That is my function And you have to write body of that function here Like this My function equals to You can use arrow function or normal function It's the same thing So these were our map, filter and every function We will see you in the next video"
+}

@@ -1,0 +1,621 @@
+{
+  "chunks": [
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 0.0,
+      "end": 10.0,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  and today we will talk about  Control Statements in JavaScript  Control Statement basically works on  conditions, if conditions are satisfied"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 10.0,
+      "end": 20.0,
+      "text": " then what should we do  and if conditions are not satisfied  then what should we not do  so for this we will  directly create a new file in our folder"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 20.0,
+      "end": 30.0,
+      "text": " which I will name as  07 underscore control  dot js  I have to work in this file  so we will talk about"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 30.0,
+      "end": 40.0,
+      "text": " Control Statement  in Control Statement we have  if and else statement  so this is  very simple, if you know"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 40.0,
+      "end": 50.0,
+      "text": " any other programming language then you know  that this is very simple  so let's start, let's create a variable  whose name we will write as age  and assign a value"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 50.0,
+      "end": 60.0,
+      "text": " and our problem statement  we have to write the problem statement like  if our age is greater than  or equals to  then you have to allow"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 60.0,
+      "end": 70.0,
+      "text": " or  not allow  so for that we have taken a variable  whose value is 25  then we have to write the condition"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 70.0,
+      "end": 80.0,
+      "text": " so you have to write if  round brackets  curly braces  so this is syntax of if statement  now in this bracket of if"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 80.0,
+      "end": 90.0,
+      "text": " you have to write the condition which is based on  relational operator, we have seen  in last videos  so our variable is age  our condition is age value is greater than or equals to"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 90.0,
+      "end": 100.0,
+      "text": " 18  then only we will get the return value  which is true, if here  if true then I will write here  so here I am going to write"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 100.0,
+      "end": 112.0,
+      "text": " console.log and I have to print a message  that is you are  allowed  if this condition is false  if my age in this case"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 112.0,
+      "end": 122.0,
+      "text": " is 17  then it will false this case  so let's run this first  and then we will see how to do alternative work  so I have cleared this"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 122.0,
+      "end": 132.0,
+      "text": " and run it  to run our file I have to write  your file name is  07 underscore control  dot js"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 132.0,
+      "end": 142.0,
+      "text": " so you can see the output we have got  is allowed, if I  value this variable suppose  8  then this condition will not satisfy"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 142.0,
+      "end": 152.0,
+      "text": " and we will not get anything in output  because we have not written anything, we have only written a message for allowed  so this condition is false  we have not got any other message  so for that you have to write"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 152.0,
+      "end": 162.0,
+      "text": " followed to this bracket you have to write else  then else will have its own block  and you have to write brackets  then you can write another message here  that is console.log"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 162.0,
+      "end": 172.0,
+      "text": " and here you can directly give message that is  not allowed  ok, now if you  run this file then you will get  message not allowed"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 172.0,
+      "end": 182.0,
+      "text": " so you can see this carefully  you have written age greater than equals to  18, if your age  is greater than or equal to 18  then you will get message allowed"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 182.0,
+      "end": 192.0,
+      "text": " if it is less than  18 then you will get  message not allowed  this means either if  will be executed or else will be executed"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 192.0,
+      "end": 202.0,
+      "text": " sometimes it happens that  we have to write multiple if  like if we  solve a traditional problem  like I will comment this and write"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 202.0,
+      "end": 212.0,
+      "text": " that we have  three variables like x  equals to 5  y equals to  7 and here"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 212.0,
+      "end": 222.0,
+      "text": " we take another variable z whose value  is suppose 2 and we have to find out  which variable having a greatest value  so here we can say  y having a greatest value but I"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 222.0,
+      "end": 232.0,
+      "text": " will get this input from user  so I have to write some conditions  how will we write conditions?  so here you can see  if x value"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 232.0,
+      "end": 242.0,
+      "text": " is greater than y  and  we saw this in last video  logical operator and  x value is greater than z"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 242.0,
+      "end": 252.0,
+      "text": " so both these conditions will be true  so we will get final result  so we can print here  that console.log  who is greater"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 252.0,
+      "end": 262.0,
+      "text": " than x is greater  else if it is not  so  I have to check other condition  because we can't come to conclusion directly"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 262.0,
+      "end": 272.0,
+      "text": " if it is not then there are other conditions  y can be greater than z  so after else we can write an if again  and here  we will check other condition"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 272.0,
+      "end": 282.0,
+      "text": " if it is not x  then y can be greater than x  and y can be greater than z  if this case  is satisfied then you have to write"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 282.0,
+      "end": 294.0,
+      "text": " console.log  and here you have to write  y is greater  if both these conditions are not satisfied  like here you can see x is greater"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 294.0,
+      "end": 304.0,
+      "text": " here you can see y is greater  if both these conditions  are not satisfied then we can come to conclusion  that  z"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 304.0,
+      "end": 314.0,
+      "text": " is greater than z  so this is our  if else if else  so see with else  we can write if"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 314.0,
+      "end": 324.0,
+      "text": " so it is mandatory that  here there should be space or  you have to take if to next line  you can't write them together  you have to give space here"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 324.0,
+      "end": 334.0,
+      "text": " and always practice that you use brackets  if you haven't used brackets  then you can write only one statement in if  you can't write second statement  so for this"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 334.0,
+      "end": 344.0,
+      "text": " you have to write brackets  so let's run it  so if I run it  and then  you can see y is greater"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 344.0,
+      "end": 354.0,
+      "text": " so I will change this value  and run it again  x is greater  so I will make it bigger  if we run it then z is greater"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 354.0,
+      "end": 364.0,
+      "text": " so this is if else if else  you can use if in if  it is not like that  that you can't write  if in if"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 364.0,
+      "end": 374.0,
+      "text": " it is not like that  you can write if in all the conditions  you want  you have to write  only after satisfying some conditions"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 374.0,
+      "end": 384.0,
+      "text": " and if some conditions are not satisfied  then you have to write else  so let's solve one more simple example  so you can practice  so let's take a simple variable"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 384.0,
+      "end": 394.0,
+      "text": " like I have taken  let number is equal to  and I have to check  if any number is odd  then how do we check"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 394.0,
+      "end": 404.0,
+      "text": " if we divide it by 2  and get remainder 0  and if 1 is odd  so we have to write condition if  if"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 404.0,
+      "end": 414.0,
+      "text": " if we divide num by 2  and get remainder  so for remainder I need mod  so if I  divide num by 2"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 414.0,
+      "end": 424.0,
+      "text": " mod will give me remainder  if we get remainder 0  so what we can print  we can come to conclusion  console.log"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 424.0,
+      "end": 434.0,
+      "text": " and we will write  even number  if it is not like that  then obviously it is odd  so we can print"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 434.0,
+      "end": 444.0,
+      "text": " it is an odd number  so if you run this  then you will get  45 is an odd number  so"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 444.0,
+      "end": 454.0,
+      "text": " for different logic  you have to use if else  so whatever demos we have seen  and made so far  they are working on console"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 454.0,
+      "end": 464.0,
+      "text": " but we are reading javascript  for web application  which will help us to work for frontend  so we have not seen frontend part  but you should know all these things"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 464.0,
+      "end": 476.0,
+      "text": " then only you can work with  frontend logic  apart from if else  there is one more control statement  switch case means"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 476.0,
+      "end": 486.0,
+      "text": " I will write switch here  whenever we have  multiple choice case  multiple choice  then we will use switch case"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 486.0,
+      "end": 496.0,
+      "text": " so its syntax is very simple  you just have to write  let  take a number  suppose it is 3"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 496.0,
+      "end": 506.0,
+      "text": " and you have choices  1,2,3 can be there  so you have to write switch  opening brackets  calibrations"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 506.0,
+      "end": 516.0,
+      "text": " so syntax is simple  but for switch  you have to use switch keyword  now for which variable  you are writing switch case"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 516.0,
+      "end": 526.0,
+      "text": " always remember  number should be constant  if you write switch case  with decimal value then you will face problem  so generally try"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 526.0,
+      "end": 536.0,
+      "text": " that switch case should be on character  or on numbers  then in switch case  you have to write cases  so I have to write case"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 536.0,
+      "end": 546.0,
+      "text": " case is a predefined keyword  and possible values in num  so for example I have written 1  1 can be a value  colon"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 546.0,
+      "end": 556.0,
+      "text": " then you have to write task  so I have written task  I have to print a simple message  that is 1  and when it is done"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 556.0,
+      "end": 566.0,
+      "text": " you have to write break  so this message will print 1  and will come out of switch case  so you have to use break keyword  same if you have to write"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 566.0,
+      "end": 576.0,
+      "text": " second case  so in second case you can see  if value 2 comes in num  then you have to do something different  so I have written 2"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 576.0,
+      "end": 586.0,
+      "text": " so this is my task  same if we talk  here we can see  if we write case 3  so if case 3 is there"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 586.0,
+      "end": 598.0,
+      "text": " so I have to write 3 in message  ok if other than this  there is any value  so let's run this  so I will clear this"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 598.0,
+      "end": 608.0,
+      "text": " and run  so you can see  if I change value to 2  so in switch case value is 2  and directly goes to case 2"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 608.0,
+      "end": 618.0,
+      "text": " and there we will get  2  so it jumps directly to that case  ok  now let's put a random value"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 618.0,
+      "end": 628.0,
+      "text": " like I put 7  so if I put 7  so you will not get any output  so here you can see multiple cases  if we have to execute one case"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 628.0,
+      "end": 638.0,
+      "text": " then we use switch case  so let's say  if my case is not there  then I should get message  like if I was else alternative part"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 638.0,
+      "end": 648.0,
+      "text": " so for that we have given one more facility  that with case you can write  any case  if any case is not match  then this default statement will be executed"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 648.0,
+      "end": 660.0,
+      "text": " so I will write here  wrong choice  I have written wrong choice  so let's clear this and run  so you can see"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 660.0,
+      "end": 670.0,
+      "text": " your choice is  wrong choice because your num value is 7  and other than 1,2,3  you don't have any case  so this is how switch case works"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 670.0,
+      "end": 682.0,
+      "text": " so whenever you have multiple choices  and you have to work on one of them  then you will definitely use switch case  sometimes it happens that  your character will come here"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 682.0,
+      "end": 692.0,
+      "text": " like if I write A  so A will come in character  so I will write B  now these are not numbers  these are characters"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 692.0,
+      "end": 702.0,
+      "text": " so the value coming from user  I will give it a variable name  like choice  so the choice will come from user  any alphabet"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 702.0,
+      "end": 712.0,
+      "text": " so if small a comes here  then switch case will also come here  so in choice character is A  if this character matches then you will print 1  so let's see"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 712.0,
+      "end": 724.0,
+      "text": " so see 1 came  if I had put m here  then there is no case of m  so definitely it will give us wrong choice  can we work on"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 724.0,
+      "end": 734.0,
+      "text": " this switch case string  so let's try  so if I take string as a choice  like I wrote 1 in small case  so here you have to match"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 734.0,
+      "end": 744.0,
+      "text": " the possibility with string  so I wrote 1  here also I will write in double quotes  1,2  sorry 2"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 744.0,
+      "end": 754.0,
+      "text": " and here I will write in double quotes  3  and then we will  clear it  so see it worked for string"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 754.0,
+      "end": 764.0,
+      "text": " so it's a good thing  if it works for string also  2 came for 2  but if I write here capital T W O  or I write full capital"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 764.0,
+      "end": 774.0,
+      "text": " then it will come  it will give wrong choice  because it is in capital case  and it matches with case  see this message printer has nothing to do with it"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 774.0,
+      "end": 784.0,
+      "text": " this message is a task  so basically the value in choice  will match with this  so here 2 is there but in small case  so it will go to wrong choice"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 784.0,
+      "end": 794.0,
+      "text": " so let's try  for decimal point value  so if I write here  6.4  and here I will give"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 794.0,
+      "end": 804.0,
+      "text": " first choice 6.4  so this is a number so we will not use it in any quote  6.4 if I write here  here some new value 3.3  and here I will take"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 804.0,
+      "end": 818.0,
+      "text": " new value 9.2  so if we run it  so see 6.4 is matching  if you do it in any other programming language  then it will not match"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 818.0,
+      "end": 830.0,
+      "text": " so see I changed some number  so now it is giving you the wrong choice  so here it will round up  and give you decimal point answer  so let's write something else"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 830.0,
+      "end": 840.0,
+      "text": " like problem is  I will write  6.399999  399999  so randomly"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 840.0,
+      "end": 850.0,
+      "text": " basically it will be treated as 6.4  right  but here it does not happen  so it will go into the wrong choice  so this"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 850.0,
+      "end": 860.0,
+      "text": " rounding part  you will face problem in other programming language  here you can directly  use it with decimal value  but this value should be comparable"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 860.0,
+      "end": 870.0,
+      "text": " if you are giving value in string  and here if you  are using some other format  then it will definitely give you wrong choice  see because 6.4"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 870.0,
+      "end": 880.0,
+      "text": " you have taken as a string and here it is 6.4  as a number  so where in script there is number type  you are getting benefit that you can compare  decimal value also"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 880.0,
+      "end": 890.0,
+      "text": " if you are looking any other programming language  CC++, Java, there you will not get this facility  you have to use  constant only that is character  and"
+    },
+    {
+      "number": "08",
+      "title": "control statement if else switch",
+      "start": 890.0,
+      "end": 896.0,
+      "text": " integer values  so in the next video  we will discuss about loops"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial and today we will talk about Control Statements in JavaScript Control Statement basically works on conditions, if conditions are satisfied then what should we do and if conditions are not satisfied then what should we not do so for this we will directly create a new file in our folder which I will name as 07 underscore control dot js I have to work in this file so we will talk about Control Statement in Control Statement we have if and else statement so this is very simple, if you know any other programming language then you know that this is very simple so let's start, let's create a variable whose name we will write as age and assign a value and our problem statement we have to write the problem statement like if our age is greater than or equals to then you have to allow or not allow so for that we have taken a variable whose value is 25 then we have to write the condition so you have to write if round brackets curly braces so this is syntax of if statement now in this bracket of if you have to write the condition which is based on relational operator, we have seen in last videos so our variable is age our condition is age value is greater than or equals to 18 then only we will get the return value which is true, if here if true then I will write here so here I am going to write console.log and I have to print a message that is you are allowed if this condition is false if my age in this case is 17 then it will false this case so let's run this first and then we will see how to do alternative work so I have cleared this and run it to run our file I have to write your file name is 07 underscore control dot js so you can see the output we have got is allowed, if I value this variable suppose 8 then this condition will not satisfy and we will not get anything in output because we have not written anything, we have only written a message for allowed so this condition is false we have not got any other message so for that you have to write followed to this bracket you have to write else then else will have its own block and you have to write brackets then you can write another message here that is console.log and here you can directly give message that is not allowed ok, now if you run this file then you will get message not allowed so you can see this carefully you have written age greater than equals to 18, if your age is greater than or equal to 18 then you will get message allowed if it is less than 18 then you will get message not allowed this means either if will be executed or else will be executed sometimes it happens that we have to write multiple if like if we solve a traditional problem like I will comment this and write that we have three variables like x equals to 5 y equals to 7 and here we take another variable z whose value is suppose 2 and we have to find out which variable having a greatest value so here we can say y having a greatest value but I will get this input from user so I have to write some conditions how will we write conditions? so here you can see if x value is greater than y and we saw this in last video logical operator and x value is greater than z so both these conditions will be true so we will get final result so we can print here that console.log who is greater than x is greater else if it is not so I have to check other condition because we can't come to conclusion directly if it is not then there are other conditions y can be greater than z so after else we can write an if again and here we will check other condition if it is not x then y can be greater than x and y can be greater than z if this case is satisfied then you have to write console.log and here you have to write y is greater if both these conditions are not satisfied like here you can see x is greater here you can see y is greater if both these conditions are not satisfied then we can come to conclusion that z is greater than z so this is our if else if else so see with else we can write if so it is mandatory that here there should be space or you have to take if to next line you can't write them together you have to give space here and always practice that you use brackets if you haven't used brackets then you can write only one statement in if you can't write second statement so for this you have to write brackets so let's run it so if I run it and then you can see y is greater so I will change this value and run it again x is greater so I will make it bigger if we run it then z is greater so this is if else if else you can use if in if it is not like that that you can't write if in if it is not like that you can write if in all the conditions you want you have to write only after satisfying some conditions and if some conditions are not satisfied then you have to write else so let's solve one more simple example so you can practice so let's take a simple variable like I have taken let number is equal to and I have to check if any number is odd then how do we check if we divide it by 2 and get remainder 0 and if 1 is odd so we have to write condition if if if we divide num by 2 and get remainder so for remainder I need mod so if I divide num by 2 mod will give me remainder if we get remainder 0 so what we can print we can come to conclusion console.log and we will write even number if it is not like that then obviously it is odd so we can print it is an odd number so if you run this then you will get 45 is an odd number so for different logic you have to use if else so whatever demos we have seen and made so far they are working on console but we are reading javascript for web application which will help us to work for frontend so we have not seen frontend part but you should know all these things then only you can work with frontend logic apart from if else there is one more control statement switch case means I will write switch here whenever we have multiple choice case multiple choice then we will use switch case so its syntax is very simple you just have to write let take a number suppose it is 3 and you have choices 1,2,3 can be there so you have to write switch opening brackets calibrations so syntax is simple but for switch you have to use switch keyword now for which variable you are writing switch case always remember number should be constant if you write switch case with decimal value then you will face problem so generally try that switch case should be on character or on numbers then in switch case you have to write cases so I have to write case case is a predefined keyword and possible values in num so for example I have written 1 1 can be a value colon then you have to write task so I have written task I have to print a simple message that is 1 and when it is done you have to write break so this message will print 1 and will come out of switch case so you have to use break keyword same if you have to write second case so in second case you can see if value 2 comes in num then you have to do something different so I have written 2 so this is my task same if we talk here we can see if we write case 3 so if case 3 is there so I have to write 3 in message ok if other than this there is any value so let's run this so I will clear this and run so you can see if I change value to 2 so in switch case value is 2 and directly goes to case 2 and there we will get 2 so it jumps directly to that case ok now let's put a random value like I put 7 so if I put 7 so you will not get any output so here you can see multiple cases if we have to execute one case then we use switch case so let's say if my case is not there then I should get message like if I was else alternative part so for that we have given one more facility that with case you can write any case if any case is not match then this default statement will be executed so I will write here wrong choice I have written wrong choice so let's clear this and run so you can see your choice is wrong choice because your num value is 7 and other than 1,2,3 you don't have any case so this is how switch case works so whenever you have multiple choices and you have to work on one of them then you will definitely use switch case sometimes it happens that your character will come here like if I write A so A will come in character so I will write B now these are not numbers these are characters so the value coming from user I will give it a variable name like choice so the choice will come from user any alphabet so if small a comes here then switch case will also come here so in choice character is A if this character matches then you will print 1 so let's see so see 1 came if I had put m here then there is no case of m so definitely it will give us wrong choice can we work on this switch case string so let's try so if I take string as a choice like I wrote 1 in small case so here you have to match the possibility with string so I wrote 1 here also I will write in double quotes 1,2 sorry 2 and here I will write in double quotes 3 and then we will clear it so see it worked for string so it's a good thing if it works for string also 2 came for 2 but if I write here capital T W O or I write full capital then it will come it will give wrong choice because it is in capital case and it matches with case see this message printer has nothing to do with it this message is a task so basically the value in choice will match with this so here 2 is there but in small case so it will go to wrong choice so let's try for decimal point value so if I write here 6.4 and here I will give first choice 6.4 so this is a number so we will not use it in any quote 6.4 if I write here here some new value 3.3 and here I will take new value 9.2 so if we run it so see 6.4 is matching if you do it in any other programming language then it will not match so see I changed some number so now it is giving you the wrong choice so here it will round up and give you decimal point answer so let's write something else like problem is I will write 6.399999 399999 so randomly basically it will be treated as 6.4 right but here it does not happen so it will go into the wrong choice so this rounding part you will face problem in other programming language here you can directly use it with decimal value but this value should be comparable if you are giving value in string and here if you are using some other format then it will definitely give you wrong choice see because 6.4 you have taken as a string and here it is 6.4 as a number so where in script there is number type you are getting benefit that you can compare decimal value also if you are looking any other programming language CC++, Java, there you will not get this facility you have to use constant only that is character and integer values so in the next video we will discuss about loops"
+}

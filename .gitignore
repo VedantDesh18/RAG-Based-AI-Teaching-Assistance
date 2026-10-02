@@ -1,1 +1,9 @@
 Project-2-RAG-based-ai/
+audios/
+videos/
+prompt.txt
+response.txt
+output.json
+ollama_embed_response.txt
+jsons/
+embeddings.joblib

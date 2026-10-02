@@ -1,0 +1,481 @@
+{
+  "chunks": [
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 0.0,
+      "end": 18.76,
+      "text": " hello friends welcome back to the javascript tutorial  today we will talk about conversion of data types  so let's create a file and give name to our file  05 is our 5th video  underscore conversion dot js"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 18.76,
+      "end": 34.0,
+      "text": " and let's create a simple variable  let each  and give a value  suppose we give a value of 29  semicolon"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 34.0,
+      "end": 56.0,
+      "text": " now  always remember that the value we assign is to understand  so basically this value is coming to us through some form or function  so we don't declare the value every time  so that's why we don't know what type of value is coming in this variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 56.0,
+      "end": 78.0,
+      "text": " so for now let's assume that the value we have is 29  and later on you have to do some operations on this value  like if you have any other value and you want to add it or do a comparison  then you can work with this value  so let's print the type of this value"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 78.0,
+      "end": 98.0,
+      "text": " so console dot log and let's print the type  type of each  so obviously the type we are going to get is  node05 underscore conversion  and the name of the file is dot js"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 98.0,
+      "end": 115.0,
+      "text": " so you can see here that the type of each is number  but if the user fills the data through form  then we don't know what type of value is being entered by the user  in that text box  it can put a number or a character"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 115.0,
+      "end": 128.0,
+      "text": " so if by mistake it puts characters  suppose I have included this in double quotes  so this has become a string  so the type of each will be string  but I wanted a number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 128.0,
+      "end": 146.0,
+      "text": " so it entered a string  so basically we have to convert the age into a numeric format  so this 29 is a string  but if you want to convert it into a number  so let's take a variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 146.0,
+      "end": 159.0,
+      "text": " numeric age  let's make a variable numeric age  and now the value in age which is 29  which is a string  I have to convert it into a number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 159.0,
+      "end": 174.0,
+      "text": " so you have got the data type of number  now write the first letter of this data type  so this is a predefined class  then write this number and pass the value in round brackets  which is age"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 174.0,
+      "end": 187.0,
+      "text": " so what it will do  it will convert age into a numeric value  now let's check the value in numeric age  which type is it  so we write type of numeric age"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 187.0,
+      "end": 199.0,
+      "text": " now the output we should get  should be something like this  see the type of age we printed on line 2 was a string  but we converted the age into a number  with the help of number class"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 199.0,
+      "end": 213.0,
+      "text": " which we start with a capital letter  and we assigned it in a variable  and we were looking at the type of that variable  so the type we got was a number  but it is not necessary that the user will put a character or number every time"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 213.0,
+      "end": 230.0,
+      "text": " it can put something else  so let's test that too  suppose the user put 29abc  so it put numbers and characters  now let's check what type of data is there in this numeric age"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 230.0,
+      "end": 244.0,
+      "text": " so let's run it  so you can see  still it said that the value in the numeric age variable  means the conversion of this is in the number type  now to understand whether it is right or wrong"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 244.0,
+      "end": 261.0,
+      "text": " we have to print the value in the numeric age  so let's print  console.log  and here we will print numeric age  and then we will clear it and run it again"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 261.0,
+      "end": 272.0,
+      "text": " and check  see the first type was a string  which we printed on line 2  then we converted the age into a number  age was a character plus number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 272.0,
+      "end": 283.0,
+      "text": " and then the value we printed on line 5  was of numeric age  that is nan  nan stands for not a number  this is printing now nan"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 283.0,
+      "end": 298.0,
+      "text": " which refers to not a number  ok  so it is not a number  and then you have tried to print the numeric type of not a number  and it is saying that it is a number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 298.0,
+      "end": 311.0,
+      "text": " so how can it be a type of a number which is not a number  this is debatable  some people call it a JavaScript bug  some people try to justify it  but for now let's understand"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 311.0,
+      "end": 322.0,
+      "text": " that if we want to convert a string directly into a number  if there are all numbers in that string  then it will convert into numbers  if not  then it will be called not a number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 322.0,
+      "end": 334.0,
+      "text": " if you follow these methods  this is a recent method  how to convert a string into an integer  if you go back to the old method  like I am writing here old version"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 334.0,
+      "end": 347.0,
+      "text": " if you want to convert a string  like if I want to convert an age variable  then let's say let  numeric age  I am taking some variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 347.0,
+      "end": 358.0,
+      "text": " and the old age  which is numeric  let's write 29 for now  and I wanted to convert this into a number  so the old method was like this"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 358.0,
+      "end": 368.0,
+      "text": " you have to write parse  in small case  capital I with an end  and inside this your value  and then if you print this value"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 368.0,
+      "end": 383.0,
+      "text": " that is console.log  and then you will write num age  so here I am removing the code above  and then if you run it  you will get the same output"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 383.0,
+      "end": 393.0,
+      "text": " that is 29  so this was the old method  but the latest version of javascript  you can use their classes  directly"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 393.0,
+      "end": 405.0,
+      "text": " now it is not necessary  that you can convert a string into a number  you will need help later  I will comment this  if we have a variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 405.0,
+      "end": 415.0,
+      "text": " like let  let's take a variable  name  my name  and inside this"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 415.0,
+      "end": 425.0,
+      "text": " we will put a number  suppose  124  now basically  234 is a number"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 425.0,
+      "end": 435.0,
+      "text": " 234  and we have to read this number  as a string  so let's print the type  console.log"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 435.0,
+      "end": 445.0,
+      "text": " and type of  my name  obviously it is a number  so the type will be a number  but I have to convert"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 445.0,
+      "end": 455.0,
+      "text": " into a string  so let's take a variable  string str  my name  and inside this variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 455.0,
+      "end": 465.0,
+      "text": " I have to convert  the old name  so obviously the type of  the class we have to use  string"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 465.0,
+      "end": 475.0,
+      "text": " and inside this we have to write  the old value  so inside my name  it was 234  it will convert as a string"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 475.0,
+      "end": 485.0,
+      "text": " and here you have to print  console.log  and then we print  str my name  and then if we clear this"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 485.0,
+      "end": 495.0,
+      "text": " and run it again  so the first type was  number and here we have printed  the value  and then type of"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 495.0,
+      "end": 505.0,
+      "text": " and then we run it  so we will get type string  so you have converted the number into a string  now in the same way  you can convert"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 505.0,
+      "end": 515.0,
+      "text": " every data type into another data type  but  you have to practice  where you will face different challenges  so I will show you one of those challenges"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 515.0,
+      "end": 525.0,
+      "text": " like I said  any data type  can be converted into any value  so let's say  I have a variable"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 525.0,
+      "end": 535.0,
+      "text": " like  status  or status  whose value will be  true or false"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 535.0,
+      "end": 547.0,
+      "text": " so I have written  true inside the string  this is read as a string  now if you  print the type of this"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 547.0,
+      "end": 561.0,
+      "text": " so obviously that type will come  because it is a string  so type of  status  type of status"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 563.0,
+      "end": 575.0,
+      "text": " ok instead of status  we will write my status  my status  and then we will run it again  so you can see that"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 575.0,
+      "end": 585.0,
+      "text": " the type is string  so we have to convert  this true into boolean value  so how will you write  let"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 585.0,
+      "end": 595.0,
+      "text": " check  my status  we are making a variable  and the status  we have to convert into boolean"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 595.0,
+      "end": 605.0,
+      "text": " so you will write boolean  then inside the bracket you will write  my status value  which you have already defined  and then whatever value you have"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 605.0,
+      "end": 615.0,
+      "text": " you print it  console.log  and then you have to print  type  type of"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 615.0,
+      "end": 625.0,
+      "text": " sorry type of  check  my status  so let's see what type is coming  so you can see that type is boolean"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 627.0,
+      "end": 637.0,
+      "text": " but let's print the value of this  what is happening inside this  so console.  you have to do everything  like this only then"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 637.0,
+      "end": 647.0,
+      "text": " all your concepts will be clear  like i print console.log  and then we will check  inside check status  what value is coming inside the code"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 647.0,
+      "end": 657.0,
+      "text": " so you can see here value is true  so instead of this true  if i write false  will it print false  so let's run it"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 657.0,
+      "end": 667.0,
+      "text": " so what we have to understand  we have to understand  if you have any string value  if you are converting it  in boolean"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 667.0,
+      "end": 677.0,
+      "text": " then whatever you write inside it  it will print as true  ok so it will print false  if there is no value inside that string  then in that case"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 677.0,
+      "end": 687.0,
+      "text": " it will print your value  as false  you have to understand this very well  we can try this for numbers also  let's say i write my status as 1"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 687.0,
+      "end": 697.0,
+      "text": " and then if i run it  then our output will be true  if i write 0 instead of 1  then will our output be false  let's check this also"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 697.0,
+      "end": 707.0,
+      "text": " yes obviously it is false  but if i write some random number  instead of 0 or 1  and then i try to convert it  in boolean"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 707.0,
+      "end": 717.0,
+      "text": " then our output will be true  means other than 0  if you write anything  then your output will be true  for boolean"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 717.0,
+      "end": 727.0,
+      "text": " if you are passing a string  in a variable and you want to convert it  in boolean  then obviously your type  if it is not a blank string"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 727.0,
+      "end": 737.0,
+      "text": " then it will be true  if it is a blank string  then your output will be false  so this is how we use  convergence"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 737.0,
+      "end": 749.0,
+      "text": " it is a little confusing  but we have to use it for our logic  so this was conversion  let me show you one more thing  let me comment this code"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 751.0,
+      "end": 761.0,
+      "text": " if we write semicolon  in javascript  it will make a difference  let's check  if i write hello"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 761.0,
+      "end": 771.0,
+      "text": " then your output will be true  if i  remove semicolon  then also our output is true  means semicolon is not mandatory"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 771.0,
+      "end": 783.0,
+      "text": " but if you have two statements  so if i  write hello and welcome  then it will definitely  give us an error"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 783.0,
+      "end": 793.0,
+      "text": " because this syntax is not allowed  your browser is not able to read  which is the first statement  and which is the second  so you have to"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 793.0,
+      "end": 803.0,
+      "text": " take this second line to the next line  means you have to follow indentation  or you can give semicolon to every statement  so better way  to have a practice of semicolon"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 803.0,
+      "end": 813.0,
+      "text": " for the learning purpose  when we will practice react node  we will not use  maximum time semicolon  so try this"
+    },
+    {
+      "number": "05",
+      "title": "type conversion in javascript",
+      "start": 813.0,
+      "end": 815.0,
+      "text": " we will see you in the next video"
+    }
+  ],
+  "text": " hello friends welcome back to the javascript tutorial today we will talk about conversion of data types so let's create a file and give name to our file 05 is our 5th video underscore conversion dot js and let's create a simple variable let each and give a value suppose we give a value of 29 semicolon now always remember that the value we assign is to understand so basically this value is coming to us through some form or function so we don't declare the value every time so that's why we don't know what type of value is coming in this variable so for now let's assume that the value we have is 29 and later on you have to do some operations on this value like if you have any other value and you want to add it or do a comparison then you can work with this value so let's print the type of this value so console dot log and let's print the type type of each so obviously the type we are going to get is node05 underscore conversion and the name of the file is dot js so you can see here that the type of each is number but if the user fills the data through form then we don't know what type of value is being entered by the user in that text box it can put a number or a character so if by mistake it puts characters suppose I have included this in double quotes so this has become a string so the type of each will be string but I wanted a number so it entered a string so basically we have to convert the age into a numeric format so this 29 is a string but if you want to convert it into a number so let's take a variable numeric age let's make a variable numeric age and now the value in age which is 29 which is a string I have to convert it into a number so you have got the data type of number now write the first letter of this data type so this is a predefined class then write this number and pass the value in round brackets which is age so what it will do it will convert age into a numeric value now let's check the value in numeric age which type is it so we write type of numeric age now the output we should get should be something like this see the type of age we printed on line 2 was a string but we converted the age into a number with the help of number class which we start with a capital letter and we assigned it in a variable and we were looking at the type of that variable so the type we got was a number but it is not necessary that the user will put a character or number every time it can put something else so let's test that too suppose the user put 29abc so it put numbers and characters now let's check what type of data is there in this numeric age so let's run it so you can see still it said that the value in the numeric age variable means the conversion of this is in the number type now to understand whether it is right or wrong we have to print the value in the numeric age so let's print console.log and here we will print numeric age and then we will clear it and run it again and check see the first type was a string which we printed on line 2 then we converted the age into a number age was a character plus number and then the value we printed on line 5 was of numeric age that is nan nan stands for not a number this is printing now nan which refers to not a number ok so it is not a number and then you have tried to print the numeric type of not a number and it is saying that it is a number so how can it be a type of a number which is not a number this is debatable some people call it a JavaScript bug some people try to justify it but for now let's understand that if we want to convert a string directly into a number if there are all numbers in that string then it will convert into numbers if not then it will be called not a number if you follow these methods this is a recent method how to convert a string into an integer if you go back to the old method like I am writing here old version if you want to convert a string like if I want to convert an age variable then let's say let numeric age I am taking some variable and the old age which is numeric let's write 29 for now and I wanted to convert this into a number so the old method was like this you have to write parse in small case capital I with an end and inside this your value and then if you print this value that is console.log and then you will write num age so here I am removing the code above and then if you run it you will get the same output that is 29 so this was the old method but the latest version of javascript you can use their classes directly now it is not necessary that you can convert a string into a number you will need help later I will comment this if we have a variable like let let's take a variable name my name and inside this we will put a number suppose 124 now basically 234 is a number 234 and we have to read this number as a string so let's print the type console.log and type of my name obviously it is a number so the type will be a number but I have to convert into a string so let's take a variable string str my name and inside this variable I have to convert the old name so obviously the type of the class we have to use string and inside this we have to write the old value so inside my name it was 234 it will convert as a string and here you have to print console.log and then we print str my name and then if we clear this and run it again so the first type was number and here we have printed the value and then type of and then we run it so we will get type string so you have converted the number into a string now in the same way you can convert every data type into another data type but you have to practice where you will face different challenges so I will show you one of those challenges like I said any data type can be converted into any value so let's say I have a variable like status or status whose value will be true or false so I have written true inside the string this is read as a string now if you print the type of this so obviously that type will come because it is a string so type of status type of status ok instead of status we will write my status my status and then we will run it again so you can see that the type is string so we have to convert this true into boolean value so how will you write let check my status we are making a variable and the status we have to convert into boolean so you will write boolean then inside the bracket you will write my status value which you have already defined and then whatever value you have you print it console.log and then you have to print type type of sorry type of check my status so let's see what type is coming so you can see that type is boolean but let's print the value of this what is happening inside this so console. you have to do everything like this only then all your concepts will be clear like i print console.log and then we will check inside check status what value is coming inside the code so you can see here value is true so instead of this true if i write false will it print false so let's run it so what we have to understand we have to understand if you have any string value if you are converting it in boolean then whatever you write inside it it will print as true ok so it will print false if there is no value inside that string then in that case it will print your value as false you have to understand this very well we can try this for numbers also let's say i write my status as 1 and then if i run it then our output will be true if i write 0 instead of 1 then will our output be false let's check this also yes obviously it is false but if i write some random number instead of 0 or 1 and then i try to convert it in boolean then our output will be true means other than 0 if you write anything then your output will be true for boolean if you are passing a string in a variable and you want to convert it in boolean then obviously your type if it is not a blank string then it will be true if it is a blank string then your output will be false so this is how we use convergence it is a little confusing but we have to use it for our logic so this was conversion let me show you one more thing let me comment this code if we write semicolon in javascript it will make a difference let's check if i write hello then your output will be true if i remove semicolon then also our output is true means semicolon is not mandatory but if you have two statements so if i write hello and welcome then it will definitely give us an error because this syntax is not allowed your browser is not able to read which is the first statement and which is the second so you have to take this second line to the next line means you have to follow indentation or you can give semicolon to every statement so better way to have a practice of semicolon for the learning purpose when we will practice react node we will not use maximum time semicolon so try this we will see you in the next video"
+}

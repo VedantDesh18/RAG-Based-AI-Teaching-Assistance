@@ -1,0 +1,579 @@
+{
+  "chunks": [
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 0.0,
+      "end": 13.42,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  and today we will talk about loops  Loop is like a conditional statement  but we use it to perform repetitive tasks  So let's create a new file"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 13.42,
+      "end": 30.4,
+      "text": " and name it as 08 underscore loops dot js  Normal loops are divided into three categories  First is for loop  Second is while loop  and third is do while loop"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 31.939999999999998,
+      "end": 52.94,
+      "text": " You get two additional loops in JavaScript  We will talk about them later  after the term prerequisite is over  But these three loops are available in every programming language  So let's know when to use for loop, while loop and do while"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 53.559999999999995,
+      "end": 74.68,
+      "text": " We should use for loop when we know the starting and ending condition  We know that we have to start a task from x value  and end it at y value  and we have to repeat it at that time  So let's say I have to start from 1 and end at 10"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 74.68,
+      "end": 87.72,
+      "text": " I have to repeat a task 10 times  So we know the starting and ending point  I should use while loop when I don't know  exactly how many times we want to do that  We don't know how many times we want to do that"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 87.72,
+      "end": 113.32,
+      "text": " Suppose we don't know how many times to perform task  But it should end after certain condition  So we will get a condition when we have to stop this loop  Let's see examples of all these conditions  So in do while statement"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 113.32,
+      "end": 132.32,
+      "text": " we have a condition that I have to do one task compulsorily  After that we will check the condition and decide whether I want to come back or not  So at least execute once  So at least once we have to do this task compulsorily  So let's start directly with the example"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 132.32,
+      "end": 151.32,
+      "text": " So you have to write the syntax of for loop  for round brackets, opening and closing braces  You have to pass 3 parameters in this  Your variable, let's say variable is used for indexing and counting  So we will use variable practice i"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 151.32,
+      "end": 167.32,
+      "text": " So my starting value is suppose 1  I have to take this value ahead  less than equals to 10  So see starting value will be 1  We are ending the statement with semicolon"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 167.32,
+      "end": 181.32,
+      "text": " After this, maximum value of i can go up to 10  So now it is 1, so this condition will be true  In future I have to make i value 2  So you have to write i++ in third parameter  i++ means its value will increase from 1"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 181.32,
+      "end": 193.32,
+      "text": " And here you have to decide whatever task you want to do  Like I have written console.log  And I will print a message in this  For example, hello  And after this we will print i value"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 194.32,
+      "end": 208.32,
+      "text": " If you run this code, you will get output like this  So I will write node  Then you have to write file name  That is 08 underscore loops dot js  So you can see the output"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 208.32,
+      "end": 225.32,
+      "text": " I have got some errors here  Like it is showing error to load 1147 through error  Let us check what is happening  I think I have written file name wrongly  So you can see here"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 225.32,
+      "end": 238.32,
+      "text": " File name is loops, I have used double p  So let us correct that  So when we were giving command  So I have to use loops in command  So you can see here"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 238.32,
+      "end": 249.32,
+      "text": " I have got output like hello1, hello2  So hello was printed 10 times  And we have printed i value in front of it  So here we can understand that we have given starting value  If I write 5 here"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 249.32,
+      "end": 264.32,
+      "text": " So obviously it will go from 5 to 10  So the output we will get is from 5 to 10  So I know where to start and where to end  So we should use for loop  So let us solve an example of this"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 264.32,
+      "end": 275.32,
+      "text": " Like I have to print  I will comment this  I have to print table of a number  If I have to print table of a number  So how do we generate table"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 275.32,
+      "end": 287.32,
+      "text": " Like if I have to print table of 4  So we will write 4 into 1  And the answer we will get is 4  Then we will be doing this continuously  4 into 2, 4 into 3"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 287.32,
+      "end": 297.32,
+      "text": " And the output we will get  It will be something like this  And we will continue these steps  And the final step will be  Something like this"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 297.32,
+      "end": 308.32,
+      "text": " 4 into 10  Is equal to the final output  Which we will get is 40  So here you can see  The values we have written"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 308.32,
+      "end": 319.32,
+      "text": " It is generating some value  So 4 is our constant  So let us assume that 4 is our number  We will multiply it by a value  First it is value 1, then 2, then 3"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 319.32,
+      "end": 331.32,
+      "text": " So the value is changing from 1 to 1  So now we have seen that  The value of change was carrying a variable i  So we can write i here  And the product of this is our result"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 332.32,
+      "end": 342.32,
+      "text": " And we have to print that result  So let us convert this into code  It is a very simple problem  So I have written 1 number  So I have written let"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 342.32,
+      "end": 353.32,
+      "text": " The value of which we have taken is 4  Then I have to multiply it  How many times I have to multiply it? 10 times  So starting from 1 to 10  So we have written let i equal to 1"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 353.32,
+      "end": 371.32,
+      "text": " Maximum i will go to 10  And i will change from 1 every time  And here we have to write the formula we derived  For example, I have to write result  So I have written let result equal to"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 371.32,
+      "end": 383.32,
+      "text": " The number which we had multiplied by i  So this will be multiplication every time  And I have to print the output of it every time  That is console.log  And you have to print the result"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 383.32,
+      "end": 395.32,
+      "text": " So let us see this  So I have run it  You can see that the table of 4 is in front of you  If you want to print in a systematic way  Then you can use backtick"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 395.32,
+      "end": 405.32,
+      "text": " We will practice backtick  So I am using backtick  If I want to write this variable  Then I will remove it from here  I am constructing my statement"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 405.32,
+      "end": 416.32,
+      "text": " That I have to write 4 into  And here i should be the value  So i is a variable so you will write dollar  Curly braces, your variable's name i  Is equal to your second variable"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 416.32,
+      "end": 427.32,
+      "text": " That is result  And if you run it  And check the output  Then your output will look like this  4 star"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 427.32,
+      "end": 439.32,
+      "text": " Which you have written here  Instead of i, value of i is printed  And instead of result, value of result is printed  Equals to symbol as it is printed  So this was printing a table of numbers using for loop"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 439.32,
+      "end": 450.32,
+      "text": " So it is mandatory to give you 3 conditions  If you write it like this  For example, I have written a for loop  I have written a for loop  Let's change it"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 450.32,
+      "end": 460.32,
+      "text": " If the condition is wrong  Suppose I have written equals to  Greater than  So what is the current value of i?  It is 5"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 460.32,
+      "end": 470.32,
+      "text": " 5 greater than or equals to 10 is false  So in this program, hello print will never happen  Your output will be null  Means your output will be blank  Because it will never go inside"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 470.32,
+      "end": 482.32,
+      "text": " So here you should have a valid condition  So let's assume that you have not done plus plus  So your program will print the value of hello continuously  Let me run it  See it will print continuously"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 482.32,
+      "end": 492.32,
+      "text": " Because this condition will never fail  5 will always remain smaller than 10  So it will keep on running  So it will go into the infinite loop  So you should always remember"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 492.32,
+      "end": 502.32,
+      "text": " There should be a valid condition here  And how many times you have to do internal work  This condition will depend on that  So this was syntax for loop  Let's comment it"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 502.32,
+      "end": 512.3199999999999,
+      "text": " And talk about while loop  So in while loop we were told  That we will stop until  Conditions are not stopped  By doing repetitive work"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 512.3199999999999,
+      "end": 522.3199999999999,
+      "text": " It does not mean that  We can do work in for loop  But not in while  We can do all work in for loop in while  So let's do what we did just now"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 522.3199999999999,
+      "end": 532.32,
+      "text": " So we have a variable  Suppose i  Whose initial value is 0  Now first you have to read the syntax of while  While round brackets opening and calibrations"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 532.32,
+      "end": 542.32,
+      "text": " You had written 3 conditions in for  Here not 3 conditions  Here only one condition comes  So I have written the condition  That i's value will always be less than or equal to 10"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 542.32,
+      "end": 552.32,
+      "text": " If you print here  That is console.log  And here you have written  Hello  With hello you will write plus i"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 552.32,
+      "end": 562.32,
+      "text": " And you don't have to use this symbol  You have to use continuously back tick  So it's a good practice  So after hello  Space, dollar, calibrations"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 562.32,
+      "end": 572.32,
+      "text": " You have to write i  So you will get the same output  If you run this  So see i's current value is 0  So 0 less than 10 yes"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 572.32,
+      "end": 582.32,
+      "text": " It will come in and your hello will be 0  Then hello 1, hello 2  It will print continuously, this loop will never break  Because this condition will never be false  Because i's value is not changing"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 582.32,
+      "end": 592.32,
+      "text": " So in this case after printing  Increment your i's value from 1  So by incrementing the value  You can see  Your output is same"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 592.32,
+      "end": 602.32,
+      "text": " Printing from 0 to 10  Why is it coming from 0 to 10  Because you took the starting point 0  So in the same way  You can use while loop"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 602.32,
+      "end": 612.32,
+      "text": " So here I know  It is starting from 0 and it has to go to 10  So here when we wrote the statement  Don't know how many times  Here we wrote don't know how many times"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 612.32,
+      "end": 622.32,
+      "text": " So here I know it will execute 10 times  In future  We will get some conditions  Like I have a database and I have to print the record  I don't know how many records are there"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 622.32,
+      "end": 632.32,
+      "text": " But I have to print the record  So here the condition will come  Till I get the record  Till then  I will print the record"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 632.32,
+      "end": 642.32,
+      "text": " So let's see an example of that  Like I have a number  Name  We take any value of it  Random value"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 642.32,
+      "end": 652.32,
+      "text": " 456  Now this number  I  Want to divide it by 2  Till then"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 652.32,
+      "end": 662.32,
+      "text": " Till the quotient of it  Doesn't come to 0  So we know when we get the quotient  After dividing and when we get the remainder  After taking the mod"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 662.32,
+      "end": 674.32,
+      "text": " So I wrote the condition  While  The condition was till my number  Doesn't come to 0  Till then"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 674.32,
+      "end": 684.32,
+      "text": " Till it doesn't come to 0  And then we will write here  That the number  Will have a new value  Number divided by 2"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 684.32,
+      "end": 694.32,
+      "text": " Let's make it small  8 divided by 2  Will come in the name 4  Will go back  4 not equal to 0 will come in"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 694.32,
+      "end": 704.32,
+      "text": " 4 divided by 2  Will go back  2 divided by 2  Will come in the name 1  Will go back"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 704.32,
+      "end": 714.32,
+      "text": " 1 divided by 2  Will come in the name 0  And this loop will check  0 not equal to 0  To understand this"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 714.32,
+      "end": 724.32,
+      "text": " I will print a message  Console.log  And every time I will print the value of that number  What is the value of that number  Here also we will use the back tick"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 724.32,
+      "end": 734.32,
+      "text": " Here we will write  Number is equal to  Dollar  And here the variable name  So let's execute it"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 734.32,
+      "end": 744.32,
+      "text": " So  Something is wrong  It is giving us  Exponential number  Decimal"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 746.32,
+      "end": 756.32,
+      "text": " So basically this problem is coming in javascript  Because we will get division in decimal point  And to compare with decimal point  0  Will go after so many iterations"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 756.32,
+      "end": 766.32,
+      "text": " So this division  If I do 1.2  Then it will be 0.something  So I have to round up  So this division"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 766.32,
+      "end": 776.32,
+      "text": " You have to round up  So you have to use a function  Math.floor  Which will take nearest integer value  So whatever division will come"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 776.32,
+      "end": 786.32,
+      "text": " It will take nearest number  So you can see here  If you run it now  So your division  First value of num is 8"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 786.32,
+      "end": 796.32,
+      "text": " Then here it is 4  Then 2, then 1, 0  And this loop is tau4  So you don't know how many times this division will happen  Like if I give a random value"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 796.32,
+      "end": 806.32,
+      "text": " Suppose we gave 1, 4, 5  So how many times we can divide by 2  We don't know  But sometime this loop will end  So at that time we will be choosing the"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 806.32,
+      "end": 816.32,
+      "text": " While loop  You can see here  This loop is breaking after 8 steps  So there will be some conditions  I don't know how many times we have to execute"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 816.32,
+      "end": 826.32,
+      "text": " We will use while loop there  So let's know about do while  So do while is a very simple statement  You have to write do  Then brackets"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 826.32,
+      "end": 836.32,
+      "text": " And then  After this bracket you have to write while  You can write with this  And here semicolon is mandatory  In the previous case we don't write semicolon"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 836.32,
+      "end": 846.32,
+      "text": " It's a block of code  But while will end here  Now condition will come in this  So if I write here  Console.log"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 846.32,
+      "end": 856.32,
+      "text": " And give some message  Hello  Now we have a variable  Let num is equal to 0  Here I have given a condition"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 856.32,
+      "end": 866.32,
+      "text": " If the num is  Greater than 5  This is my condition  If the number is greater than 5  Then only we want to repeat this task"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 866.32,
+      "end": 876.32,
+      "text": " What is our task?  To repeat this hello  So let's compile this  You are getting hello once  Num value is 0"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 876.32,
+      "end": 886.32,
+      "text": " Still hello is printed  This means  When we were coming from above  We printed 42  And then it decided to go back"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 886.32,
+      "end": 896.32,
+      "text": " If I write value of this  Suppose 7  Now see what happens  If we run this  Why will it keep printing?"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 896.32,
+      "end": 906.32,
+      "text": " Because 7 will always  Greater than 5  So it will continuously print  Hello in infinite loop  To break this we need to change value of num"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 906.32,
+      "end": 916.32,
+      "text": " So I will keep changing value of num  Minus minus  So you can see  How many times hello came?  2 times"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 916.32,
+      "end": 926.32,
+      "text": " Because it was printed once for 7  6 is greater than 5  Yes, go back  Change value of num  That is 5"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 926.32,
+      "end": 936.32,
+      "text": " No, false  Do while means  When you want to execute a statement  Once, then you will prepare do while  Generally when you want to"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 936.32,
+      "end": 946.32,
+      "text": " Show menu type  Show choices  In that case we use do while  In do we use switch case  And then we use while"
+    },
+    {
+      "number": "09",
+      "title": "loops in javascript",
+      "start": 946.32,
+      "end": 956.32,
+      "text": " In coming videos  Or in any problem solving  Or in any project  We will definitely use it  So let's meet in next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial and today we will talk about loops Loop is like a conditional statement but we use it to perform repetitive tasks So let's create a new file and name it as 08 underscore loops dot js Normal loops are divided into three categories First is for loop Second is while loop and third is do while loop You get two additional loops in JavaScript We will talk about them later after the term prerequisite is over But these three loops are available in every programming language So let's know when to use for loop, while loop and do while We should use for loop when we know the starting and ending condition We know that we have to start a task from x value and end it at y value and we have to repeat it at that time So let's say I have to start from 1 and end at 10 I have to repeat a task 10 times So we know the starting and ending point I should use while loop when I don't know exactly how many times we want to do that We don't know how many times we want to do that Suppose we don't know how many times to perform task But it should end after certain condition So we will get a condition when we have to stop this loop Let's see examples of all these conditions So in do while statement we have a condition that I have to do one task compulsorily After that we will check the condition and decide whether I want to come back or not So at least execute once So at least once we have to do this task compulsorily So let's start directly with the example So you have to write the syntax of for loop for round brackets, opening and closing braces You have to pass 3 parameters in this Your variable, let's say variable is used for indexing and counting So we will use variable practice i So my starting value is suppose 1 I have to take this value ahead less than equals to 10 So see starting value will be 1 We are ending the statement with semicolon After this, maximum value of i can go up to 10 So now it is 1, so this condition will be true In future I have to make i value 2 So you have to write i++ in third parameter i++ means its value will increase from 1 And here you have to decide whatever task you want to do Like I have written console.log And I will print a message in this For example, hello And after this we will print i value If you run this code, you will get output like this So I will write node Then you have to write file name That is 08 underscore loops dot js So you can see the output I have got some errors here Like it is showing error to load 1147 through error Let us check what is happening I think I have written file name wrongly So you can see here File name is loops, I have used double p So let us correct that So when we were giving command So I have to use loops in command So you can see here I have got output like hello1, hello2 So hello was printed 10 times And we have printed i value in front of it So here we can understand that we have given starting value If I write 5 here So obviously it will go from 5 to 10 So the output we will get is from 5 to 10 So I know where to start and where to end So we should use for loop So let us solve an example of this Like I have to print I will comment this I have to print table of a number If I have to print table of a number So how do we generate table Like if I have to print table of 4 So we will write 4 into 1 And the answer we will get is 4 Then we will be doing this continuously 4 into 2, 4 into 3 And the output we will get It will be something like this And we will continue these steps And the final step will be Something like this 4 into 10 Is equal to the final output Which we will get is 40 So here you can see The values we have written It is generating some value So 4 is our constant So let us assume that 4 is our number We will multiply it by a value First it is value 1, then 2, then 3 So the value is changing from 1 to 1 So now we have seen that The value of change was carrying a variable i So we can write i here And the product of this is our result And we have to print that result So let us convert this into code It is a very simple problem So I have written 1 number So I have written let The value of which we have taken is 4 Then I have to multiply it How many times I have to multiply it? 10 times So starting from 1 to 10 So we have written let i equal to 1 Maximum i will go to 10 And i will change from 1 every time And here we have to write the formula we derived For example, I have to write result So I have written let result equal to The number which we had multiplied by i So this will be multiplication every time And I have to print the output of it every time That is console.log And you have to print the result So let us see this So I have run it You can see that the table of 4 is in front of you If you want to print in a systematic way Then you can use backtick We will practice backtick So I am using backtick If I want to write this variable Then I will remove it from here I am constructing my statement That I have to write 4 into And here i should be the value So i is a variable so you will write dollar Curly braces, your variable's name i Is equal to your second variable That is result And if you run it And check the output Then your output will look like this 4 star Which you have written here Instead of i, value of i is printed And instead of result, value of result is printed Equals to symbol as it is printed So this was printing a table of numbers using for loop So it is mandatory to give you 3 conditions If you write it like this For example, I have written a for loop I have written a for loop Let's change it If the condition is wrong Suppose I have written equals to Greater than So what is the current value of i? It is 5 5 greater than or equals to 10 is false So in this program, hello print will never happen Your output will be null Means your output will be blank Because it will never go inside So here you should have a valid condition So let's assume that you have not done plus plus So your program will print the value of hello continuously Let me run it See it will print continuously Because this condition will never fail 5 will always remain smaller than 10 So it will keep on running So it will go into the infinite loop So you should always remember There should be a valid condition here And how many times you have to do internal work This condition will depend on that So this was syntax for loop Let's comment it And talk about while loop So in while loop we were told That we will stop until Conditions are not stopped By doing repetitive work It does not mean that We can do work in for loop But not in while We can do all work in for loop in while So let's do what we did just now So we have a variable Suppose i Whose initial value is 0 Now first you have to read the syntax of while While round brackets opening and calibrations You had written 3 conditions in for Here not 3 conditions Here only one condition comes So I have written the condition That i's value will always be less than or equal to 10 If you print here That is console.log And here you have written Hello With hello you will write plus i And you don't have to use this symbol You have to use continuously back tick So it's a good practice So after hello Space, dollar, calibrations You have to write i So you will get the same output If you run this So see i's current value is 0 So 0 less than 10 yes It will come in and your hello will be 0 Then hello 1, hello 2 It will print continuously, this loop will never break Because this condition will never be false Because i's value is not changing So in this case after printing Increment your i's value from 1 So by incrementing the value You can see Your output is same Printing from 0 to 10 Why is it coming from 0 to 10 Because you took the starting point 0 So in the same way You can use while loop So here I know It is starting from 0 and it has to go to 10 So here when we wrote the statement Don't know how many times Here we wrote don't know how many times So here I know it will execute 10 times In future We will get some conditions Like I have a database and I have to print the record I don't know how many records are there But I have to print the record So here the condition will come Till I get the record Till then I will print the record So let's see an example of that Like I have a number Name We take any value of it Random value 456 Now this number I Want to divide it by 2 Till then Till the quotient of it Doesn't come to 0 So we know when we get the quotient After dividing and when we get the remainder After taking the mod So I wrote the condition While The condition was till my number Doesn't come to 0 Till then Till it doesn't come to 0 And then we will write here That the number Will have a new value Number divided by 2 Let's make it small 8 divided by 2 Will come in the name 4 Will go back 4 not equal to 0 will come in 4 divided by 2 Will go back 2 divided by 2 Will come in the name 1 Will go back 1 divided by 2 Will come in the name 0 And this loop will check 0 not equal to 0 To understand this I will print a message Console.log And every time I will print the value of that number What is the value of that number Here also we will use the back tick Here we will write Number is equal to Dollar And here the variable name So let's execute it So Something is wrong It is giving us Exponential number Decimal So basically this problem is coming in javascript Because we will get division in decimal point And to compare with decimal point 0 Will go after so many iterations So this division If I do 1.2 Then it will be 0.something So I have to round up So this division You have to round up So you have to use a function Math.floor Which will take nearest integer value So whatever division will come It will take nearest number So you can see here If you run it now So your division First value of num is 8 Then here it is 4 Then 2, then 1, 0 And this loop is tau4 So you don't know how many times this division will happen Like if I give a random value Suppose we gave 1, 4, 5 So how many times we can divide by 2 We don't know But sometime this loop will end So at that time we will be choosing the While loop You can see here This loop is breaking after 8 steps So there will be some conditions I don't know how many times we have to execute We will use while loop there So let's know about do while So do while is a very simple statement You have to write do Then brackets And then After this bracket you have to write while You can write with this And here semicolon is mandatory In the previous case we don't write semicolon It's a block of code But while will end here Now condition will come in this So if I write here Console.log And give some message Hello Now we have a variable Let num is equal to 0 Here I have given a condition If the num is Greater than 5 This is my condition If the number is greater than 5 Then only we want to repeat this task What is our task? To repeat this hello So let's compile this You are getting hello once Num value is 0 Still hello is printed This means When we were coming from above We printed 42 And then it decided to go back If I write value of this Suppose 7 Now see what happens If we run this Why will it keep printing? Because 7 will always Greater than 5 So it will continuously print Hello in infinite loop To break this we need to change value of num So I will keep changing value of num Minus minus So you can see How many times hello came? 2 times Because it was printed once for 7 6 is greater than 5 Yes, go back Change value of num That is 5 No, false Do while means When you want to execute a statement Once, then you will prepare do while Generally when you want to Show menu type Show choices In that case we use do while In do we use switch case And then we use while In coming videos Or in any problem solving Or in any project We will definitely use it So let's meet in next video"
+}

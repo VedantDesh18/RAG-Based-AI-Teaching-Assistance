@@ -1,0 +1,285 @@
+{
+  "chunks": [
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 0.0,
+      "end": 20.0,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  Today we will talk about callback function  We can pass callback function as a parameter in any other function  Let's see it with an example  Let's create a file named 14 underscore callback dot js"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 20.0,
+      "end": 43.0,
+      "text": " Let's create a simple function  Let's name this function as addition  Let's take two variables x and y  Let's print the two variables  Let's write console.log and write x plus y"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 43.0,
+      "end": 60.0,
+      "text": " I will not use any return value  It is a simple addition function  It will print the result  Let's write addition  Let's pass two values 5 and 6"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 60.0,
+      "end": 79.0,
+      "text": " Let's run the file  Let's write 14 underscore callback dot js  We got 11  It worked properly  Now we have to create more functions like division, multiplication"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 79.0,
+      "end": 112.0,
+      "text": " We will divide our tasks into different functions  Let's write function display  It will print the result of the function  Let's write console.log result  We have two functions"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 112.0,
+      "end": 144.0,
+      "text": " We will print the result of one function  Let's call two numbers  Let's write let result is equal to x plus y  Let's write display  Let's write result"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 144.0,
+      "end": 164.0,
+      "text": " Let's run the file  Let's call addition  Let's write addition  Let's call display  Let's pass 11"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 164.0,
+      "end": 185.0,
+      "text": " We got 11 result  We got the final result  You have to call display function when you want to print the result  You have to call display function compulsorily  Because display function was given to display function"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 185.0,
+      "end": 205.0,
+      "text": " Let's say I get another function  Let's call function multiplication  We will get the same result in multiplication  Let's copy paste the same result  Let's write multiplication instead of plus"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 205.0,
+      "end": 220.0,
+      "text": " Let's run the file  We will get 11 for addition  Let's call multiplication  Let's pass two numbers  Let's write the output"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 220.0,
+      "end": 237.0,
+      "text": " Let's write the output  We have to write x and y  Let's check  We got the output  You have to call display function when you want to print the result"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 237.0,
+      "end": 258.0,
+      "text": " This is our normal function control  Let's check the multiplication  We have not used callback  How to use callback  Ultimately we have to use display function"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 258.0,
+      "end": 276.0,
+      "text": " Let's do addition first  Then we will do multiplication  After that we have to call display function  Let's simplify it  For now let's keep addition and display function aside"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 276.0,
+      "end": 293.0,
+      "text": " You have sent two values  Now you have to call display function  You have written display  You have written round brackets  Let's check"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 293.0,
+      "end": 308.0,
+      "text": " Let's write a message  Result is equals to  Let's check  First it is printing directly  Result is undefined"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 308.0,
+      "end": 324.0,
+      "text": " After that result is 11  It means when you called addition function  5 and 6 values went to x and y  But before line 7 is executed  It called display function"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 324.0,
+      "end": 340.0,
+      "text": " And here you have printed result is undefined  Because result was not calculated  After that result is calculated  And after display function call you got final result  That is 11"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 340.0,
+      "end": 355.0,
+      "text": " That's why when we call a function  We pass it as an argument  We don't give brackets  So addition, 5 and 6  And display"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 355.0,
+      "end": 370.0,
+      "text": " Here you have got 5 and 6  But the display function you have passed  We will call it as callback  Now in this function  This function has come"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 370.0,
+      "end": 385.0,
+      "text": " I have to call it here  I will write callback  We know in addition  I have sent 5 and 6 values  After that I have to call display function"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 385.0,
+      "end": 400.0,
+      "text": " We have decided this sequence  Now the function we have passed  We have written it as callback  When I write callback  It will call the same function"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 400.0,
+      "end": 415.0,
+      "text": " And function's requirement is  And here your result  And final value will be printed  That is 11  We are getting some error"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 415.0,
+      "end": 430.0,
+      "text": " Callback is not defined  We have done spelling mistake  Here capital B is there  We have to write capital B  You can see result is 11"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 430.0,
+      "end": 445.0,
+      "text": " If we want to do multiplication or division  We copy this function  Here we write multiplication  And to call this function  We have done callback"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 445.0,
+      "end": 461.0,
+      "text": " Automatically your multiplication will be called  But before that  You have to give 2 values to multiplication  And function has to be called  And your output will be 11 and 12"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 461.0,
+      "end": 476.0,
+      "text": " Why 12 is there  Because you have written plus in multiplication  So I will multiply it  Now we get output 11 and 35  Simply callback means"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 476.0,
+      "end": 491.0,
+      "text": " You will call a function  And when it will  When multiplication work is over  You can call that function  You don't have to remember sequence"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 491.0,
+      "end": 506.0,
+      "text": " Generally after work is over  We know what is decided with that value  We call that function  One example is  SetTimeout and SetInterval"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 506.0,
+      "end": 524.0,
+      "text": " To see that we remove this code  And we make a simple function  Display  And we give a message  Here"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 524.0,
+      "end": 539.0,
+      "text": " SetTimeout  T capital O capital  Here we have to pass 2 parameters  First is callback  In callback we have to call display"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 539.0,
+      "end": 554.0,
+      "text": " And second is time  3000ms  3000ms means 3 seconds  It means your display function will be called  But after 3000ms"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 554.0,
+      "end": 570.0,
+      "text": " If we run it  After 3000ms your output will be hello  This is an asynchronous function  Where callback is used  If i write log"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 570.0,
+      "end": 585.0,
+      "text": " And here i write  Starting line  And  I write this  As an ending line"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 589.0,
+      "end": 604.0,
+      "text": " If we run it  Our output will be like this  Ending line  And after 3 seconds  Starting line"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 604.0,
+      "end": 619.0,
+      "text": " Display call  3000ms  It scheduled that task  And executed line 9  Both messages are printed"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 619.0,
+      "end": 634.0,
+      "text": " And after 3 seconds  This is setTimeout  It is an asynchronous function  And it is called by callback  Because we are passing display function as an argument"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 634.0,
+      "end": 649.0,
+      "text": " Here we have another function  SetInterval  SetInterval calls every time  After every 3 seconds  It will call display"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 649.0,
+      "end": 664.0,
+      "text": " Let's run it  Let's run it for 1 second  And check  After every second  It will call"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 664.0,
+      "end": 679.0,
+      "text": " Whenever we need data  Through any api  We have to check  And send request  And it will fetch"
+    },
+    {
+      "number": "15",
+      "title": "callback set time out set interval function in javascript",
+      "start": 679.0,
+      "end": 691.0,
+      "text": " And logic of fetch will be in display function  This was callback function  SetTimeout and SetInterval  We will see you in the next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial Today we will talk about callback function We can pass callback function as a parameter in any other function Let's see it with an example Let's create a file named 14 underscore callback dot js Let's create a simple function Let's name this function as addition Let's take two variables x and y Let's print the two variables Let's write console.log and write x plus y I will not use any return value It is a simple addition function It will print the result Let's write addition Let's pass two values 5 and 6 Let's run the file Let's write 14 underscore callback dot js We got 11 It worked properly Now we have to create more functions like division, multiplication We will divide our tasks into different functions Let's write function display It will print the result of the function Let's write console.log result We have two functions We will print the result of one function Let's call two numbers Let's write let result is equal to x plus y Let's write display Let's write result Let's run the file Let's call addition Let's write addition Let's call display Let's pass 11 We got 11 result We got the final result You have to call display function when you want to print the result You have to call display function compulsorily Because display function was given to display function Let's say I get another function Let's call function multiplication We will get the same result in multiplication Let's copy paste the same result Let's write multiplication instead of plus Let's run the file We will get 11 for addition Let's call multiplication Let's pass two numbers Let's write the output Let's write the output We have to write x and y Let's check We got the output You have to call display function when you want to print the result This is our normal function control Let's check the multiplication We have not used callback How to use callback Ultimately we have to use display function Let's do addition first Then we will do multiplication After that we have to call display function Let's simplify it For now let's keep addition and display function aside You have sent two values Now you have to call display function You have written display You have written round brackets Let's check Let's write a message Result is equals to Let's check First it is printing directly Result is undefined After that result is 11 It means when you called addition function 5 and 6 values went to x and y But before line 7 is executed It called display function And here you have printed result is undefined Because result was not calculated After that result is calculated And after display function call you got final result That is 11 That's why when we call a function We pass it as an argument We don't give brackets So addition, 5 and 6 And display Here you have got 5 and 6 But the display function you have passed We will call it as callback Now in this function This function has come I have to call it here I will write callback We know in addition I have sent 5 and 6 values After that I have to call display function We have decided this sequence Now the function we have passed We have written it as callback When I write callback It will call the same function And function's requirement is And here your result And final value will be printed That is 11 We are getting some error Callback is not defined We have done spelling mistake Here capital B is there We have to write capital B You can see result is 11 If we want to do multiplication or division We copy this function Here we write multiplication And to call this function We have done callback Automatically your multiplication will be called But before that You have to give 2 values to multiplication And function has to be called And your output will be 11 and 12 Why 12 is there Because you have written plus in multiplication So I will multiply it Now we get output 11 and 35 Simply callback means You will call a function And when it will When multiplication work is over You can call that function You don't have to remember sequence Generally after work is over We know what is decided with that value We call that function One example is SetTimeout and SetInterval To see that we remove this code And we make a simple function Display And we give a message Here SetTimeout T capital O capital Here we have to pass 2 parameters First is callback In callback we have to call display And second is time 3000ms 3000ms means 3 seconds It means your display function will be called But after 3000ms If we run it After 3000ms your output will be hello This is an asynchronous function Where callback is used If i write log And here i write Starting line And I write this As an ending line If we run it Our output will be like this Ending line And after 3 seconds Starting line Display call 3000ms It scheduled that task And executed line 9 Both messages are printed And after 3 seconds This is setTimeout It is an asynchronous function And it is called by callback Because we are passing display function as an argument Here we have another function SetInterval SetInterval calls every time After every 3 seconds It will call display Let's run it Let's run it for 1 second And check After every second It will call Whenever we need data Through any api We have to check And send request And it will fetch And logic of fetch will be in display function This was callback function SetTimeout and SetInterval We will see you in the next video"
+}

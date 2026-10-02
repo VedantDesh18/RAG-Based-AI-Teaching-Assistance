@@ -1,0 +1,831 @@
+{
+  "chunks": [
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 0.0,
+      "end": 14.0,
+      "text": " Hello friends, welcome back to the javascript tutorial  Today we will talk about arrays  Arrays is a very important concept  where we need a collection of data  we will get a lot of values"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 14.0,
+      "end": 36.0,
+      "text": " then we will understand the importance of arrays  Let's create a file  We will name the file as 09 underscore arrays dot js  Arrays syntax is a simple variable  we will declare the variable"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 36.0,
+      "end": 51.0,
+      "text": " I have named the array as arr  and myArray  Now we need to store multiple values in this  We will write a variable  Let myArray is equal to"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 51.0,
+      "end": 65.0,
+      "text": " We will give the values in square brackets  I am giving random values here  3, 7, 6 and semicolon  The size of the array is 3  Let's print it"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 65.0,
+      "end": 83.0,
+      "text": " We will write console.log  and print myArray  We will write the output in console.log  node your file name is 09 underscore arrays dot js  Then you will see that"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 83.0,
+      "end": 93.0,
+      "text": " whatever you have written in brackets  is printing the same  This is our array limit  Whenever you need multiple values  we can use array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 93.0,
+      "end": 105.0,
+      "text": " Now the question is  Should we store only one type of data in arrays  or can we store different types of data  If you are reading a core programming language  like C, C++, Java"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 105.0,
+      "end": 119.0,
+      "text": " then we can store only one type of data in an array  But in JavaScript  you can store different types of data in an array  because  when you add different types of data"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 119.0,
+      "end": 131.0,
+      "text": " like I have added a string data here  suppose ajay  it means that  this data will change the type of the array  and myArray will be treated as an object"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 131.0,
+      "end": 141.0,
+      "text": " So this will not be a normal array  but an object  If you run it again  you can see that  there is a limit in the array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 141.0,
+      "end": 153.0,
+      "text": " but if you see the type of myArray  like I will write type of  type of  myArray  then you will understand that"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 153.0,
+      "end": 163.0,
+      "text": " it will be treated as an object  If you remove ajay  and run it again  then also you will get the type of object  So in JavaScript"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 163.0,
+      "end": 175.0,
+      "text": " myArray is treated as an object  rather than a variable  that's why you can store multiple types of data in it  Then we need the length of the array  so you have to write"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 175.0,
+      "end": 185.0,
+      "text": " console.log  which we will print directly  If you want the length of the array  then you will write  console.length"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 185.0,
+      "end": 195.0,
+      "text": " it will give you the length of the array  So you can see here  the length of the array is 4  it means that we have stored  how many elements into the array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 195.0,
+      "end": 205.0,
+      "text": " 4 elements we can store  Then I want to add some data in the array  So if you want  a particular data  we will add it later"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 205.0,
+      "end": 215.0,
+      "text": " but first let's access it  I have many elements  but I want only 7  I will comment all the lines  then you can write here"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 217.0,
+      "end": 227.0,
+      "text": " that I want  only one element  and store it in any other variable  like I have taken a variable  and in myArray you need 7"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 227.0,
+      "end": 237.0,
+      "text": " So the indexing of the array  always starts from 0  So this is your 0th element, this is 1st element  this is 2nd element and this is 3rd element  So 7 is coming"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 237.0,
+      "end": 247.0,
+      "text": " at which location?  It is coming at location 1  If you print now  console.log  and print num"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 247.0,
+      "end": 257.0,
+      "text": " then you will get output 7  which is at 1st location  So if you want to separate  any element  you can use its index number"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 257.0,
+      "end": 267.0,
+      "text": " If you write index number  5 which we don't have  0,1,2,3, our maximum index  is 3 but you want to  print an element"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 267.0,
+      "end": 277.0,
+      "text": " which is at 5th location  then you will get message  undefined  In javascript you will get  another method called at"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 277.0,
+      "end": 287.0,
+      "text": " So let's know the difference  I have written let  I have written some valid value  like 2, so we will get 6  I have taken a variable"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 287.0,
+      "end": 301.0,
+      "text": " and we have written myArray.at  and in this at  you can give any function number  like I will check 2 again  and then we will write console.log"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 301.0,
+      "end": 311.0,
+      "text": " and here we will write x  So both the output  will be same  6 and 6  But this"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 311.0,
+      "end": 321.0,
+      "text": " syntax of at  is introduced after 2022  If you have any browser  or before node 22  then you will not get this function"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 321.0,
+      "end": 331.0,
+      "text": " Both have same function  So let's see  how to add elements into the array  To add elements  we have to follow same procedure"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 331.0,
+      "end": 341.0,
+      "text": " like we have list  myArray.  we have to add an element  you have to write square bracket  and give it at a particular position"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 341.0,
+      "end": 351.0,
+      "text": " like I will write 2  then what value you have to put  like I have written 44  it means your existing array  you can see here"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 351.0,
+      "end": 361.0,
+      "text": " let's print it  console.log  myArray  and then  you have changed value at second position"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 361.0,
+      "end": 371.0,
+      "text": " and I will print it  after changing  and then we will see the output  that what was our existing array  376"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 371.0,
+      "end": 381.0,
+      "text": " but you have changed the element  at second position to 44  so 6 is gone  so it is overwrite  if you want to put value at position"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 381.0,
+      "end": 393.0,
+      "text": " then you can use position number  and assign value at that  particular position number  if you want to add  any element at end"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 393.0,
+      "end": 403.0,
+      "text": " then you have to write  like we will write this line as it is  which will print  every time  and then"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 403.0,
+      "end": 413.0,
+      "text": " if I want to add any element at end  then you have to write  myArray.push  if you have read  any normal data structure"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 413.0,
+      "end": 423.0,
+      "text": " then you know where push is  to add element  so here our end will be  last one  so whatever element I want to push"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 423.0,
+      "end": 433.0,
+      "text": " like I have given value here  99  so you can see after adding 99  I have to print my array  so our existing array will be"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 433.0,
+      "end": 443.0,
+      "text": " printed and then we will push 99  and  print that array  so you can see here  after ajay you have added 99"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 443.0,
+      "end": 453.0,
+      "text": " so it is added at right hand side  means it will be added at last index  after this you can add any element  like I will add  random text"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 453.0,
+      "end": 463.0,
+      "text": " like ramesh  and then we will print  myArray  and then if you run it  you can see ramesh is added at end"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 463.0,
+      "end": 473.0,
+      "text": " so this will help you to add element  at end of the list  so this is our push  now what I have to do  I have to delete one element"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 473.0,
+      "end": 483.0,
+      "text": " also  remove suppose  so if you have printed existing array  here  and here you have written"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 483.0,
+      "end": 493.0,
+      "text": " that I have to remove  element so I will  make a variable here and then  I will write myArray.pop  pop means"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 493.0,
+      "end": 503.0,
+      "text": " remove element but pop and push  both these functions will work  from one end which is  end  which is right hand side which will give us last index"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 503.0,
+      "end": 513.0,
+      "text": " so let's print it  console.log  and here we will print our  original array  sorry this is original array name"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 513.0,
+      "end": 523.0,
+      "text": " myArray  and then we will see what exactly happened  and I will run it  so last value which was array  has been removed"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 523.0,
+      "end": 533.0,
+      "text": " ok  then if you  print length  after removing  then you will see"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 533.0,
+      "end": 545.0,
+      "text": " length is also reduced  initially it was 4 elements  then you have made one element pop  so automatically length is also reduced  and in the case of push"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 545.0,
+      "end": 555.0,
+      "text": " length will increase automatically  so these were push and  pop  with this we get one more function  basically it is not a function"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 555.0,
+      "end": 565.0,
+      "text": " it is a keyword  so let's say  this is our original array  I will copy and paste it  so myArray"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 565.0,
+      "end": 575.0,
+      "text": " is our original array  let's print it and see  what exactly is inside our array  so we have to write a  keyword like delete"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 575.0,
+      "end": 585.0,
+      "text": " we have seen that pop will  delete only last element  means it will delete ajay  so we will write delete  and then you have to write"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 585.0,
+      "end": 595.0,
+      "text": " your array name that is myArray  then you have to give index number  so you have given index suppose 2  so what does it mean  your element of second"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 595.0,
+      "end": 605.0,
+      "text": " position so in this case it is 6  so it will be deleted and then we will  print our original array  and  if we"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 605.0,
+      "end": 615.0,
+      "text": " print it  so you can see here one empty  item it means that  6 is deleted but there is a  blank space created"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 615.0,
+      "end": 625.0,
+      "text": " if we print the length of the array  and see if we write here  myArray.length  so you can see that the length of your original  array is 4"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 625.0,
+      "end": 635.0,
+      "text": " so here a blank hole is created  so that is not a good practice  so when we were  doing pop our length was automatically  decreasing so that is why we"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 635.0,
+      "end": 645.0,
+      "text": " don't use delete keyword  delete keyword should be used only  if you delete an element of any position  and add a value  on that location"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 645.0,
+      "end": 655.0,
+      "text": " then we will use delete keyword  this is not a function this is just a keyword  so what is the difference  in this that in delete  a blank hole is created which is not"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 655.0,
+      "end": 665.0,
+      "text": " there in pop  but still if we want to delete  a blank hole then how should we do  so let me comment this  and move ahead"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 665.0,
+      "end": 675.0,
+      "text": " and see how to add element  at the beginning  so again our original  array  let's print it"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 675.0,
+      "end": 685.0,
+      "text": " so my original array is myArray  ok  now what I have to do is  add element in starting  or remove"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 685.0,
+      "end": 695.0,
+      "text": " if you want to do in end then push pop  so what I have to do  so if you want to add any element  then you have to write your array name  that is myArray"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 695.0,
+      "end": 705.0,
+      "text": " dot  unshift  this is a predefined method  now you have to give some element here  so in this case I will give a value suppose 9"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 705.0,
+      "end": 715.0,
+      "text": " and then we  print and see  that what exactly has changed in our array  so let me run this  this was our old array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 715.0,
+      "end": 725.0,
+      "text": " sorry  but when we unshifted  9 then it added element in starting  so push element is added in end  and unshifted element"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 725.0,
+      "end": 735.0,
+      "text": " is added in starting  and its length also  will be changed  like if I print here length  then you will understand that our length is 5"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 735.0,
+      "end": 745.0,
+      "text": " so whenever I want to add any element  in starting then I will use unshift  and if I want to add in end then I will use push  if I want to delete any element from end  then I will use pop"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 745.0,
+      "end": 755.0,
+      "text": " but if I want to delete from starting then I will use  let's see  so in this array  I want to delete  our first element"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 755.0,
+      "end": 765.0,
+      "text": " so if we check  our array is like this  so I have to delete 3  so you have to write  whatever element you want to delete"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 765.0,
+      "end": 775.0,
+      "text": " so I will create a variable  because we have to copy deleted element  generally  so it returns that value  so let's see"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 775.0,
+      "end": 785.0,
+      "text": " our array name is myarray.  we have to use shift  instead of unshift  that's it  and then we will write console.log"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 785.0,
+      "end": 795.0,
+      "text": " and then we will print  what is in x  and what is in our original array  so let's print  myarray again"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 795.0,
+      "end": 805.0,
+      "text": " so you can see  this is our original array  so we have printed x  so we got 3  and now the remaining"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 805.0,
+      "end": 815.0,
+      "text": " array is 7, 6 and  3 is not in our array  so we are not creating any hole  which was happening because of delete  so if you want to delete starting element then use"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 815.0,
+      "end": 827.0,
+      "text": " shift and if you want to delete from end then  pop, if you want to add then push  if you want to delete from starting  then use unshift  but many times"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 827.0,
+      "end": 837.0,
+      "text": " we have to delete element from middle  we can't use delete keyword  because it will create a blank hole  so let's continue  this array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 837.0,
+      "end": 847.0,
+      "text": " our array element is like this  now I have to  delete element from middle  so how to delete that  so we have another method"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 847.0,
+      "end": 857.0,
+      "text": " myarray.  and method  is  splice  s-p-l-i-c-e"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 857.0,
+      "end": 867.0,
+      "text": " now here you have to  give one parameter  for example I have given 6 position  so I have given 2  if we print"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 867.0,
+      "end": 877.0,
+      "text": " our array as it is  so what changes will happen  let's see  you have given splice  now what happened"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 877.0,
+      "end": 887.0,
+      "text": " all the elements from second position  are deleted  see this is our original array  let's copy and paste  to understand"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 887.0,
+      "end": 897.0,
+      "text": " so here you can see  so our array has 4 elements  0,1,2,3  and we spliced from second position  so from second position"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 897.0,
+      "end": 909.0,
+      "text": " all the elements are deleted  so if you have some other values  like  34,55  or some other random string"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 909.0,
+      "end": 919.0,
+      "text": " like India  if you run this  you can see  all the elements are deleted  but I have to delete only 6"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 919.0,
+      "end": 929.0,
+      "text": " so splice method  can accept  2 parameters  in that function  so I have given comma 1"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 929.0,
+      "end": 939.0,
+      "text": " now after this comma 1  what changes we get in output  let's see  now you can see 6 is gone  only 6 is gone"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 939.0,
+      "end": 949.0,
+      "text": " so first parameter  will tell you which element to delete  and how much to delete  1 means only one element  if I put 2 here"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 949.0,
+      "end": 959.0,
+      "text": " let's use it again  if I put 2 here  6 and Ajay will be deleted  you can see  6 and Ajay is deleted"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 959.0,
+      "end": 969.0,
+      "text": " list after 34 is as it is  so you can delete middle element  so what you should use  splice  will return remaining array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 969.0,
+      "end": 979.0,
+      "text": " so you can see  in original array  you have changed  so I need deleted elements  I need to delete them"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 979.0,
+      "end": 989.0,
+      "text": " like 6 and Ajay  so you can store them in  any other variable  like x  so 2 elements are deleted"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 989.0,
+      "end": 999.0,
+      "text": " so we should print it  to see what is deleted  so I am writing  so you can see  so you can see"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 999.0,
+      "end": 1009.0,
+      "text": " you have deleted 2 elements  so 6 and Ajay is deleted  deleted element is in x  so you printed x  so deleted element array is printed"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1009.0,
+      "end": 1019.0,
+      "text": " and original array is printed  apart from those elements  so what is returned  deleted element array  then comes"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1019.0,
+      "end": 1033.0,
+      "text": " concatenation of the array  suppose you have 2 arrays  so my array 1  in which you have some elements  I am taking one array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1033.0,
+      "end": 1043.0,
+      "text": " and creating another  and adding some value  to understand  now I need to  concatenate both"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1043.0,
+      "end": 1053.0,
+      "text": " so you need to write  my array 1 dot concat  it is a predefined function  and it will concatenate  but"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1053.0,
+      "end": 1065.0,
+      "text": " after doing this  resultant array will be of 6 elements  so you need to create a new variable  like my array 3  so both elements will be in my array 3"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1065.0,
+      "end": 1075.0,
+      "text": " and we will print it  so you can see  in my array 3  all elements will be there  so the first"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1075.0,
+      "end": 1085.0,
+      "text": " array  with which concatenation was done  and in continuation  all elements are printed  so this is for merging"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1085.0,
+      "end": 1095.0,
+      "text": " that is concatenation operation  apart from this  many times we need to  convert all data  in the string"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1095.0,
+      "end": 1105.0,
+      "text": " so  suppose we have  an array  like my array  and you have given some numbers"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1105.0,
+      "end": 1117.0,
+      "text": " and  we will print it  console.log  and print my array  sorry double my"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1117.0,
+      "end": 1127.0,
+      "text": " it is y  now we have 3 elements  then we  print the data  and see"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1127.0,
+      "end": 1137.0,
+      "text": " but if you write it  dot to string  in small case  and string in capital  and one more function"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1137.0,
+      "end": 1147.0,
+      "text": " if you run it  you will get 3, 5, 6  but this is as a string  so if we write type of  whatever data is printed"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1147.0,
+      "end": 1157.0,
+      "text": " it is giving you as a string  so now this data is written as a string  ok  these are not individual numbers  so this is two string"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1157.0,
+      "end": 1167.0,
+      "text": " so whenever you want to convert an array directly in a string  you can use two string method  apart from this there is one more method  like  all these elements"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1167.0,
+      "end": 1177.0,
+      "text": " which we have written 3, 5, 6  we have to put some operator in between  or  any separator  so you can write my array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1177.0,
+      "end": 1187.0,
+      "text": " dot  join  and here i have written in double quotes  dash  and then i have written"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1187.0,
+      "end": 1197.0,
+      "text": " console.log  and here i have printed  my array  and then if you  run it"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1197.0,
+      "end": 1207.0,
+      "text": " so it has not printed anything  because join method  will give you a new array  original array will be as it is  so you have to take a new variable"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1207.0,
+      "end": 1217.0,
+      "text": " like x  and we will print x  and see what is there  so original array is as it is  see this is original array"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1217.0,
+      "end": 1227.0,
+      "text": " and in x  there is 3 dash 5 dash 6  if i would have written star here  it would have been separated  so to join"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1227.0,
+      "end": 1237.0,
+      "text": " any element we use  join method  there are many other methods  we will use them  as per our project requirements"
+    },
+    {
+      "number": "10",
+      "title": "array and array methods in javascript",
+      "start": 1237.0,
+      "end": 1243.0,
+      "text": " so let's see in the next video  how to apply loops  on the array"
+    }
+  ],
+  "text": " Hello friends, welcome back to the javascript tutorial Today we will talk about arrays Arrays is a very important concept where we need a collection of data we will get a lot of values then we will understand the importance of arrays Let's create a file We will name the file as 09 underscore arrays dot js Arrays syntax is a simple variable we will declare the variable I have named the array as arr and myArray Now we need to store multiple values in this We will write a variable Let myArray is equal to We will give the values in square brackets I am giving random values here 3, 7, 6 and semicolon The size of the array is 3 Let's print it We will write console.log and print myArray We will write the output in console.log node your file name is 09 underscore arrays dot js Then you will see that whatever you have written in brackets is printing the same This is our array limit Whenever you need multiple values we can use array Now the question is Should we store only one type of data in arrays or can we store different types of data If you are reading a core programming language like C, C++, Java then we can store only one type of data in an array But in JavaScript you can store different types of data in an array because when you add different types of data like I have added a string data here suppose ajay it means that this data will change the type of the array and myArray will be treated as an object So this will not be a normal array but an object If you run it again you can see that there is a limit in the array but if you see the type of myArray like I will write type of type of myArray then you will understand that it will be treated as an object If you remove ajay and run it again then also you will get the type of object So in JavaScript myArray is treated as an object rather than a variable that's why you can store multiple types of data in it Then we need the length of the array so you have to write console.log which we will print directly If you want the length of the array then you will write console.length it will give you the length of the array So you can see here the length of the array is 4 it means that we have stored how many elements into the array 4 elements we can store Then I want to add some data in the array So if you want a particular data we will add it later but first let's access it I have many elements but I want only 7 I will comment all the lines then you can write here that I want only one element and store it in any other variable like I have taken a variable and in myArray you need 7 So the indexing of the array always starts from 0 So this is your 0th element, this is 1st element this is 2nd element and this is 3rd element So 7 is coming at which location? It is coming at location 1 If you print now console.log and print num then you will get output 7 which is at 1st location So if you want to separate any element you can use its index number If you write index number 5 which we don't have 0,1,2,3, our maximum index is 3 but you want to print an element which is at 5th location then you will get message undefined In javascript you will get another method called at So let's know the difference I have written let I have written some valid value like 2, so we will get 6 I have taken a variable and we have written myArray.at and in this at you can give any function number like I will check 2 again and then we will write console.log and here we will write x So both the output will be same 6 and 6 But this syntax of at is introduced after 2022 If you have any browser or before node 22 then you will not get this function Both have same function So let's see how to add elements into the array To add elements we have to follow same procedure like we have list myArray. we have to add an element you have to write square bracket and give it at a particular position like I will write 2 then what value you have to put like I have written 44 it means your existing array you can see here let's print it console.log myArray and then you have changed value at second position and I will print it after changing and then we will see the output that what was our existing array 376 but you have changed the element at second position to 44 so 6 is gone so it is overwrite if you want to put value at position then you can use position number and assign value at that particular position number if you want to add any element at end then you have to write like we will write this line as it is which will print every time and then if I want to add any element at end then you have to write myArray.push if you have read any normal data structure then you know where push is to add element so here our end will be last one so whatever element I want to push like I have given value here 99 so you can see after adding 99 I have to print my array so our existing array will be printed and then we will push 99 and print that array so you can see here after ajay you have added 99 so it is added at right hand side means it will be added at last index after this you can add any element like I will add random text like ramesh and then we will print myArray and then if you run it you can see ramesh is added at end so this will help you to add element at end of the list so this is our push now what I have to do I have to delete one element also remove suppose so if you have printed existing array here and here you have written that I have to remove element so I will make a variable here and then I will write myArray.pop pop means remove element but pop and push both these functions will work from one end which is end which is right hand side which will give us last index so let's print it console.log and here we will print our original array sorry this is original array name myArray and then we will see what exactly happened and I will run it so last value which was array has been removed ok then if you print length after removing then you will see length is also reduced initially it was 4 elements then you have made one element pop so automatically length is also reduced and in the case of push length will increase automatically so these were push and pop with this we get one more function basically it is not a function it is a keyword so let's say this is our original array I will copy and paste it so myArray is our original array let's print it and see what exactly is inside our array so we have to write a keyword like delete we have seen that pop will delete only last element means it will delete ajay so we will write delete and then you have to write your array name that is myArray then you have to give index number so you have given index suppose 2 so what does it mean your element of second position so in this case it is 6 so it will be deleted and then we will print our original array and if we print it so you can see here one empty item it means that 6 is deleted but there is a blank space created if we print the length of the array and see if we write here myArray.length so you can see that the length of your original array is 4 so here a blank hole is created so that is not a good practice so when we were doing pop our length was automatically decreasing so that is why we don't use delete keyword delete keyword should be used only if you delete an element of any position and add a value on that location then we will use delete keyword this is not a function this is just a keyword so what is the difference in this that in delete a blank hole is created which is not there in pop but still if we want to delete a blank hole then how should we do so let me comment this and move ahead and see how to add element at the beginning so again our original array let's print it so my original array is myArray ok now what I have to do is add element in starting or remove if you want to do in end then push pop so what I have to do so if you want to add any element then you have to write your array name that is myArray dot unshift this is a predefined method now you have to give some element here so in this case I will give a value suppose 9 and then we print and see that what exactly has changed in our array so let me run this this was our old array sorry but when we unshifted 9 then it added element in starting so push element is added in end and unshifted element is added in starting and its length also will be changed like if I print here length then you will understand that our length is 5 so whenever I want to add any element in starting then I will use unshift and if I want to add in end then I will use push if I want to delete any element from end then I will use pop but if I want to delete from starting then I will use let's see so in this array I want to delete our first element so if we check our array is like this so I have to delete 3 so you have to write whatever element you want to delete so I will create a variable because we have to copy deleted element generally so it returns that value so let's see our array name is myarray. we have to use shift instead of unshift that's it and then we will write console.log and then we will print what is in x and what is in our original array so let's print myarray again so you can see this is our original array so we have printed x so we got 3 and now the remaining array is 7, 6 and 3 is not in our array so we are not creating any hole which was happening because of delete so if you want to delete starting element then use shift and if you want to delete from end then pop, if you want to add then push if you want to delete from starting then use unshift but many times we have to delete element from middle we can't use delete keyword because it will create a blank hole so let's continue this array our array element is like this now I have to delete element from middle so how to delete that so we have another method myarray. and method is splice s-p-l-i-c-e now here you have to give one parameter for example I have given 6 position so I have given 2 if we print our array as it is so what changes will happen let's see you have given splice now what happened all the elements from second position are deleted see this is our original array let's copy and paste to understand so here you can see so our array has 4 elements 0,1,2,3 and we spliced from second position so from second position all the elements are deleted so if you have some other values like 34,55 or some other random string like India if you run this you can see all the elements are deleted but I have to delete only 6 so splice method can accept 2 parameters in that function so I have given comma 1 now after this comma 1 what changes we get in output let's see now you can see 6 is gone only 6 is gone so first parameter will tell you which element to delete and how much to delete 1 means only one element if I put 2 here let's use it again if I put 2 here 6 and Ajay will be deleted you can see 6 and Ajay is deleted list after 34 is as it is so you can delete middle element so what you should use splice will return remaining array so you can see in original array you have changed so I need deleted elements I need to delete them like 6 and Ajay so you can store them in any other variable like x so 2 elements are deleted so we should print it to see what is deleted so I am writing so you can see so you can see you have deleted 2 elements so 6 and Ajay is deleted deleted element is in x so you printed x so deleted element array is printed and original array is printed apart from those elements so what is returned deleted element array then comes concatenation of the array suppose you have 2 arrays so my array 1 in which you have some elements I am taking one array and creating another and adding some value to understand now I need to concatenate both so you need to write my array 1 dot concat it is a predefined function and it will concatenate but after doing this resultant array will be of 6 elements so you need to create a new variable like my array 3 so both elements will be in my array 3 and we will print it so you can see in my array 3 all elements will be there so the first array with which concatenation was done and in continuation all elements are printed so this is for merging that is concatenation operation apart from this many times we need to convert all data in the string so suppose we have an array like my array and you have given some numbers and we will print it console.log and print my array sorry double my it is y now we have 3 elements then we print the data and see but if you write it dot to string in small case and string in capital and one more function if you run it you will get 3, 5, 6 but this is as a string so if we write type of whatever data is printed it is giving you as a string so now this data is written as a string ok these are not individual numbers so this is two string so whenever you want to convert an array directly in a string you can use two string method apart from this there is one more method like all these elements which we have written 3, 5, 6 we have to put some operator in between or any separator so you can write my array dot join and here i have written in double quotes dash and then i have written console.log and here i have printed my array and then if you run it so it has not printed anything because join method will give you a new array original array will be as it is so you have to take a new variable like x and we will print x and see what is there so original array is as it is see this is original array and in x there is 3 dash 5 dash 6 if i would have written star here it would have been separated so to join any element we use join method there are many other methods we will use them as per our project requirements so let's see in the next video how to apply loops on the array"
+}

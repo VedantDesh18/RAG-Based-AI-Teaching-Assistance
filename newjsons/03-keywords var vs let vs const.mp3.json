@@ -1,0 +1,243 @@
+{
+  "chunks": [
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 0.0,
+      "end": 17.0,
+      "text": " Welcome back to the Javascript Tutorial  Today we are going to talk about the difference between where, let and const keyword  In the last video we saw how to create a variable with the help of where, let and const keyword  So let's start with our first point  In the first point I have mentioned"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 17.0,
+      "end": 46.0,
+      "text": " Where is a global scope variable and let and const are block scope variables  So let's see what does it mean by demonstration  So let's open VS Code and create a separate file for our third video  We will name it as 03 underscore variable dot js  In this file we will create a variable and name it as where my title"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 46.0,
+      "end": 68.0,
+      "text": " And we will give a value to this my title variable  Like I am writing Javascript Tutorial, you can write anything  Then we will print this value  So console dot log and then you have to print the variable value  We have also seen in the last video how to define the name of the variable"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 68.0,
+      "end": 84.0,
+      "text": " To run we will open our terminal  We will give a command like this  We will give a command like this  We will give a command like this  We will give a command like this"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 84.0,
+      "end": 108.0,
+      "text": " You can see the output is Javascript Tutorial  We will talk about the global declaration of where and the scoped declaration of let keyword  To know the difference between the two we have to understand a concept  That concept is Blocked Coding  So when we will talk about the functions or we want to keep the similar code together"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 108.0,
+      "end": 134.0,
+      "text": " So we will use curly braces in many places  You don't have to think because we will use this syntax many times  So for now you have to keep only this that we will write some code in curly braces  So we will declare the same variable again  Like where mytitle and we will update that title"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 134.0,
+      "end": 153.0,
+      "text": " Like I am writing Advanced Javascript Tutorial  And then I will print the output again  Mytitle  And when we close this bracket  Outside that bracket we will print mytitle"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 153.0,
+      "end": 173.0,
+      "text": " So we have printed mytitle three times  So let's see what is the output  So the output we got on the first line is Javascript Tutorial  Means on line 2 the value which is printed is Javascript Tutorial  After coming inside this bracket the value of mytitle is updated"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 173.0,
+      "end": 195.0,
+      "text": " And then you have printed it so it is printed as it is  And then after coming outside the bracket you have printed mytitle  So the last updated value is printed there  Means throughout the page the memory which mytitle got is common memory  And in that memory whatever value you are putting is getting updated"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 195.0,
+      "end": 213.0,
+      "text": " Even if you have declared it again  So let's see what will change if I use let keyword  So instead of var keyword I will write let  And here also I will write let  And then we will clear it and run it"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 213.0,
+      "end": 229.0,
+      "text": " So the output we got on the first line is Javascript as it is  Which we printed on line 2  And then when the scope started in bracket  We declared the variable again as let keyword  You have given the value Advanced Javascript Tutorial"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 229.0,
+      "end": 246.0,
+      "text": " And printed the same value so that value is also printed as it is  But as soon as the scope got over means the work of bracket got over  So after coming outside the mytitle which we printed  It printed the old value which is Javascript Tutorial  This means the mytitle which we declared through let keyword"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 246.0,
+      "end": 264.0,
+      "text": " It has a different scope and different memory is allocated  And the variable above is allocated different memory  So this is the scope of the variable  So whenever we talk about global scope then var keyword will be used  If we talk about local or scope then we will use let keyword"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 264.0,
+      "end": 284.0,
+      "text": " Same if you talk about const then const will also give you the same output  Like mytitle was printed through let keyword  So you are getting the same output  So here we have justified the first point  Which is where is global scope variable and let and const are block scope"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 284.0,
+      "end": 304.0,
+      "text": " So what is block? In curly brace whatever block of code is made we will call it block  And it is called scope  So let's see the second point  In second point we have written var can be updated and redeclared within its scope  So this means if you use var keyword then like we have written var keyword earlier"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 304.0,
+      "end": 322.0,
+      "text": " Here also we have written var keyword  Ok if we talk about the same scope then I will remove this code to understand  So you have a variable of var keyword which is mytitle  You can make the same variable again  See mytitle which we have made in local scope"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 322.0,
+      "end": 344.0,
+      "text": " So here I am writing advanced javascript tutorial  This means I have made the same variable mytitle and gave it a different value  And here I have printed it  So we have to get the last updated value that is advanced javascript tutorial  But if I want to do the same thing through let keyword"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 344.0,
+      "end": 359.0,
+      "text": " So let keyword will not allow you to do this in the same scope  See this is in the same scope  If I put it in the bracket then it will be a different scope  Its space is different and its space is different  But if you talk in the same scope at the same level"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 359.0,
+      "end": 380.0,
+      "text": " Then you cannot declare the same variable again and again with let keyword  So if you want to update the value then using let keyword is not mandatory  You can update the value without using let keyword  And then print it and see the output  But if you use let keyword again and again then compiler will give you an error"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 380.0,
+      "end": 394.0,
+      "text": " And how will we read that error  That identifier mytitle has already been declared  So you don't declare it again and again  You can do the same for const  If you talk about const here"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 395.0,
+      "end": 408.0,
+      "text": " We have written a separate point for const  So we will not use let keyword again and again  So we have justified the second point  Where can be updated and redeclared  You can change its value and also redeclare it"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 408.0,
+      "end": 421.0,
+      "text": " Which we cannot do for let and const  In point no.3 we have written  Let can be updated but not redeclared  This is what we have talked about  You can update it in this way"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 421.0,
+      "end": 442.0,
+      "text": " But you cannot redeclare it  This was our third point  In point no.4 we have written  So this means if we make a variable  Like we made mytitle"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 442.0,
+      "end": 454.0,
+      "text": " I will remove it  And if I have not given any value to mytitle  And we have used let keyword  If we want to print it  Then you will get undefined output"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 454.0,
+      "end": 466.0,
+      "text": " Means this value mytitle  We have printed something and its name is undefined  So what is undefined  What is the actual value in it  What is the difference between null and undefined"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 466.0,
+      "end": 477.0,
+      "text": " We will discuss it in detail in the coming video  For now you just have to remember  If you have not initialized it  Then it will be undefined by itself  Same for the var keyword"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 477.0,
+      "end": 490.0,
+      "text": " So if you use var keyword  And run it again  Then it will also give you undefined output  But if you define it as const  Const means it needs a value compulsorily"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 490.0,
+      "end": 504.0,
+      "text": " If you have not done it  Then you will get an error  Missing initializer in const declaration  So initialization is mandatory for you  This was our point no.4"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 504.0,
+      "end": 518.0,
+      "text": " In point no.5 we have written  Whenever you use a const variable  Then its declaration should be  When you declared it  So here you have to write"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 518.0,
+      "end": 529.0,
+      "text": " JavaScript tutorial  You can give any value  And then we will clear it here  And check our output  So you can see your output is JavaScript tutorial"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 529.0,
+      "end": 541.0,
+      "text": " One more thing about const  If you want to modify this mytitle  Like I want to modify it with hello  So this updation is not allowed  For const"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 541.0,
+      "end": 552.0,
+      "text": " Because it is constant  So we assign it to constant variable  This is your error  It has thrown an error  That you cannot update its value"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 552.0,
+      "end": 562.0,
+      "text": " Only then we can use const  If we var it  Then it can be updated  If you let it  Then also it can be updated"
+    },
+    {
+      "number": "03",
+      "title": "keywords var vs let vs const",
+      "start": 563.0,
+      "end": 567.0,
+      "text": " Throughout the series we will use  Maximum time let and const"
+    }
+  ],
+  "text": " Welcome back to the Javascript Tutorial Today we are going to talk about the difference between where, let and const keyword In the last video we saw how to create a variable with the help of where, let and const keyword So let's start with our first point In the first point I have mentioned Where is a global scope variable and let and const are block scope variables So let's see what does it mean by demonstration So let's open VS Code and create a separate file for our third video We will name it as 03 underscore variable dot js In this file we will create a variable and name it as where my title And we will give a value to this my title variable Like I am writing Javascript Tutorial, you can write anything Then we will print this value So console dot log and then you have to print the variable value We have also seen in the last video how to define the name of the variable To run we will open our terminal We will give a command like this We will give a command like this We will give a command like this We will give a command like this You can see the output is Javascript Tutorial We will talk about the global declaration of where and the scoped declaration of let keyword To know the difference between the two we have to understand a concept That concept is Blocked Coding So when we will talk about the functions or we want to keep the similar code together So we will use curly braces in many places You don't have to think because we will use this syntax many times So for now you have to keep only this that we will write some code in curly braces So we will declare the same variable again Like where mytitle and we will update that title Like I am writing Advanced Javascript Tutorial And then I will print the output again Mytitle And when we close this bracket Outside that bracket we will print mytitle So we have printed mytitle three times So let's see what is the output So the output we got on the first line is Javascript Tutorial Means on line 2 the value which is printed is Javascript Tutorial After coming inside this bracket the value of mytitle is updated And then you have printed it so it is printed as it is And then after coming outside the bracket you have printed mytitle So the last updated value is printed there Means throughout the page the memory which mytitle got is common memory And in that memory whatever value you are putting is getting updated Even if you have declared it again So let's see what will change if I use let keyword So instead of var keyword I will write let And here also I will write let And then we will clear it and run it So the output we got on the first line is Javascript as it is Which we printed on line 2 And then when the scope started in bracket We declared the variable again as let keyword You have given the value Advanced Javascript Tutorial And printed the same value so that value is also printed as it is But as soon as the scope got over means the work of bracket got over So after coming outside the mytitle which we printed It printed the old value which is Javascript Tutorial This means the mytitle which we declared through let keyword It has a different scope and different memory is allocated And the variable above is allocated different memory So this is the scope of the variable So whenever we talk about global scope then var keyword will be used If we talk about local or scope then we will use let keyword Same if you talk about const then const will also give you the same output Like mytitle was printed through let keyword So you are getting the same output So here we have justified the first point Which is where is global scope variable and let and const are block scope So what is block? In curly brace whatever block of code is made we will call it block And it is called scope So let's see the second point In second point we have written var can be updated and redeclared within its scope So this means if you use var keyword then like we have written var keyword earlier Here also we have written var keyword Ok if we talk about the same scope then I will remove this code to understand So you have a variable of var keyword which is mytitle You can make the same variable again See mytitle which we have made in local scope So here I am writing advanced javascript tutorial This means I have made the same variable mytitle and gave it a different value And here I have printed it So we have to get the last updated value that is advanced javascript tutorial But if I want to do the same thing through let keyword So let keyword will not allow you to do this in the same scope See this is in the same scope If I put it in the bracket then it will be a different scope Its space is different and its space is different But if you talk in the same scope at the same level Then you cannot declare the same variable again and again with let keyword So if you want to update the value then using let keyword is not mandatory You can update the value without using let keyword And then print it and see the output But if you use let keyword again and again then compiler will give you an error And how will we read that error That identifier mytitle has already been declared So you don't declare it again and again You can do the same for const If you talk about const here We have written a separate point for const So we will not use let keyword again and again So we have justified the second point Where can be updated and redeclared You can change its value and also redeclare it Which we cannot do for let and const In point no.3 we have written Let can be updated but not redeclared This is what we have talked about You can update it in this way But you cannot redeclare it This was our third point In point no.4 we have written So this means if we make a variable Like we made mytitle I will remove it And if I have not given any value to mytitle And we have used let keyword If we want to print it Then you will get undefined output Means this value mytitle We have printed something and its name is undefined So what is undefined What is the actual value in it What is the difference between null and undefined We will discuss it in detail in the coming video For now you just have to remember If you have not initialized it Then it will be undefined by itself Same for the var keyword So if you use var keyword And run it again Then it will also give you undefined output But if you define it as const Const means it needs a value compulsorily If you have not done it Then you will get an error Missing initializer in const declaration So initialization is mandatory for you This was our point no.4 In point no.5 we have written Whenever you use a const variable Then its declaration should be When you declared it So here you have to write JavaScript tutorial You can give any value And then we will clear it here And check our output So you can see your output is JavaScript tutorial One more thing about const If you want to modify this mytitle Like I want to modify it with hello So this updation is not allowed For const Because it is constant So we assign it to constant variable This is your error It has thrown an error That you cannot update its value Only then we can use const If we var it Then it can be updated If you let it Then also it can be updated Throughout the series we will use Maximum time let and const"
+}

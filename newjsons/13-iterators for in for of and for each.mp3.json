@@ -1,0 +1,390 @@
+{
+  "chunks": [
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 0.0,
+      "end": 14.26,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  and today we are going to talk about iterators  we have seen a topic before this, loops  where we have talked about traditional loops  which are used in other programming languages"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 14.26,
+      "end": 26.84,
+      "text": " like for loop, while loop and do while loop  where we have done some programming  here you can see  we have done a program for loop  and then we have read about while loop"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 27.44,
+      "end": 43.08,
+      "text": " and then we have read about do while  so today we are going to talk about iterators  iterators is a part of a loop  we have taken it after some concepts  because we have done some programs on these concepts"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 43.08,
+      "end": 56.54,
+      "text": " so let's make a file  today's file name will be 12 underscore iterators  dot js  now to understand this iterators  we will use an array"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 56.54,
+      "end": 72.9,
+      "text": " which we will name as let my list  and we will put some random numbers in this list  like I am putting some random numbers  and you can see here I have saved  total 5 numbers in a list"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 73.5,
+      "end": 87.12,
+      "text": " now when we were using these numbers  through loop, then you were writing something like this  if I want to use for loop, then for  you need a variable to count index  whose initial index will be 0"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 87.67999999999999,
+      "end": 101.0,
+      "text": " then you will go till  the length of your list  means this is 0, 1, 2, 3, 4  means you will go till 4th index  while you have 5 elements"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 101.66,
+      "end": 117.42,
+      "text": " then you will have to move your index  from 1 to next and then when you print log  we will print something like this using back tick  so let's make a statement  so if I want to print my variable"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 117.42,
+      "end": 133.28,
+      "text": " then I will use  dollar curly brace  then we want to print its value  value equals to  dollar curly brace"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 133.28,
+      "end": 145.79999999999998,
+      "text": " your value will come from my list  and from my list, it will come from ith index  we have done this before when we were using for loop  so you can see  every value's index number is printed"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 145.79999999999998,
+      "end": 160.22,
+      "text": " and from my list  value of that index is printed  so this was our normal for loop  but in this case we need 3 conditions  where to start, where to go"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 160.22,
+      "end": 173.66,
+      "text": " and how much to change your index  there is another way of this which we are going to call iterators  so let's know that index  so you have to write for  then round brackets, opening and closing brackets"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 173.66,
+      "end": 188.89999999999998,
+      "text": " and here you will write let i  then you don't have to initialize anything  you just have to write in  and the data inside the array you want to write my list  so you can see here let i in my list"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 188.89999999999998,
+      "end": 206.34,
+      "text": " so let's print and see  what exactly happens  so if I get the same output then we can use it for loop  for let i in my list  so we are getting the same output"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 206.34,
+      "end": 220.85999999999999,
+      "text": " that the value is printed in the place of i  and the value of my list's index is printed  but here your syntax for loop is simplified  here you don't have to give starting value  and you don't have to give length of your list"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 220.85999999999999,
+      "end": 234.66,
+      "text": " it automatically calculates how many elements you have  and every time it prints the value of each index  so we will get index in i  and the value of my list's index is printed  so this is one way"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 235.14,
+      "end": 248.3,
+      "text": " second way is  if I want more simplified  so let's write for  then you have to write a variable that is let i  instead of in we will write off"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 249.06,
+      "end": 260.78000000000003,
+      "text": " we will write my list  so we have written let i of my list  now let's print and see what is coming in our statement  ok and then if we run something here  we get"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 261.38,
+      "end": 276.54,
+      "text": " this output  so when we printed i we got value in the place of i  it means we won't get index from off  that's why we are getting undefined in this  so basically what is off doing is"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 276.54,
+      "end": 288.06,
+      "text": " it is giving you value directly  so if you want to print  print i directly and you will get value in i  like this  so you can see your output"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 288.06,
+      "end": 300.98,
+      "text": " and you will get value from my list  which is our list here  I will copy it from here  and paste it with our program  so whenever I want some elements directly"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 300.98,
+      "end": 315.74,
+      "text": " without index then we can use off keyword  this was second type  third type is for each  which is generally used for callback functions  we haven't made any video on callback yet"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 315.78000000000003,
+      "end": 330.1,
+      "text": " so we will cover it in next video  but before that let's know  how exactly for each works  so let's comment it  and if we write here"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 331.82,
+      "end": 348.02,
+      "text": " same list so I will copy the list from here  so how does for each work  so you have to simply write your list name  and in small case you have to write for  and capital e for each"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 348.29999999999995,
+      "end": 362.34,
+      "text": " ok, round brackets, semicolon  so for each's input  will be a function  which we call callback function  which we will definitely talk about in next videos"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 362.34,
+      "end": 378.5,
+      "text": " but for now you have to remember syntax  because we will not make video on iterators again and again  so in my list you will call a function  and for each you will call a function  you can name it anything"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 378.5,
+      "end": 390.14,
+      "text": " like I am writing my function  generally we call function as round brackets  now here you have to remember  you don't have to give round brackets  but this is definitely a function name"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 390.82,
+      "end": 404.94,
+      "text": " now we have to write body of it  so let's write body  so function, name of function is my function  and body is for each  now look at this syntax carefully"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 404.94,
+      "end": 419.46,
+      "text": " we have defined a list  and we have called for each function  and we have written my function in it  ok, now look  this my function will get a value by default"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 419.46,
+      "end": 435.34,
+      "text": " so I will write that value  we have taken a variable  you can write anything  and here we will log console.log  to see what is coming inside x"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 435.34,
+      "end": 448.97999999999996,
+      "text": " ok, we have not called my function  by giving round brackets  but still it will get a call  and you can see directly inside x  there is no loop here"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 448.97999999999996,
+      "end": 462.62,
+      "text": " but still we are getting all elements one by one  so this is used in for each  in for each you get another facility  so you get value directly  that's why I gave value"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 463.90000000000003,
+      "end": 478.90000000000003,
+      "text": " if you add another parameter inside my function  like I have written index  so inside this variable index  you will get index number of every element  where value is being printed"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 478.90000000000003,
+      "end": 493.9,
+      "text": " so you don't have to add a loop  so let's print both together  this one  and this one  ok, so look"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 493.9,
+      "end": 508.9,
+      "text": " we want to print variables  so we will write index  and we will print value  so let's clear and see the output  so we are getting output from for loop"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 508.9,
+      "end": 523.9,
+      "text": " we are getting in index i  so for value we have to write index  in my list square bracket  so for each is doing all this automatically  if you want value directly"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 523.9,
+      "end": 538.9,
+      "text": " then pass one parameter  if you pass other parameter  then automatically you will get index  it will not work like this  if I write index and value"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 538.9,
+      "end": 553.9,
+      "text": " then it will give value  so we will keep index on other position  then you can pass third parameter  like I am writing my list  so every time"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 553.9,
+      "end": 568.9,
+      "text": " my list will be printed  so I am writing  my list is equal to  dollar, in curly brace  so in every output"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 568.9,
+      "end": 583.9,
+      "text": " you will get this  so you can pass three parameters  so this was for each statement  let's see  if I can use same operations"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 583.9,
+      "end": 598.9,
+      "text": " on objects  so let's make an object  object is generally constant  so let's make const variable  so I am declaring some variable"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 598.9,
+      "end": 613.9,
+      "text": " and declaring objects in curly braces  you have to make key value pair  so I am writing a variable  and if you want to give value  then I am writing my name"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 613.9,
+      "end": 628.9,
+      "text": " then you need another variable  I am writing email  then I am writing contact number  and some random value  so we have an object"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 628.9,
+      "end": 643.9,
+      "text": " which has three values  if I use normal for in  then I am writing  let i in data  and if I want to print i"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 643.9,
+      "end": 658.9,
+      "text": " so let's see what is inside i  so you can see  you have got keys  if you want value of key  then we use data.name"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 658.9,
+      "end": 673.9,
+      "text": " if I print  I want to explain this statement  if I write log data.name  ok  and if you run it"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 673.9,
+      "end": 688.9,
+      "text": " but  when we used for loop in  if we see inside i  we get key value  so at a time"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 688.9,
+      "end": 703.9,
+      "text": " we get only one key  if I write data.i  so my output should be  so in this function  if you use data"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 703.9,
+      "end": 718.9,
+      "text": " then you need to write  i in square bracket  so that key value  will be printed from data  so always remember"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 718.9,
+      "end": 733.9,
+      "text": " we can't write data.i  ok this is the point  if we write off  so let's print i  so you can see"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 733.9,
+      "end": 748.9,
+      "text": " we have got only one error  it means it is not iteratable  so we can't use off keyword on object  so let's use callback function  so let's remove it"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 748.9,
+      "end": 763.9,
+      "text": " and the callback function  we copy it  and paste it  and my data is in place of my list  so let's see"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 763.9,
+      "end": 778.9,
+      "text": " can we use for each function  on object  so we can see  for is not a function  so if data is object"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 778.9,
+      "end": 793.9,
+      "text": " then you can't use for each function  so whenever you want to use  on object then you can use  for each function  whereas for in and normal for loop"
+    },
+    {
+      "number": "13",
+      "title": "iterators for in for of and for each",
+      "start": 793.9,
+      "end": 805.9,
+      "text": " you can use on all type  but for off also you can't use  so this was about iterators  see you in next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial and today we are going to talk about iterators we have seen a topic before this, loops where we have talked about traditional loops which are used in other programming languages like for loop, while loop and do while loop where we have done some programming here you can see we have done a program for loop and then we have read about while loop and then we have read about do while so today we are going to talk about iterators iterators is a part of a loop we have taken it after some concepts because we have done some programs on these concepts so let's make a file today's file name will be 12 underscore iterators dot js now to understand this iterators we will use an array which we will name as let my list and we will put some random numbers in this list like I am putting some random numbers and you can see here I have saved total 5 numbers in a list now when we were using these numbers through loop, then you were writing something like this if I want to use for loop, then for you need a variable to count index whose initial index will be 0 then you will go till the length of your list means this is 0, 1, 2, 3, 4 means you will go till 4th index while you have 5 elements then you will have to move your index from 1 to next and then when you print log we will print something like this using back tick so let's make a statement so if I want to print my variable then I will use dollar curly brace then we want to print its value value equals to dollar curly brace your value will come from my list and from my list, it will come from ith index we have done this before when we were using for loop so you can see every value's index number is printed and from my list value of that index is printed so this was our normal for loop but in this case we need 3 conditions where to start, where to go and how much to change your index there is another way of this which we are going to call iterators so let's know that index so you have to write for then round brackets, opening and closing brackets and here you will write let i then you don't have to initialize anything you just have to write in and the data inside the array you want to write my list so you can see here let i in my list so let's print and see what exactly happens so if I get the same output then we can use it for loop for let i in my list so we are getting the same output that the value is printed in the place of i and the value of my list's index is printed but here your syntax for loop is simplified here you don't have to give starting value and you don't have to give length of your list it automatically calculates how many elements you have and every time it prints the value of each index so we will get index in i and the value of my list's index is printed so this is one way second way is if I want more simplified so let's write for then you have to write a variable that is let i instead of in we will write off we will write my list so we have written let i of my list now let's print and see what is coming in our statement ok and then if we run something here we get this output so when we printed i we got value in the place of i it means we won't get index from off that's why we are getting undefined in this so basically what is off doing is it is giving you value directly so if you want to print print i directly and you will get value in i like this so you can see your output and you will get value from my list which is our list here I will copy it from here and paste it with our program so whenever I want some elements directly without index then we can use off keyword this was second type third type is for each which is generally used for callback functions we haven't made any video on callback yet so we will cover it in next video but before that let's know how exactly for each works so let's comment it and if we write here same list so I will copy the list from here so how does for each work so you have to simply write your list name and in small case you have to write for and capital e for each ok, round brackets, semicolon so for each's input will be a function which we call callback function which we will definitely talk about in next videos but for now you have to remember syntax because we will not make video on iterators again and again so in my list you will call a function and for each you will call a function you can name it anything like I am writing my function generally we call function as round brackets now here you have to remember you don't have to give round brackets but this is definitely a function name now we have to write body of it so let's write body so function, name of function is my function and body is for each now look at this syntax carefully we have defined a list and we have called for each function and we have written my function in it ok, now look this my function will get a value by default so I will write that value we have taken a variable you can write anything and here we will log console.log to see what is coming inside x ok, we have not called my function by giving round brackets but still it will get a call and you can see directly inside x there is no loop here but still we are getting all elements one by one so this is used in for each in for each you get another facility so you get value directly that's why I gave value if you add another parameter inside my function like I have written index so inside this variable index you will get index number of every element where value is being printed so you don't have to add a loop so let's print both together this one and this one ok, so look we want to print variables so we will write index and we will print value so let's clear and see the output so we are getting output from for loop we are getting in index i so for value we have to write index in my list square bracket so for each is doing all this automatically if you want value directly then pass one parameter if you pass other parameter then automatically you will get index it will not work like this if I write index and value then it will give value so we will keep index on other position then you can pass third parameter like I am writing my list so every time my list will be printed so I am writing my list is equal to dollar, in curly brace so in every output you will get this so you can pass three parameters so this was for each statement let's see if I can use same operations on objects so let's make an object object is generally constant so let's make const variable so I am declaring some variable and declaring objects in curly braces you have to make key value pair so I am writing a variable and if you want to give value then I am writing my name then you need another variable I am writing email then I am writing contact number and some random value so we have an object which has three values if I use normal for in then I am writing let i in data and if I want to print i so let's see what is inside i so you can see you have got keys if you want value of key then we use data.name if I print I want to explain this statement if I write log data.name ok and if you run it but when we used for loop in if we see inside i we get key value so at a time we get only one key if I write data.i so my output should be so in this function if you use data then you need to write i in square bracket so that key value will be printed from data so always remember we can't write data.i ok this is the point if we write off so let's print i so you can see we have got only one error it means it is not iteratable so we can't use off keyword on object so let's use callback function so let's remove it and the callback function we copy it and paste it and my data is in place of my list so let's see can we use for each function on object so we can see for is not a function so if data is object then you can't use for each function so whenever you want to use on object then you can use for each function whereas for in and normal for loop you can use on all type but for off also you can't use so this was about iterators see you in next video"
+}

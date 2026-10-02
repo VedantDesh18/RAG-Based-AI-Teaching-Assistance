@@ -1,0 +1,544 @@
+{
+  "chunks": [
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 0.0,
+      "end": 15.5,
+      "text": " Hello friends, welcome back to the javascript tutorial  In last video we saw some operators  among them we saw comparison and relational operator  we have already seen them  let's talk about string operator"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 15.5,
+      "end": 28.900000000000002,
+      "text": " string operator is generally used  when the output is in string format  suppose we have some variable  like variable x and there is a data in this variable  like I have entered the name as Ajay"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 30.0,
+      "end": 46.5,
+      "text": " then we have another variable y  which has some other data  if I want to print both the values  then I will write console.log  and here I will write x plus y"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 46.84,
+      "end": 61.82,
+      "text": " we know that x plus y is an arithmetic operator  but arithmetic operator is performed on numbers  so here x is neither number nor y  so what will happen with them  to run this we will go to terminal"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 61.82,
+      "end": 74.5,
+      "text": " and type the file name  node file name is  06  underscore operators  dot js"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 74.72,
+      "end": 89.03999999999999,
+      "text": " so you can see that both are printed in same line  which means both are concatenated  if you want space between them  then you have to add a plus sign  and space between them"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 89.56,
+      "end": 104.32,
+      "text": " so this is one way  in which we have seen that x value will be printed as Ajay  then in double quotes you have taken second string  so space will be in that and in third string you will get y  so if you run it again"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 104.41999999999999,
+      "end": 118.14,
+      "text": " so you will see that Ajay is in x  space is in double quotes and Ramesh is in last  if I take third variable like I have written h  so instead of h  I will write"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 118.67999999999999,
+      "end": 133.24,
+      "text": " percentage common  let's say 70  and I have to add this percentage with them  so I have to write plus  then double quotes and space"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 133.24,
+      "end": 146.78,
+      "text": " plus your percentage  so in this way we have concatenated numbers  with string  now it will look a little complicated  so we are adding string, variables and numbers"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 146.78,
+      "end": 161.74,
+      "text": " so here add means concatenate  so what is alternative solution for this  so let me comment this line  and show you a new way which is used a lot in advanced javascript  so you have to write console dot log"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 162.08,
+      "end": 176.04000000000002,
+      "text": " and here you have to write back ticks  it is on top of tab button  single quote are different  back ticks are different  so in left hand side of 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 176.04000000000002,
+      "end": 191.52,
+      "text": " it is written as back tick  so here I will write my statement as it is  so I wanted x  so to write x you have to use dollar  and in curly braces you will write x"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 192.08,
+      "end": 205.44,
+      "text": " then you want space so you give space  and other variables like dollar  curly braces  and other variables like space  so your third variable is dollar"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 205.44,
+      "end": 220.34,
+      "text": " and curly braces is your third variable  if you run it again  you will get same output  which you get from normal statement  so what is the use of this"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 220.34,
+      "end": 229.78,
+      "text": " so what is the benefit of this  so if you want to add statement  student  one  student one is ajay"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 230.04,
+      "end": 243.74,
+      "text": " space  student two is ramesh  and percentage is equals to  so in this way  whenever you want to do string formation"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 243.74,
+      "end": 260.62,
+      "text": " so you can do it easily  whenever you want to print variable value  you have to write dollar, curly braces and variable name  so whatever output you got  whatever you have written"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 260.94,
+      "end": 274.53999999999996,
+      "text": " so you don't have to break it  so in this case if you want to write this statement  console.log  and here you have to write  student"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 275.03999999999996,
+      "end": 288.0,
+      "text": " one  space plus  x plus  space student two  plus"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 288.0,
+      "end": 301.66,
+      "text": " y  space  double quotes  space plus  so in this way when you write"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 301.66,
+      "end": 315.44,
+      "text": " you will get same output  so if you want to use this in single statement  so you can write like this  so let's move ahead  so in this way we can use this in string operator"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 315.44,
+      "end": 327.96,
+      "text": " if you put minus somewhere you will get error  so if you want to see  console.log  console.log  x minus y"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 328.46,
+      "end": 341.44,
+      "text": " so you can see x is string and y is also string  and you want to do operation on it  arithmetic operation  so you got output not a number  so x is not a number and y is also not a number"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 342.65999999999997,
+      "end": 355.88,
+      "text": " so suppose if you have done x minus percentage  so what will you get  so x is not a number  percentage is a number but it cannot do subtraction  so this is your string operators"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 357.97999999999996,
+      "end": 373.24,
+      "text": " so let's move ahead  let's talk about next operator logical operators  we have to use this many times  because there will be many conditions in our program  variable is age"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 373.24,
+      "end": 388.02000000000004,
+      "text": " so I will take random value like 32  then I will take let gender  so I will take value in string  in small case  so we will get these two values from user"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 388.02000000000004,
+      "end": 404.03999999999996,
+      "text": " now I have to put condition  that if age and gender  both satisfy same condition  then only I have to allow some conditions  like in this case"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 404.09999999999997,
+      "end": 417.18,
+      "text": " we have to write condition like  age is greater than or equal to 18  one condition  and second condition is gender is compulsory  so we have to get it"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 417.18,
+      "end": 432.32,
+      "text": " if both conditions are satisfied  then only I want to move ahead  so how do we write this expression  so to write this expression  I will directly type"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 433.32,
+      "end": 448.94,
+      "text": " console.log  and I will write here  age is greater than or equal to 18  and second condition is gender  is equal to equal to male"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 448.94,
+      "end": 463.35999999999996,
+      "text": " so we have written two different conditions  we have seen these conditions with relational operator  now the output of this will be true or false  second parameter will also be true or false  now I have to allow only when both are true"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 463.35999999999996,
+      "end": 478.23999999999995,
+      "text": " so here we have to use AND  so we need both true  then only we will get true result  so let's run this  so both cases are true"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 478.29999999999995,
+      "end": 491.88,
+      "text": " age is greater than or equal to 18  age is equal to male  so let's false one condition  age is 16  so if I compile this"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 491.88,
+      "end": 504.66,
+      "text": " so we have got false  so both conditions are compulsory true  so here we have relational operator  and on both relational operator  this logical AND will work"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 505.06,
+      "end": 519.06,
+      "text": " if I write or here  we write or from vertical bar  so one condition should be true  so in this case age is 16  which is not greater than or equal to 18"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 519.06,
+      "end": 532.88,
+      "text": " but gender is male  so one condition is true  so when we will read conditional statement  then we will use  logical operators"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 533.24,
+      "end": 548.8399999999999,
+      "text": " so here we have used two logical operators  so for these two relational operators  are mandatory  so let's move ahead to bitwise operator  so I will comment this"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 549.3199999999999,
+      "end": 560.74,
+      "text": " for bitwise operator  suppose we have one variable  variable x is equal to 7  and second variable is  y is equal to 2"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 562.52,
+      "end": 579.76,
+      "text": " we have taken two variables  so when you have taken these two variables  comment this  so we have two variables x and y  and I want to see logical"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 579.76,
+      "end": 594.92,
+      "text": " bitwise operator so I will write console.log  now if I directly write  x and y  double AND is used to return true and false  so when you write single AND"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 595.0799999999999,
+      "end": 607.9399999999999,
+      "text": " so your output is 5  so it does not mean that y is coming  if I change this value to 7  so we will check our output  so I will write 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 607.9399999999999,
+      "end": 621.6999999999999,
+      "text": " so in this case 1 is coming  so I will write 15  so it does not mean that we are printing second value  so this single AND is called bitwise operator  so how does it work"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 622.46,
+      "end": 635.0400000000001,
+      "text": " so first of all this value we have written  7, it converts it  convert into  binary so the equivalent binary of 7  will be 1 1 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 636.0400000000001,
+      "end": 653.4000000000001,
+      "text": " if you convert 15 into equivalent binary  if you convert it to  into binary  so the 15 binary you will get  will be 1 1 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 653.7800000000001,
+      "end": 665.0,
+      "text": " in 4 bit  in 4 bit  so if you perform AND operator on this  so for AND operator you should know true table  like when we use AND"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 665.32,
+      "end": 681.18,
+      "text": " so you have to be careful  how I am writing  so in AND operator if your both  inputs  are 1 then your output will be 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 681.18,
+      "end": 696.14,
+      "text": " if one input is 1 and one input is 0  then your output will be 0  same when you write 1  and 0  so this will also have"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 696.14,
+      "end": 707.18,
+      "text": " 0 output  and when 0 and 0 are same  so in that case also your output will be 0  so your output will be 1 only when  both inputs are 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 707.8,
+      "end": 722.8399999999999,
+      "text": " so in this case this is AND operator  if we talk about OR operator  so I am copying and pasting here OR operator means single vertical bar  so in that case  if any one is true then it will work"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 722.8399999999999,
+      "end": 736.4,
+      "text": " it will give 0 only when both are 0  so we have converted 7 into binary  and converted 15 into binary  now you have to perform AND operator on these  so if you are performing AND operator"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 736.4,
+      "end": 749.56,
+      "text": " then you can see  see let's start from here  for AND operator  output of 1 and 0 will be 0  for 1 and 1 will be 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 749.66,
+      "end": 767.7399999999999,
+      "text": " again for 1 and 1 will be 1  in this case if you want to convert  this again  convert to decimal  so convert to decimal"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 768.04,
+      "end": 781.02,
+      "text": " so automatically  decimal  ignore the spelling  so if you do this  automatically your output will be 0111"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 781.4399999999999,
+      "end": 796.56,
+      "text": " so that's why we got 7  same if you use OR operator  like if you write here OR  so in OR case  for OR it will be 111"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 796.56,
+      "end": 819.02,
+      "text": " and for 01 it will be 1  so this type of bit wise operator  you have to perform when you  work on binary values  so there is another operator called shift operator"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 819.62,
+      "end": 836.4399999999999,
+      "text": " it is not written in the list  so there is another operator called shift operator  there are two types of operator left shift and right shift  so this is not used much  if you are doing normal development"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 836.4399999999999,
+      "end": 849.0600000000001,
+      "text": " so when you are dealing with binary values  this will help you  so let's write again  we have already declared two values  so x value is 7"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 849.94,
+      "end": 862.16,
+      "text": " so  if we write console  console.log  and here we write  x right shift 2"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 865.34,
+      "end": 878.74,
+      "text": " and if we check the output here  so the output we get is like this  1  so what was the value of x  so if we convert it to binary"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 878.74,
+      "end": 891.7,
+      "text": " so the binary of 7 was 111  so what does right shift mean  delete the two digits of right  so the binary value you get  convert it to decimal again so you get 1"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 891.98,
+      "end": 907.12,
+      "text": " same if we try for y  so y right shift 2  so the binary value of y was 1111  so if we delete the last two  so the binary value of y is 3"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 907.12,
+      "end": 920.76,
+      "text": " so you should know how to convert decimal to binary  and binary to decimal  so we get 3  if we talk about left shift  so I write it like this"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 922.0600000000001,
+      "end": 937.0,
+      "text": " and here also  so 7 and 15  so this was for 15 and this was also for 15  so the binary of 7 was 111  so left shift 2 means put two zeros behind it"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 937.0,
+      "end": 950.0,
+      "text": " so the new number we get  convert it to decimal again  so the new number we get  1,2,4,8  12,16"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 950.0,
+      "end": 965.12,
+      "text": " 28  so the final value we get is 28  so the binary of 15 was 111  so we have to put two zeros behind 111  so this automatically shifted to left"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 965.12,
+      "end": 978.56,
+      "text": " so if you convert it  1,2,4,4,8  12,12,16  28  28 plus 32"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 978.56,
+      "end": 993.12,
+      "text": " so 28 plus 32  it becomes 50  we will check the output  so if you run it, sorry 60  so see 28 and 60"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 993.12,
+      "end": 1006.84,
+      "text": " so in left shift put two zeros behind it  and in right shift discard the two digits behind it  and for the final result you have to convert it  to decimal  so these were our shift operators"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1006.84,
+      "end": 1018.1600000000001,
+      "text": " now we will talk about  ternary operators  ternary operator works like a conditional statement  so I will comment it  so we will comment all these lines"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1018.1600000000001,
+      "end": 1033.16,
+      "text": " and for ternary operators  we will directly write some conditions  like console.log  and here  I have to write some conditions"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1033.16,
+      "end": 1046.48,
+      "text": " so see  it works in the form of alternative  like we have one condition  let x is 5  and for y is 7"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1046.48,
+      "end": 1061.48,
+      "text": " and we have written a condition  if x is greater than y  if this condition is true  so I have written  x is greater"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1061.48,
+      "end": 1076.8,
+      "text": " if it is not true  so I have written  y is greater  x is greater than y  if this condition is true"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1076.8,
+      "end": 1091.8,
+      "text": " so you have to do this  if this condition is false  so you have to do second  so see here x is 5  so obviously it is false"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1091.8,
+      "end": 1107.12,
+      "text": " so it will print second  so if I reverse this value  if you want to finish the work in one line  so you can use these ternary operators  so these were the basic operators"
+    },
+    {
+      "number": "07",
+      "title": "operators in javascript part 2",
+      "start": 1107.12,
+      "end": 1114.12,
+      "text": " we will solve many problems in future  because we have to use these operators in every project  so we will see you in the next video"
+    }
+  ],
+  "text": " Hello friends, welcome back to the javascript tutorial In last video we saw some operators among them we saw comparison and relational operator we have already seen them let's talk about string operator string operator is generally used when the output is in string format suppose we have some variable like variable x and there is a data in this variable like I have entered the name as Ajay then we have another variable y which has some other data if I want to print both the values then I will write console.log and here I will write x plus y we know that x plus y is an arithmetic operator but arithmetic operator is performed on numbers so here x is neither number nor y so what will happen with them to run this we will go to terminal and type the file name node file name is 06 underscore operators dot js so you can see that both are printed in same line which means both are concatenated if you want space between them then you have to add a plus sign and space between them so this is one way in which we have seen that x value will be printed as Ajay then in double quotes you have taken second string so space will be in that and in third string you will get y so if you run it again so you will see that Ajay is in x space is in double quotes and Ramesh is in last if I take third variable like I have written h so instead of h I will write percentage common let's say 70 and I have to add this percentage with them so I have to write plus then double quotes and space plus your percentage so in this way we have concatenated numbers with string now it will look a little complicated so we are adding string, variables and numbers so here add means concatenate so what is alternative solution for this so let me comment this line and show you a new way which is used a lot in advanced javascript so you have to write console dot log and here you have to write back ticks it is on top of tab button single quote are different back ticks are different so in left hand side of 1 it is written as back tick so here I will write my statement as it is so I wanted x so to write x you have to use dollar and in curly braces you will write x then you want space so you give space and other variables like dollar curly braces and other variables like space so your third variable is dollar and curly braces is your third variable if you run it again you will get same output which you get from normal statement so what is the use of this so what is the benefit of this so if you want to add statement student one student one is ajay space student two is ramesh and percentage is equals to so in this way whenever you want to do string formation so you can do it easily whenever you want to print variable value you have to write dollar, curly braces and variable name so whatever output you got whatever you have written so you don't have to break it so in this case if you want to write this statement console.log and here you have to write student one space plus x plus space student two plus y space double quotes space plus so in this way when you write you will get same output so if you want to use this in single statement so you can write like this so let's move ahead so in this way we can use this in string operator if you put minus somewhere you will get error so if you want to see console.log console.log x minus y so you can see x is string and y is also string and you want to do operation on it arithmetic operation so you got output not a number so x is not a number and y is also not a number so suppose if you have done x minus percentage so what will you get so x is not a number percentage is a number but it cannot do subtraction so this is your string operators so let's move ahead let's talk about next operator logical operators we have to use this many times because there will be many conditions in our program variable is age so I will take random value like 32 then I will take let gender so I will take value in string in small case so we will get these two values from user now I have to put condition that if age and gender both satisfy same condition then only I have to allow some conditions like in this case we have to write condition like age is greater than or equal to 18 one condition and second condition is gender is compulsory so we have to get it if both conditions are satisfied then only I want to move ahead so how do we write this expression so to write this expression I will directly type console.log and I will write here age is greater than or equal to 18 and second condition is gender is equal to equal to male so we have written two different conditions we have seen these conditions with relational operator now the output of this will be true or false second parameter will also be true or false now I have to allow only when both are true so here we have to use AND so we need both true then only we will get true result so let's run this so both cases are true age is greater than or equal to 18 age is equal to male so let's false one condition age is 16 so if I compile this so we have got false so both conditions are compulsory true so here we have relational operator and on both relational operator this logical AND will work if I write or here we write or from vertical bar so one condition should be true so in this case age is 16 which is not greater than or equal to 18 but gender is male so one condition is true so when we will read conditional statement then we will use logical operators so here we have used two logical operators so for these two relational operators are mandatory so let's move ahead to bitwise operator so I will comment this for bitwise operator suppose we have one variable variable x is equal to 7 and second variable is y is equal to 2 we have taken two variables so when you have taken these two variables comment this so we have two variables x and y and I want to see logical bitwise operator so I will write console.log now if I directly write x and y double AND is used to return true and false so when you write single AND so your output is 5 so it does not mean that y is coming if I change this value to 7 so we will check our output so I will write 1 so in this case 1 is coming so I will write 15 so it does not mean that we are printing second value so this single AND is called bitwise operator so how does it work so first of all this value we have written 7, it converts it convert into binary so the equivalent binary of 7 will be 1 1 1 if you convert 15 into equivalent binary if you convert it to into binary so the 15 binary you will get will be 1 1 1 in 4 bit in 4 bit so if you perform AND operator on this so for AND operator you should know true table like when we use AND so you have to be careful how I am writing so in AND operator if your both inputs are 1 then your output will be 1 if one input is 1 and one input is 0 then your output will be 0 same when you write 1 and 0 so this will also have 0 output and when 0 and 0 are same so in that case also your output will be 0 so your output will be 1 only when both inputs are 1 so in this case this is AND operator if we talk about OR operator so I am copying and pasting here OR operator means single vertical bar so in that case if any one is true then it will work it will give 0 only when both are 0 so we have converted 7 into binary and converted 15 into binary now you have to perform AND operator on these so if you are performing AND operator then you can see see let's start from here for AND operator output of 1 and 0 will be 0 for 1 and 1 will be 1 again for 1 and 1 will be 1 in this case if you want to convert this again convert to decimal so convert to decimal so automatically decimal ignore the spelling so if you do this automatically your output will be 0111 so that's why we got 7 same if you use OR operator like if you write here OR so in OR case for OR it will be 111 and for 01 it will be 1 so this type of bit wise operator you have to perform when you work on binary values so there is another operator called shift operator it is not written in the list so there is another operator called shift operator there are two types of operator left shift and right shift so this is not used much if you are doing normal development so when you are dealing with binary values this will help you so let's write again we have already declared two values so x value is 7 so if we write console console.log and here we write x right shift 2 and if we check the output here so the output we get is like this 1 so what was the value of x so if we convert it to binary so the binary of 7 was 111 so what does right shift mean delete the two digits of right so the binary value you get convert it to decimal again so you get 1 same if we try for y so y right shift 2 so the binary value of y was 1111 so if we delete the last two so the binary value of y is 3 so you should know how to convert decimal to binary and binary to decimal so we get 3 if we talk about left shift so I write it like this and here also so 7 and 15 so this was for 15 and this was also for 15 so the binary of 7 was 111 so left shift 2 means put two zeros behind it so the new number we get convert it to decimal again so the new number we get 1,2,4,8 12,16 28 so the final value we get is 28 so the binary of 15 was 111 so we have to put two zeros behind 111 so this automatically shifted to left so if you convert it 1,2,4,4,8 12,12,16 28 28 plus 32 so 28 plus 32 it becomes 50 we will check the output so if you run it, sorry 60 so see 28 and 60 so in left shift put two zeros behind it and in right shift discard the two digits behind it and for the final result you have to convert it to decimal so these were our shift operators now we will talk about ternary operators ternary operator works like a conditional statement so I will comment it so we will comment all these lines and for ternary operators we will directly write some conditions like console.log and here I have to write some conditions so see it works in the form of alternative like we have one condition let x is 5 and for y is 7 and we have written a condition if x is greater than y if this condition is true so I have written x is greater if it is not true so I have written y is greater x is greater than y if this condition is true so you have to do this if this condition is false so you have to do second so see here x is 5 so obviously it is false so it will print second so if I reverse this value if you want to finish the work in one line so you can use these ternary operators so these were the basic operators we will solve many problems in future because we have to use these operators in every project so we will see you in the next video"
+}

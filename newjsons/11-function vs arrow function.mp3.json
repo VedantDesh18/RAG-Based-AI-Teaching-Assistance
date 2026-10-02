@@ -1,0 +1,677 @@
+{
+  "chunks": [
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 0.0,
+      "end": 13.6,
+      "text": " Hello friends, welcome back to the JavaScript tutorial  Today we are going to talk about functions in JavaScript  Basically, what is a function?  Function is a group of instructions  where we have to do a task"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 13.6,
+      "end": 23.6,
+      "text": " and whatever instructions we write for that task  are made for that task  so it is important to keep them together  so we write them under a function  The second parameter of a function is"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 23.6,
+      "end": 33.6,
+      "text": " that we can use that function  as a reusability  You write a function once, whenever you need  you call that function, it will do its job  and return the result"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 33.6,
+      "end": 43.6,
+      "text": " You don't need to write that code again and again  So let's see how to write a function in JavaScript  So let's create a file in our folder  whose name will be  10 underscore function dot js"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 43.6,
+      "end": 53.6,
+      "text": " 10 underscore function dot js  10 underscore function dot js  We have to write a function in this file  So let's assume  we can give any name to the function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 53.6,
+      "end": 65.6,
+      "text": " It is not mandatory  so we give a very basic name  So I have given a name to the function  I am giving my name, Yogesh  and you have to"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 65.6,
+      "end": 75.6,
+      "text": " put up round brackets  by entering  curly braces  Now what is Yogesh?  Your browser will have to tell you"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 75.6,
+      "end": 85.6,
+      "text": " so you have to write a keyword here, function  See, what have we written?  Function, this is a predefined keyword  You have given a name to a function  which I have given my name"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 85.6,
+      "end": 95.6,
+      "text": " You have written round brackets  and then you have used curly braces  Now  what task do you have to do in this bracket?  For example, I have given a task to Yogesh"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 95.6,
+      "end": 105.6,
+      "text": " What do you do?  Wish everyone  So I have written  Hello everyone  Ok"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 105.6,
+      "end": 115.6,
+      "text": " If you run this code  then you will write node  your file name  10 underscore function dot js  and enter"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 115.6,
+      "end": 125.6,
+      "text": " You will not get anything in the output  Why? Because the task of saying hello everyone  is given to Yogesh  Till you don't call Yogesh  Yogesh will not be able to do that task"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 125.6,
+      "end": 135.6,
+      "text": " So you have to call him  So here  we have to call him  So to call him you have to write Yogesh  and round brackets"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 135.6,
+      "end": 145.6,
+      "text": " It is mandatory to write round brackets  because it will tell you that this is a function named Yogesh  which you have called, it will go there  and it will complete the task  So let's run this code"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 145.6,
+      "end": 155.6,
+      "text": " and you can see  your message is here  Let's  make another function  I will name it function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 155.6,
+      "end": 165.6,
+      "text": " This will be a different function  I will name it  suppose Ramesh  round brackets  Now I will give a task to Ramesh"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 165.6,
+      "end": 175.6,
+      "text": " console dot log  What do you do?  So I have to call Ramesh  So call Ramesh  Ramesh"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 175.6,
+      "end": 185.6,
+      "text": " and call him  You can see  First you called Yogesh  Then Yogesh called at line 1  and he completed his task"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 185.6,
+      "end": 195.6,
+      "text": " Then you called Ramesh  at line 11, he jumped from there  and went to line 6  and he completed his task  Always remember"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 195.6,
+      "end": 205.6,
+      "text": " that body is a habit of writing above  Suppose if I remove both these statements  and write it here  and then  run it"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 205.6,
+      "end": 215.6,
+      "text": " then it will be called here  because we have written it in a simple case  It will call Yogesh  in your page, Yogesh function will be there  but when we will read some other functions"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 215.6,
+      "end": 225.6,
+      "text": " in that case, it will not be called  So always remember  whenever you are writing a body of a function  whatever we have written above, this is the body  it is a habit of writing above"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 225.6,
+      "end": 235.6,
+      "text": " So it will load first  and then you can call the loaded function  from below  So this is our normal function  Now"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 235.6,
+      "end": 245.6,
+      "text": " I will tell Yogesh  to take a value  Suppose I want to give a value to Yogesh  like 5  Now"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 245.6,
+      "end": 255.6,
+      "text": " this 5 value, Yogesh has to receive  So here  to receive that variable  you have to write a variable in bracket  So I will give a random name to that variable"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 255.6,
+      "end": 265.6,
+      "text": " like a number  So you have called Yogesh  and sent a value  It will go to Yogesh  and you will get the value in num"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 265.6,
+      "end": 275.6,
+      "text": " Now you can use this num value  in any of the brackets  Suppose I want to print 5 after every 1  So you have two options  either write a plus sign and write num"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 275.6,
+      "end": 285.6,
+      "text": " or the one we are going to use frequently  in back tick  write the whole statement  which is on the tab button  and here"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 285.6,
+      "end": 295.6,
+      "text": " give a dollar and write the name of the variable  in curly braces  So you don't have to write a plus sign  So let's see what will happen  See"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 295.6,
+      "end": 305.6,
+      "text": " the work you gave to Yogesh  it printed the message  and the value you sent from below  it printed that value also  Same way you didn't give any value to Ramesh"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 305.6,
+      "end": 315.6,
+      "text": " so here no value was expected  and it did its work  So this sequence matters  If I call Ramesh first, he will do his work  and then Yogesh"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 315.6,
+      "end": 325.6,
+      "text": " So this is  the way to write a function  So let's make it  a little meaningful  We have given a random name"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 325.6,
+      "end": 335.6,
+      "text": " Let's do the same  I have to write a function  because  we have to allocate a task  I will give a name to this function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 335.6,
+      "end": 345.6,
+      "text": " Addition  Now the function's work is  to add  So you have to give a value  So when I call addition"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 345.6,
+      "end": 355.6,
+      "text": " you give a value  Like I have given two numbers  4 and 5  So here I have to receive two numbers  Like I write num1, num2"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 355.6,
+      "end": 365.6,
+      "text": " So from here you have passed two parameters  and here they have been received  num1 and num2  Now num1 will have a value of 4  num2 will have a value of 5"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 365.6,
+      "end": 375.6,
+      "text": " So the sequence in which you have sent  will have the same value  Now you have to add  So let's print the addition  console.log"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 375.6,
+      "end": 385.6,
+      "text": " and here we add num1  plus num2  You can store the result in any other variable  So let's run this  and see"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 385.6,
+      "end": 395.6,
+      "text": " Your addition is done  If someone wants to give a different value to the addition function  he will say that I will call the addition  and give some value to me  No problem"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 395.6,
+      "end": 405.6,
+      "text": " So you don't have to write the addition logic  again  This is the benefit of writing a function  You have passed two different numbers  and both have been printed"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 405.6,
+      "end": 415.6,
+      "text": " That's why  it is used for reusability  That is function  Ok  So what we need now"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 415.6,
+      "end": 425.6,
+      "text": " Like this function will do its task  But whatever task it completes  whatever result it gets  I want that back  Ok"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 425.6,
+      "end": 435.6,
+      "text": " So how to write that  I don't have to print here  I have to  print the result  num1 plus num2"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 435.6,
+      "end": 445.6,
+      "text": " This was our basic task  Now  we store the result in a variable  Let  result is equals to"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 445.6,
+      "end": 455.6,
+      "text": " Now num1 and num2 will be added  to the result  So whatever result it was  you have to return  Sorry"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 455.6,
+      "end": 465.6,
+      "text": " You have to write return result  This means  Whatever calculation happened here  Whatever task was performed  Whatever final result is there"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 465.6,
+      "end": 475.6,
+      "text": " you are returning it back  to the one who called the addition  So here we can see  I have called the addition twice  So on line number 7"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 475.6,
+      "end": 485.6,
+      "text": " you have returned the result  Now on this line  Now you have to store the value returned from there  Ok  So I am writing here"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 485.6,
+      "end": 495.6,
+      "text": " Let res be used  So the value in result  is returned to this function  and stored in res  So let's print it"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 495.6,
+      "end": 505.6,
+      "text": " console.log  and you have to print res  Let's check  Your result is printed  9"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 505.6,
+      "end": 515.6,
+      "text": " So you have sent two numbers to addition function  It was given a task to add  Whatever result will come  save it and send it back  Now after sending it back"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 515.6,
+      "end": 525.6,
+      "text": " Where did the result go?  To the one who called it  Then  Here a value came 9  Then you stored it in a variable"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 525.6,
+      "end": 535.6,
+      "text": " and printed that variable  or you can do the next task  So this is return statement  So now  We saw how a normal function works"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 535.6,
+      "end": 545.6,
+      "text": " without parameter  and then  how to return a value  If you don't want to make a variable  then you can directly"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 545.6,
+      "end": 555.6,
+      "text": " write  call the addition  and give the values  You will get the same output  Because"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 555.6,
+      "end": 565.6,
+      "text": " after this whole statement  the return value is 9  and you have printed that 9  If you want it in any variable  then you have to write the above statement"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 565.6,
+      "end": 575.6,
+      "text": " It is mandatory  So this was a normal function  Then later on it evolved  and then some other type of functions  came"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 575.6,
+      "end": 585.6,
+      "text": " So this was a very basic function type of javascript  So let's move ahead  What is the second type of writing a function  So I will comment all these lines  and move ahead"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 585.6,
+      "end": 595.6,
+      "text": " So moving ahead  The way to write a function is  I gave a name to the function  display  You write equal"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 595.6,
+      "end": 605.6,
+      "text": " Then write function  and then round brackets  Same opening and  calibration  The way is same"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 605.6,
+      "end": 615.6,
+      "text": " The function keyword was at the back  and I removed it and put it in front  Then you write here  I have to print a message  That is console.log"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 615.6,
+      "end": 625.6,
+      "text": " I wrote hello everyone  And then I run it  Then nothing will come in the output  Because you have to call the function  But in this case, what is the name of your function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 625.6,
+      "end": 635.6,
+      "text": " Display  So here I did not put brackets  which we used to put with the function  So here I did not put brackets  So while calling, is it necessary to write brackets"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 635.6,
+      "end": 645.6,
+      "text": " Yes, it is very important  If you write only display  without brackets  If you write only display  Then it will not understand what to do"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 645.6,
+      "end": 655.6,
+      "text": " So display is a function  That is why it is very important to write brackets  If you see now  Still error is coming  So what is the error, let's check"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 655.6,
+      "end": 667.6,
+      "text": " We have  wrongly spelled display  So let's see without brackets  No error  But no output"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 667.6,
+      "end": 679.6,
+      "text": " So here you have called display  But the function did not execute  Let's put brackets  And then we run it  So see"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 679.6,
+      "end": 689.6,
+      "text": " It printed its message  When you sent normal display  When you called, then function did not call  But when you put brackets  Then that function is called"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 689.6,
+      "end": 699.6,
+      "text": " Ok  Then it came more advance  It came arrow function  Which we are going to read in javascript libraries  In that"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 699.6,
+      "end": 709.6,
+      "text": " It is used a lot  Syntax has become a little smaller  Rest of the functionality  Is almost same  So let's know how to write arrow function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 711.6,
+      "end": 723.6,
+      "text": " To write arrow function  First of all you have to give function name  Like we gave display  Then you have to write equals  Now here"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 723.6,
+      "end": 733.6,
+      "text": " You have to write brackets  Instead of function and round brackets  Ok  Here we understood  Then you have to write arrow"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 733.6,
+      "end": 743.6,
+      "text": " Arrow means double equals to sign  And an angular bracket  So this is your arrow function  After this you can use calibrase  Or you can write code in single line"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 743.6,
+      "end": 753.6,
+      "text": " Which is not recommended  So you have to use calibrase  Then you will write console.log  Which is your task  Then I will write here"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 753.6,
+      "end": 763.6,
+      "text": " Hello everyone  Then you clear it  And then run it  So you don't have any error  Then you have to call display function"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 763.6,
+      "end": 773.6,
+      "text": " To call it  You have to write same way  Display, round brackets  Display  And semicolon"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 773.6,
+      "end": 783.6,
+      "text": " Even if you don't give semicolon  It is good practice to have semicolon at the end  So see  Your message is hello everyone  I wrote it in reverse"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 783.6,
+      "end": 793.6,
+      "text": " Hello everyone  So you can see  Output is hello everyone  So it is same way  We just removed function keyword"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 793.6,
+      "end": 803.6,
+      "text": " And here we have display function  In round brackets  So you will think  Why I have to do this  How will I send value"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 803.6,
+      "end": 813.6,
+      "text": " Same way  You have sent two values  So here you have to accept two values  Same way  Only your place has changed"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 813.6,
+      "end": 823.6,
+      "text": " Here you have to write with function keyword  Now you have to use both variables  So let's remove it  And start using backtick  So"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 823.6,
+      "end": 833.6,
+      "text": " Backtick at starting and end  And then you will write  In dollar calibrates  Your value is num1  Plus"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 833.6,
+      "end": 843.6,
+      "text": " Dollar  Calibrates  So let's check  If there is any addition or not  So you can see"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 843.6,
+      "end": 853.6,
+      "text": " It means  There is no arithmetic operation  Why  Because you printed two different variables  If you"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 853.6,
+      "end": 863.6,
+      "text": " Write it like this  And the result  If you print it as a variable  Then you will get 9  I wrote it differently"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 863.6,
+      "end": 873.6,
+      "text": " So you can understand  When is arithmetic operation  In this tick format  So num1 plus num2 is here  But if you use different dollar sign"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 873.6,
+      "end": 883.6,
+      "text": " Then as a single variable  That value will be printed  And as a part of a string  So here  We saw how to pass"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 883.6,
+      "end": 893.6,
+      "text": " Parameters to the arrow function  So here how to write return statement  So same way  If you want to send return  So let's remove it"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 893.6,
+      "end": 903.6,
+      "text": " And write  I want to return num1 plus num2  See  When do you use tick format  When you want to print the value of variables with string"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 903.6,
+      "end": 913.6,
+      "text": " Then you can use variables  In other places  So num1 plus num2  So whatever value will be returned  Will be here"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 913.6,
+      "end": 923.6,
+      "text": " Result of 4 and 5 will be returned  So let's copy it  And  Print this result  Console.log"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 923.6,
+      "end": 933.6,
+      "text": " And here we will print  Result  9  So here we got  Result value 9"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 933.6,
+      "end": 943.6,
+      "text": " Which was expected  Now in arrow function we get a facility  Like if you want to  Return a value  Then you don't need to write bracket"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 943.6,
+      "end": 953.6,
+      "text": " And you can write all this in one line  Second  You don't need to write return keyword  By default  Arrow function returns your value"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 953.6,
+      "end": 963.6,
+      "text": " So you don't need to write return  Let's check  Same output  In arrow function if you want to return a value  Then you don't need to write return"
+    },
+    {
+      "number": "11",
+      "title": "function vs arrow function",
+      "start": 963.6,
+      "end": 965.6,
+      "text": " Statement"
+    }
+  ],
+  "text": " Hello friends, welcome back to the JavaScript tutorial Today we are going to talk about functions in JavaScript Basically, what is a function? Function is a group of instructions where we have to do a task and whatever instructions we write for that task are made for that task so it is important to keep them together so we write them under a function The second parameter of a function is that we can use that function as a reusability You write a function once, whenever you need you call that function, it will do its job and return the result You don't need to write that code again and again So let's see how to write a function in JavaScript So let's create a file in our folder whose name will be 10 underscore function dot js 10 underscore function dot js 10 underscore function dot js We have to write a function in this file So let's assume we can give any name to the function It is not mandatory so we give a very basic name So I have given a name to the function I am giving my name, Yogesh and you have to put up round brackets by entering curly braces Now what is Yogesh? Your browser will have to tell you so you have to write a keyword here, function See, what have we written? Function, this is a predefined keyword You have given a name to a function which I have given my name You have written round brackets and then you have used curly braces Now what task do you have to do in this bracket? For example, I have given a task to Yogesh What do you do? Wish everyone So I have written Hello everyone Ok If you run this code then you will write node your file name 10 underscore function dot js and enter You will not get anything in the output Why? Because the task of saying hello everyone is given to Yogesh Till you don't call Yogesh Yogesh will not be able to do that task So you have to call him So here we have to call him So to call him you have to write Yogesh and round brackets It is mandatory to write round brackets because it will tell you that this is a function named Yogesh which you have called, it will go there and it will complete the task So let's run this code and you can see your message is here Let's make another function I will name it function This will be a different function I will name it suppose Ramesh round brackets Now I will give a task to Ramesh console dot log What do you do? So I have to call Ramesh So call Ramesh Ramesh and call him You can see First you called Yogesh Then Yogesh called at line 1 and he completed his task Then you called Ramesh at line 11, he jumped from there and went to line 6 and he completed his task Always remember that body is a habit of writing above Suppose if I remove both these statements and write it here and then run it then it will be called here because we have written it in a simple case It will call Yogesh in your page, Yogesh function will be there but when we will read some other functions in that case, it will not be called So always remember whenever you are writing a body of a function whatever we have written above, this is the body it is a habit of writing above So it will load first and then you can call the loaded function from below So this is our normal function Now I will tell Yogesh to take a value Suppose I want to give a value to Yogesh like 5 Now this 5 value, Yogesh has to receive So here to receive that variable you have to write a variable in bracket So I will give a random name to that variable like a number So you have called Yogesh and sent a value It will go to Yogesh and you will get the value in num Now you can use this num value in any of the brackets Suppose I want to print 5 after every 1 So you have two options either write a plus sign and write num or the one we are going to use frequently in back tick write the whole statement which is on the tab button and here give a dollar and write the name of the variable in curly braces So you don't have to write a plus sign So let's see what will happen See the work you gave to Yogesh it printed the message and the value you sent from below it printed that value also Same way you didn't give any value to Ramesh so here no value was expected and it did its work So this sequence matters If I call Ramesh first, he will do his work and then Yogesh So this is the way to write a function So let's make it a little meaningful We have given a random name Let's do the same I have to write a function because we have to allocate a task I will give a name to this function Addition Now the function's work is to add So you have to give a value So when I call addition you give a value Like I have given two numbers 4 and 5 So here I have to receive two numbers Like I write num1, num2 So from here you have passed two parameters and here they have been received num1 and num2 Now num1 will have a value of 4 num2 will have a value of 5 So the sequence in which you have sent will have the same value Now you have to add So let's print the addition console.log and here we add num1 plus num2 You can store the result in any other variable So let's run this and see Your addition is done If someone wants to give a different value to the addition function he will say that I will call the addition and give some value to me No problem So you don't have to write the addition logic again This is the benefit of writing a function You have passed two different numbers and both have been printed That's why it is used for reusability That is function Ok So what we need now Like this function will do its task But whatever task it completes whatever result it gets I want that back Ok So how to write that I don't have to print here I have to print the result num1 plus num2 This was our basic task Now we store the result in a variable Let result is equals to Now num1 and num2 will be added to the result So whatever result it was you have to return Sorry You have to write return result This means Whatever calculation happened here Whatever task was performed Whatever final result is there you are returning it back to the one who called the addition So here we can see I have called the addition twice So on line number 7 you have returned the result Now on this line Now you have to store the value returned from there Ok So I am writing here Let res be used So the value in result is returned to this function and stored in res So let's print it console.log and you have to print res Let's check Your result is printed 9 So you have sent two numbers to addition function It was given a task to add Whatever result will come save it and send it back Now after sending it back Where did the result go? To the one who called it Then Here a value came 9 Then you stored it in a variable and printed that variable or you can do the next task So this is return statement So now We saw how a normal function works without parameter and then how to return a value If you don't want to make a variable then you can directly write call the addition and give the values You will get the same output Because after this whole statement the return value is 9 and you have printed that 9 If you want it in any variable then you have to write the above statement It is mandatory So this was a normal function Then later on it evolved and then some other type of functions came So this was a very basic function type of javascript So let's move ahead What is the second type of writing a function So I will comment all these lines and move ahead So moving ahead The way to write a function is I gave a name to the function display You write equal Then write function and then round brackets Same opening and calibration The way is same The function keyword was at the back and I removed it and put it in front Then you write here I have to print a message That is console.log I wrote hello everyone And then I run it Then nothing will come in the output Because you have to call the function But in this case, what is the name of your function Display So here I did not put brackets which we used to put with the function So here I did not put brackets So while calling, is it necessary to write brackets Yes, it is very important If you write only display without brackets If you write only display Then it will not understand what to do So display is a function That is why it is very important to write brackets If you see now Still error is coming So what is the error, let's check We have wrongly spelled display So let's see without brackets No error But no output So here you have called display But the function did not execute Let's put brackets And then we run it So see It printed its message When you sent normal display When you called, then function did not call But when you put brackets Then that function is called Ok Then it came more advance It came arrow function Which we are going to read in javascript libraries In that It is used a lot Syntax has become a little smaller Rest of the functionality Is almost same So let's know how to write arrow function To write arrow function First of all you have to give function name Like we gave display Then you have to write equals Now here You have to write brackets Instead of function and round brackets Ok Here we understood Then you have to write arrow Arrow means double equals to sign And an angular bracket So this is your arrow function After this you can use calibrase Or you can write code in single line Which is not recommended So you have to use calibrase Then you will write console.log Which is your task Then I will write here Hello everyone Then you clear it And then run it So you don't have any error Then you have to call display function To call it You have to write same way Display, round brackets Display And semicolon Even if you don't give semicolon It is good practice to have semicolon at the end So see Your message is hello everyone I wrote it in reverse Hello everyone So you can see Output is hello everyone So it is same way We just removed function keyword And here we have display function In round brackets So you will think Why I have to do this How will I send value Same way You have sent two values So here you have to accept two values Same way Only your place has changed Here you have to write with function keyword Now you have to use both variables So let's remove it And start using backtick So Backtick at starting and end And then you will write In dollar calibrates Your value is num1 Plus Dollar Calibrates So let's check If there is any addition or not So you can see It means There is no arithmetic operation Why Because you printed two different variables If you Write it like this And the result If you print it as a variable Then you will get 9 I wrote it differently So you can understand When is arithmetic operation In this tick format So num1 plus num2 is here But if you use different dollar sign Then as a single variable That value will be printed And as a part of a string So here We saw how to pass Parameters to the arrow function So here how to write return statement So same way If you want to send return So let's remove it And write I want to return num1 plus num2 See When do you use tick format When you want to print the value of variables with string Then you can use variables In other places So num1 plus num2 So whatever value will be returned Will be here Result of 4 and 5 will be returned So let's copy it And Print this result Console.log And here we will print Result 9 So here we got Result value 9 Which was expected Now in arrow function we get a facility Like if you want to Return a value Then you don't need to write bracket And you can write all this in one line Second You don't need to write return keyword By default Arrow function returns your value So you don't need to write return Let's check Same output In arrow function if you want to return a value Then you don't need to write return Statement"
+}

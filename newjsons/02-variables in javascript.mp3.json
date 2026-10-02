@@ -1,0 +1,292 @@
+{
+  "chunks": [
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 0.0,
+      "end": 16.0,
+      "text": " Hello friends, welcome to the JavaScript tutorial  Today we are going to talk about variables  If you have used any programming language before this  then you must be knowing very well what are variables  So basically, variables is an identity"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 16.0,
+      "end": 32.0,
+      "text": " in which we store our data  and we can do some operations on that variable  means we can do some operations on our data  and we can store modified data in the variable  and we can use them anywhere"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 32.0,
+      "end": 58.0,
+      "text": " So let's know how to declare variables in JavaScript  So here we have mentioned that you can use a keyword named var  so you have to write var, this is your keyword which is reserved  then you have written a variable named a, which is your variable name  and the 5 which is written is your value"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 58.0,
+      "end": 79.0,
+      "text": " so this means that you have made a variable in the memory  so you have got a memory block named a  and the value in it is 5  Now whenever you use a, you will use value 5  So this is not the only way in JavaScript to declare variables"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 79.0,
+      "end": 92.0,
+      "text": " you have two more ways  So here you can see that if you use let keyword  and use the same variable name a equals to 5  then you will have the same memory block  and the value in it will be 5"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 92.0,
+      "end": 113.0,
+      "text": " Then you can declare a variable from another type  so if you use const keyword then you can store the value in the same variable  So you will feel that why we have used three different keywords  So there is a little difference in all three types  We are going to discuss that difference separately"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 113.0,
+      "end": 134.0,
+      "text": " For now, how to define variables and how to use them  We will see the demonstration of that  So first we will go to our VS Code  In the last video we saw installation and how to run JavaScript program  Today we will revise that we have a folder named JS Tutorial"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 134.0,
+      "end": 153.0,
+      "text": " In this folder we will create a file  This is our second video so I am giving the name of this file  Then we will give the name of our concept  So I will give the name of variable  So this is the name of our file"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 153.0,
+      "end": 170.0,
+      "text": " You can give any name to this file  You can give any name to this file  Now I have to declare a variable here  So you have to use a var keyword  And you have to give a name to a variable"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 170.0,
+      "end": 182.0,
+      "text": " So I have given the name of variable as a  You will write a value in this variable  Then you have to put a semicolon  Now semicolon is mandatory or not  We will discuss this later"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 182.0,
+      "end": 197.0,
+      "text": " So for now you can give a semicolon  Then you have to write a value to print  Console.log  Then you have to write a in bracket  Means only a value will be printed"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 197.0,
+      "end": 214.0,
+      "text": " To run this you have to open your terminal  So you will get the terminal option on the top menu  Or you have to pull the border of your VS Code from the bottom  You will get the terminal for that folder  Here you have to type node-v to check if node is available"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 214.0,
+      "end": 229.0,
+      "text": " Your node version will come  If node is not available means you don't have node.js installed  You can refer to the previous video  If you have node installed then you will get the version  Now you have to run this file"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 229.0,
+      "end": 247.0,
+      "text": " So you have to type node-v to run  Your file name is 02-underscore-variable.js  You can enter and you can see the message is 5  Which we have printed  The value which was there is printed there"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 247.0,
+      "end": 262.0,
+      "text": " If you declare any other variable  For example I have written where my name  So in the variable my name I will write my name  So if I print it again  Console.log"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 262.0,
+      "end": 277.0,
+      "text": " And the name of this variable is my name  If we run it again  Then you can see  Console.log printed the same value  That is 5"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 277.0,
+      "end": 292.0,
+      "text": " The second console.log  The value which was there is printed there  So this was how to declare a variable  You can store any value  Here we have taken the value string"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 292.0,
+      "end": 307.0,
+      "text": " So we have mentioned it in double quotes  If you don't write double quotes  You will get an error  If you read that error  Because Yogesh is an unidentified variable"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 307.0,
+      "end": 322.0,
+      "text": " For your terminal  So here you have to enclose the string in double quotes  Or you can use single quotes in JavaScript  And then you will get your output  So let's discuss"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 322.0,
+      "end": 337.0,
+      "text": " What are the names of variables  So let's discuss  How to define the name of variables  So I will remove it and take a simple variable  So you have stored a value in my name"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 337.0,
+      "end": 352.0,
+      "text": " And then you have printed it  So we will write the same  Console.log and here we will write the name of the variable  This is a valid name of the variable  If you run it again"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 352.0,
+      "end": 367.0,
+      "text": " If you want to write the variable of my name  If someone has given space  So here you can see my and name are different  So if you run this code  You will get an error"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 367.0,
+      "end": 382.0,
+      "text": " Because my is a different entity  And name is a different entity  So whenever you want to declare a name of a variable  You cannot use space  So that is not allowed"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 382.0,
+      "end": 397.0,
+      "text": " So you have to remember that space is not allowed  If you want to give separation  You can use underscore  So if you run it again  And then check"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 397.0,
+      "end": 412.0,
+      "text": " You have to use underscore in console.log  You have to use underscore in console.log  So you can see if you run it  So you can use underscore  In between two different words"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 412.0,
+      "end": 427.0,
+      "text": " Can I use underscore in starting  Yes definitely  You can use underscore in starting  So I will run it again  You can check that our output is getting Yogi"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 427.0,
+      "end": 442.0,
+      "text": " We can use underscore in starting and in the middle  So obviously we can use it in the end  So I can use a number in starting  So I have written 2myname  And I will write 2myname"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 442.0,
+      "end": 457.0,
+      "text": " So that is not allowed  So this will generate error again  That you cannot use any number in starting  Can I use any symbol in starting  So let's check"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 457.0,
+      "end": 472.0,
+      "text": " If I write $  So it is allowing  So I am compiling it  So $ is accepted  But $ is not accepting"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 472.0,
+      "end": 487.0,
+      "text": " So generally  We do not allow special symbols  In variable names  So we cannot use any symbol in starting  So we cannot use any symbol in starting"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 487.0,
+      "end": 502.0,
+      "text": " So we cannot use any symbol in starting  Can we write any variable name in capital  Yes definitely  Because it is just a variable  So you can clear it"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 502.0,
+      "end": 517.0,
+      "text": " So you will get the output  Can I use one word in small case  And the other word in capital  Yes definitely  You can use any combination"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 517.0,
+      "end": 532.0,
+      "text": " So generally how to define variable name  So if your variable name  Is a combination of two different words  So my is one word and name is another  So variable name is always started in small case"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 532.0,
+      "end": 547.0,
+      "text": " And the second word's first letter capital is written  And these are combined  And this type is called camel case  So to declare a standard procedure  You have to follow this"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 547.0,
+      "end": 562.0,
+      "text": " And we will follow it throughout the series  So this was how to declare a variable  And how to print it  If you have any number  We have another variable"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 562.0,
+      "end": 577.0,
+      "text": " If I want to add anything on these two  So I will need a third variable  And we will do some operation on it  And whatever result was there  I have to write z here"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 577.0,
+      "end": 592.0,
+      "text": " And console.log  And we will print our result  So if you run it  You can see your result is 12  Means you are doing some operation on two variables"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 592.0,
+      "end": 607.0,
+      "text": " And you have stored their data in third variable  So this is how you can declare the variable  So let's try using same variables  And declare a variable  Let's declare a variable name"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 607.0,
+      "end": 622.0,
+      "text": " Suppose x, you have put a value 5  Now you are writing console.log  And you have printed x's value  So our expected output is 5  So I will run it again"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 622.0,
+      "end": 637.0,
+      "text": " So you are not able to differentiate  Because when you wrote var keyword, you got the same output  So let's try const  So if I write const keyword  And compile it, we still get 5"
+    },
+    {
+      "number": "02",
+      "title": "variables in javascript",
+      "start": 637.0,
+      "end": 651.0,
+      "text": " So we are not able to differentiate  So you try this much  In the coming video we will discuss  The difference between let, const and var keyword  Thank you"
+    }
+  ],
+  "text": " Hello friends, welcome to the JavaScript tutorial Today we are going to talk about variables If you have used any programming language before this then you must be knowing very well what are variables So basically, variables is an identity in which we store our data and we can do some operations on that variable means we can do some operations on our data and we can store modified data in the variable and we can use them anywhere So let's know how to declare variables in JavaScript So here we have mentioned that you can use a keyword named var so you have to write var, this is your keyword which is reserved then you have written a variable named a, which is your variable name and the 5 which is written is your value so this means that you have made a variable in the memory so you have got a memory block named a and the value in it is 5 Now whenever you use a, you will use value 5 So this is not the only way in JavaScript to declare variables you have two more ways So here you can see that if you use let keyword and use the same variable name a equals to 5 then you will have the same memory block and the value in it will be 5 Then you can declare a variable from another type so if you use const keyword then you can store the value in the same variable So you will feel that why we have used three different keywords So there is a little difference in all three types We are going to discuss that difference separately For now, how to define variables and how to use them We will see the demonstration of that So first we will go to our VS Code In the last video we saw installation and how to run JavaScript program Today we will revise that we have a folder named JS Tutorial In this folder we will create a file This is our second video so I am giving the name of this file Then we will give the name of our concept So I will give the name of variable So this is the name of our file You can give any name to this file You can give any name to this file Now I have to declare a variable here So you have to use a var keyword And you have to give a name to a variable So I have given the name of variable as a You will write a value in this variable Then you have to put a semicolon Now semicolon is mandatory or not We will discuss this later So for now you can give a semicolon Then you have to write a value to print Console.log Then you have to write a in bracket Means only a value will be printed To run this you have to open your terminal So you will get the terminal option on the top menu Or you have to pull the border of your VS Code from the bottom You will get the terminal for that folder Here you have to type node-v to check if node is available Your node version will come If node is not available means you don't have node.js installed You can refer to the previous video If you have node installed then you will get the version Now you have to run this file So you have to type node-v to run Your file name is 02-underscore-variable.js You can enter and you can see the message is 5 Which we have printed The value which was there is printed there If you declare any other variable For example I have written where my name So in the variable my name I will write my name So if I print it again Console.log And the name of this variable is my name If we run it again Then you can see Console.log printed the same value That is 5 The second console.log The value which was there is printed there So this was how to declare a variable You can store any value Here we have taken the value string So we have mentioned it in double quotes If you don't write double quotes You will get an error If you read that error Because Yogesh is an unidentified variable For your terminal So here you have to enclose the string in double quotes Or you can use single quotes in JavaScript And then you will get your output So let's discuss What are the names of variables So let's discuss How to define the name of variables So I will remove it and take a simple variable So you have stored a value in my name And then you have printed it So we will write the same Console.log and here we will write the name of the variable This is a valid name of the variable If you run it again If you want to write the variable of my name If someone has given space So here you can see my and name are different So if you run this code You will get an error Because my is a different entity And name is a different entity So whenever you want to declare a name of a variable You cannot use space So that is not allowed So you have to remember that space is not allowed If you want to give separation You can use underscore So if you run it again And then check You have to use underscore in console.log You have to use underscore in console.log So you can see if you run it So you can use underscore In between two different words Can I use underscore in starting Yes definitely You can use underscore in starting So I will run it again You can check that our output is getting Yogi We can use underscore in starting and in the middle So obviously we can use it in the end So I can use a number in starting So I have written 2myname And I will write 2myname So that is not allowed So this will generate error again That you cannot use any number in starting Can I use any symbol in starting So let's check If I write $ So it is allowing So I am compiling it So $ is accepted But $ is not accepting So generally We do not allow special symbols In variable names So we cannot use any symbol in starting So we cannot use any symbol in starting So we cannot use any symbol in starting Can we write any variable name in capital Yes definitely Because it is just a variable So you can clear it So you will get the output Can I use one word in small case And the other word in capital Yes definitely You can use any combination So generally how to define variable name So if your variable name Is a combination of two different words So my is one word and name is another So variable name is always started in small case And the second word's first letter capital is written And these are combined And this type is called camel case So to declare a standard procedure You have to follow this And we will follow it throughout the series So this was how to declare a variable And how to print it If you have any number We have another variable If I want to add anything on these two So I will need a third variable And we will do some operation on it And whatever result was there I have to write z here And console.log And we will print our result So if you run it You can see your result is 12 Means you are doing some operation on two variables And you have stored their data in third variable So this is how you can declare the variable So let's try using same variables And declare a variable Let's declare a variable name Suppose x, you have put a value 5 Now you are writing console.log And you have printed x's value So our expected output is 5 So I will run it again So you are not able to differentiate Because when you wrote var keyword, you got the same output So let's try const So if I write const keyword And compile it, we still get 5 So we are not able to differentiate So you try this much In the coming video we will discuss The difference between let, const and var keyword Thank you"
+}
