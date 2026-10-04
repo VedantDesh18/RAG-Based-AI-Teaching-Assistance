@@ -1,0 +1,4 @@
+file '../audios/01-how to install nodejs.mp3'
+file '../audios/02-variables in javascript.mp3'
+file '../audios/03-keywords var vs let vs const.mp3'
+file '../audios/04-datatypes in javascript.mp3'

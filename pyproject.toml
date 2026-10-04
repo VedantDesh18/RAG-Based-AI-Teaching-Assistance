@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "videoqa"
+version = "0.1.0"
+description = "Turn any video into a conversation"
+authors = [
+    {name = "VideoQA Team"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "yt-dlp",
+    "faster-whisper",
+    "chromadb",
+    "pydantic",
+    "joblib",
+    "pandas",
+    "scikit-learn",
+    "pyyaml"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.pytest.ini_options]
+markers = [
+    "live: marks tests requiring live Ollama"
+]
+
+[tool.setuptools.packages.find]
+include = ["videoqa*"]

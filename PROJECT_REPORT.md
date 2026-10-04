@@ -257,7 +257,7 @@ User asked this question related to the video chunks, you have to answer in a hu
 | :--- | :--- | :--- | :--- |
 | **Technical Jargon Pronunciation** | Hindi accents in English terms (e.g., `let`, `JSON`, `API`) can occasionally confuse Whisper phonetics. | Tested with Whisper `large-v2` rather than `base` or `small` for superior phonetic comprehension. | Fine-tune Whisper on domain-specific computer science transcripts. |
 | **In-Memory Scalability** | `embeddings.joblib` loads the entire matrix into memory via Pandas. | Suitable for thousands of chunks (~4,628 items, ~43MB). | Migrate to a vector database (e.g., ChromaDB, Milvus, Qdrant, or FAISS). |
-| **Fixed $n$-Window Chunking** | Fixed grouping of 5 segments may occasionally split a single topic across boundaries. | Chunks overlap slightly in speech continuity. | Implement semantic boundary chunking based on pause duration and sentence punctuation. |
+| **Fixed $n$-Window Chunking** | Fixed grouping of 5 segments may occasionally split a single topic across boundaries. | Currently chunks do not overlap. | Implement semantic boundary chunking based on pause duration and sentence punctuation, and true overlap in Phase 3. |
 | **Lexical Code Search Disconnect** | Pure dense embeddings can sometimes under-rank exact syntax queries like `===` vs `==`. | Vector similarity retrieves topical discussion. | Introduce Hybrid Search (combining BM25 lexical search with BGE-M3 dense embeddings). |
 
 ---
@@ -269,7 +269,7 @@ gantt
     title Development & Enhancement Roadmap
     dateFormat  YYYY-MM
     section Phase 1: Storage & Retrieval
-    Migrate to ChromaDB / FAISS            :done, 2026-08, 2026-09
+    Migrate to ChromaDB / FAISS            :2026-08, 2026-09
     Implement Hybrid Search (BM25 + BGE-M3):active, 2026-10, 2026-11
     section Phase 2: User Interface
     Develop Streamlit / React Web App      :2026-11, 2026-12

@@ -7,3 +7,8 @@ output.json
 ollama_embed_response.txt
 jsons/
 embeddings.joblib
+embeddings_chunks.joblib
+newjsons/
+data/
+videoqa.egg-info/
+__pycache__/
