@@ -1,14 +1,17 @@
 model_names:
-  embedding: "bge-m3:latest"
-  llm: "llama3.2"
-ollama_url: "http://localhost:11434"
+  embedding: bge-m3:latest
+  llm: llama3.2
+ollama_url: http://localhost:11434
 paths:
-  data: "data/"
-  index: "embeddings_chunks.joblib"
-  db: "data/db/videoqa.db"
-  chroma: "data/chroma"
+  data: data/
+  index: embeddings_chunks.joblib
+  db: data/db/videoqa.db
+  chroma: data/chroma
 retrieval:
   top_k: 5
-  abstention_threshold: 0.35  # placeholder, calibrated in Phase 1b
+  abstention_threshold: 0.53
 chunking:
   merge_window_size: 5
+ingestion:
+  max_upload_bytes: 2147483648
+  supported_extensions: [".mp4", ".webm", ".mkv", ".mov", ".avi", ".mp3", ".wav", ".m4a"]

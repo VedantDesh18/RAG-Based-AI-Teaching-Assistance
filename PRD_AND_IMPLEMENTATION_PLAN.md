@@ -197,7 +197,7 @@ Turn any video into a conversation. A user pastes a URL or uploads a file, and w
 | FR-RET-1 | Retrieve top-K chunks (default K=5, configurable) by cosine similarity. | P0 |
 | FR-RET-2 | **Hybrid search:** Combine dense similarity (bge-m3) with sparse keyword matching (BM25 or full-text search in SQLite FTS5) via Reciprocal Rank Fusion: `RRF_score(d) = Σ 1/(k + rank_dense(d)) + 1/(k + rank_sparse(d))` with k=60. | P1 |
 | FR-RET-3 | **Reranking:** After initial retrieval of top-20 candidates, rerank with a multilingual cross-encoder (`BAAI/bge-reranker-v2-m3`, chosen to match the bge-m3 embedder's language coverage) to select the final top-5. | P2 |
-| FR-RET-4 | **Abstention threshold:** If the highest **similarity** score among the top-K results is below a configurable floor (default 0.35 — this is a placeholder, not a tuned value; the original report observed ~0.28 for OOD queries but that was never validated; calibrate using the golden question set in Phase 1b), skip LLM generation and return a canned response: "I couldn't find relevant content in this video for your question." **Note:** ChromaDB returns *distances*, not similarities. When using cosine distance (the recommended `hnsw:space` setting), convert via `similarity = 1 - distance` before comparing against this threshold. All threshold comparisons in the codebase must operate on similarity, not raw distance. | P0 |
+| FR-RET-4 | **Abstention & Grounded/Fallback Behavior:** If the highest **similarity** score among the top-K results is at or above the calibrated threshold (default 0.35, to be calibrated in Phase 1b), answer only from retrieved chunks with citations and deep links built in code (never written by LLM). If below the threshold, do NOT stop with a canned refusal. Instead, stream a general answer from the same model using a separate system prompt (concise, general knowledge; never implies video source; no invented citations/timestamps). Governed by config flag `general_fallback.enabled` (default `true`). The `/api/query` SSE contract emits: first a `meta` event (`{grounded: bool}`), then `token` events, then a `done` event (`{grounded, answer_source: "videos" | "general_model", citations, closest_matches, max_similarity_score, timings}`). ChromaDB cosine distances must always be converted via `similarity = 1.0 - distance` before threshold checks. | P0 |
 | FR-RET-5 | **Multi-video retrieval:** When query scope is "library", return results grouped by video with per-video relevance ordering. | P1 |
 
 ### Answer Generation
@@ -692,7 +692,12 @@ Base URL: `http://localhost:8000/api`
 ```
 
 **Response (200, streamed via SSE):**
+
+*Case 1: Grounded answer (max_similarity >= threshold)*
 ```
+event: meta
+data: {"grounded": true}
+
 event: token
 data: {"text": "The "}
 
@@ -703,7 +708,8 @@ data: {"text": "forEach "}
 
 event: done
 data: {
-  "answer": "The forEach method is explained in detail starting at [05:12–06:40]. The instructor demonstrates...",
+  "grounded": true,
+  "answer_source": "videos",
   "citations": [
     {
       "chunk_id": "a3f2b1c4-...",
@@ -717,9 +723,47 @@ data: {
       "text_snippet": "Now let's look at the forEach loop..."
     }
   ],
+  "closest_matches": [],
   "max_similarity_score": 0.84,
-  "retrieval_time_ms": 45,
-  "generation_time_ms": 2100
+  "timings": {
+    "retrieval_ms": 45,
+    "generation_ms": 2100
+  }
+}
+```
+
+*Case 2: Fallback answer (max_similarity < threshold, general_fallback.enabled = true)*
+```
+event: meta
+data: {"grounded": false}
+
+event: token
+data: {"text": "The "}
+
+event: token
+data: {"text": "capital "}
+
+...
+
+event: done
+data: {
+  "grounded": false,
+  "answer_source": "general_model",
+  "citations": [],
+  "closest_matches": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "how to install nodejs",
+      "start_seconds": 120,
+      "start_display": "02:00",
+      "similarity": 0.18
+    }
+  ],
+  "max_similarity_score": 0.18,
+  "timings": {
+    "retrieval_ms": 42,
+    "generation_ms": 1850
+  }
 }
 ```
 
@@ -1067,7 +1111,7 @@ Phases 0–2 total ~32.5 engineer-days. For a single engineer, that is roughly *
 | Layer | Technology |
 |---|---|
 | Language | Python 3.11+ |
-| Backend | FastAPI + Uvicorn |
+| Backend | FastAPI |
 | Job Queue | asyncio background tasks (MVP) → ARQ + Redis (v2) |
 | Transcription | faster-whisper (local) / OpenAI Whisper API (cloud) |
 | Embeddings | Ollama bge-m3 (local) / OpenAI text-embedding-3-small (cloud) |
@@ -1075,7 +1119,7 @@ Phases 0–2 total ~32.5 engineer-days. For a single engineer, that is roughly *
 | Vector Store | ChromaDB (embedded, persistent) |
 | Metadata DB | SQLite (with FTS5 for BM25) |
 | Media Tools | yt-dlp, FFmpeg |
-| Frontend | Next.js 14 (React) |
+| Frontend |  React Js |
 | Deployment | Docker Compose |
 
 ---
@@ -1208,18 +1252,18 @@ videoqa/
 
 | Task | Est. (days) | Depends On | Definition of Done |
 |---|---|---|---|
-| 0.1 Create `pyproject.toml`, package structure under `videoqa/` | 0.5 | — | `pip install -e .` works |
-| 0.2 Move `video_to_mp3.py` logic into `videoqa/core/audio.py` | 0.5 | 0.1 | `from videoqa.core.audio import extract_audio` works |
-| 0.3 Move `create_chunks.py` / `mp3_to_json.py` into `videoqa/core/transcriber.py` | 1 | 0.1 | Transcription callable as a function |
-| 0.4 Move `merge_chunks.py` into `videoqa/core/chunker.py` | 0.5 | 0.1 | Chunker callable as a function |
-| 0.5 Move `process_json.py` into `videoqa/core/indexer.py` | 0.5 | 0.1 | Indexer callable as a function |
-| 0.6 Move `process_incoming.py` into `videoqa/core/retriever.py` + `generator.py` | 1 | 0.1 | Query callable as a function |
-| 0.7 **Fix I-1:** Change indexer to read from merged chunks (`newjsons/`), not raw segments (`jsons/`). Verify index has 932 rows. | 0.5 | 0.4, 0.5 | `embeddings.joblib` rebuilt with 932 rows |
-| 0.8 **Fix I-2:** Remove claim of overlap from report/comments. Add TODO for real overlap in Phase 3. | 0.25 | — | Report updated |
-| 0.9 **Fix I-3:** Remove `:done` from Gantt chart; mark migration as Phase 1 work. | 0.25 | — | Report updated |
-| 0.10 **Fix I-4:** Add similarity-score check in retriever. If `max_score < 0.35`, return abstention. | 0.5 | 0.6 | Automated test passes with OOD query |
-| 0.11 Write unit tests for url_parser, chunker, retriever | 1 | 0.2–0.6 | ≥ 80 % coverage on core modules |
-| 0.12 Create `config.yaml` with all configurable parameters | 0.5 | — | Config loaded at startup |
+| 0.1 Create `pyproject.toml`, package structure under `videoqa/` | 0.5 | — | `pip install -e .` works | DONE 2026-10-04 (commit d409dd4) |
+| 0.2 Move `video_to_mp3.py` logic into `videoqa/core/audio.py` | 0.5 | 0.1 | `from videoqa.core.audio import extract_audio` works | DONE 2026-10-04 (commit d409dd4) |
+| 0.3 Move `create_chunks.py` / `mp3_to_json.py` into `videoqa/core/transcriber.py` | 1 | 0.1 | Transcription callable as a function | DONE 2026-10-04 (commit d409dd4) |
+| 0.4 Move `merge_chunks.py` into `videoqa/core/chunker.py` | 0.5 | 0.1 | Chunker callable as a function | DONE 2026-10-04 (commit d409dd4) |
+| 0.5 Move `process_json.py` into `videoqa/core/indexer.py` | 0.5 | 0.1 | Indexer callable as a function | DONE 2026-10-04 (commit d409dd4) |
+| 0.6 Move `process_incoming.py` into `videoqa/core/retriever.py` + `generator.py` | 1 | 0.1 | Query callable as a function | DONE 2026-10-04 (commit d409dd4) |
+| 0.7 **Fix I-1:** Change indexer to read from merged chunks (`newjsons/`), not raw segments (`jsons/`). Verify index has 932 rows. | 0.5 | 0.4, 0.5 | `embeddings.joblib` rebuilt with 932 rows | DONE 2026-10-04 (commit d409dd4) |
+| 0.8 **Fix I-2:** Remove claim of overlap from report/comments. Add TODO for real overlap in Phase 3. | 0.25 | — | Report updated | DONE 2026-10-04 (commit d409dd4) |
+| 0.9 **Fix I-3:** Remove `:done` from Gantt chart; mark migration as Phase 1 work. | 0.25 | — | Report updated | DONE 2026-10-04 (commit d409dd4) |
+| 0.10 **Fix I-4:** Add similarity-score check in retriever. Read threshold from config. If `max_score < threshold`, return abstention. | 0.5 | 0.6 | Automated test passes with OOD query | DONE 2026-10-04 (commit d409dd4) |
+| 0.11 Write unit tests for url_parser, chunker, retriever | 1 | 0.2–0.6 | ≥ 80 % coverage on core modules | DONE 2026-10-04 (commit d409dd4) |
+| 0.12 Create `config.yaml` with all configurable parameters | 0.5 | — | Config loaded at startup | DONE 2026-10-04 (commit d409dd4) |
 
 **Total: ~7 engineer-days**
 **Demo checkpoint:** Run `python -m videoqa.core.ingestion --video videos/sample.webm` end-to-end from the CLI. Run `python -m videoqa.core.retriever "What is forEach?"` and get a grounded answer.
@@ -1231,13 +1275,13 @@ videoqa/
 
 | Task | Est. (days) | Depends On | Definition of Done |
 |---|---|---|---|
-| 1.1 Set up SQLite schema (`db/migrations/001_initial.sql`) | 1 | Phase 0 | Tables created; migration script runs idempotently |
-| 1.2 Implement `videoqa/db/sqlite.py` (CRUD for videos, chunks, sessions) | 2 | 1.1 | All CRUD operations tested |
-| 1.3 Implement `videoqa/vectorstore/chroma.py` (upsert, search, delete) | 1 | Phase 0 | Search returns correct top-K |
-| 1.4 Write migration script `scripts/migrate_from_joblib.py` to port the existing 15-lecture index into ChromaDB + SQLite | 1 | 1.2, 1.3 | All 932 chunks in ChromaDB; metadata in SQLite; queries return same results as before |
-| 1.5 Update retriever to use ChromaDB instead of cosine_similarity | 0.5 | 1.3 | Retriever integration test passes |
-| 1.6 Add FTS5 virtual table for BM25; implement sparse search | 1 | 1.2 | BM25 search returns results for exact keyword queries |
-| 1.7 Integration tests | 1 | 1.1–1.6 | Ingest → query → answer pipeline passes end-to-end with persistent storage |
+| 1.1 Set up SQLite schema (`db/migrations/001_initial.sql`) | 1 | Phase 0 | Tables created; migration script runs idempotently | DONE 2026-10-04 (commit d409dd4) |
+| 1.2 Implement `videoqa/db/sqlite.py` (CRUD for videos, chunks, sessions) | 2 | 1.1 | All CRUD operations tested | DONE 2026-10-04 (commit d409dd4) |
+| 1.3 Implement `videoqa/vectorstore/chroma.py` (upsert, search, delete) | 1 | Phase 0 | Search returns correct top-K | DONE 2026-10-04 (commit d409dd4) |
+| 1.4 Write migration script `scripts/migrate_from_joblib.py` to port the existing 15-lecture index into ChromaDB + SQLite | 1 | 1.2, 1.3 | All 932 chunks in ChromaDB; metadata in SQLite; queries return same results as before | DONE 2026-10-04 (commit d409dd4) |
+| 1.5 Update retriever to use ChromaDB instead of cosine_similarity | 0.5 | 1.3 | Retriever integration test passes | DONE 2026-10-04 (commit d409dd4) |
+| 1.6 Add FTS5 virtual table for BM25; implement sparse search | 1 | 1.2 | BM25 search returns results for exact keyword queries | DONE 2026-10-04 (commit d409dd4) |
+| 1.7 Integration tests | 1 | 1.1–1.6 | Ingest → query → answer pipeline passes end-to-end with persistent storage | DONE 2026-10-04 (commit d409dd4) |
 
 **Total: ~7.5 engineer-days**
 **Demo checkpoint:** Ingest a video, restart the process, query it — data survives restart.
@@ -1249,10 +1293,10 @@ videoqa/
 
 | Task | Est. (days) | Depends On | Definition of Done |
 |---|---|---|---|
-| 1b.1 Build a starter golden question set: ~2 questions per video (30 total), including 5 out-of-domain questions. Each question has ground-truth chunk IDs (or timestamp ranges) and expected in/out-of-domain label. | 1.5 | Phase 1 | JSON files in `eval/golden_questions/` |
-| 1b.2 Implement `eval/run_eval.py` with Recall@5, Recall@10, MRR, and abstention precision/recall metrics | 1.5 | 1b.1 | `python eval/run_eval.py` prints a metrics table |
-| 1b.3 Calibrate abstention threshold: compute similarity score distributions for in-domain vs OOD questions from the golden set. Pick a threshold that maximizes F1 between abstention precision and recall. Record the chosen value in config. | 0.5 | 1b.2 | Threshold tuned; default updated in `config.yaml`; rationale documented in eval output |
-| 1b.4 Record Phase 1 baseline metrics in `eval/baselines/v0_baseline.json` | 0.25 | 1b.2 | Baseline file committed |
+| 1b.1 Build a starter golden question set: ~2 questions per video (30 total), including 5 out-of-domain questions. Each question has ground-truth chunk IDs (or timestamp ranges) and expected in/out-of-domain label. | 1.5 | Phase 1 | JSON files in `eval/golden_questions/` | DONE 2026-10-04 |
+| 1b.2 Implement `eval/run_eval.py` with Recall@5, Recall@10, MRR, and abstention precision/recall metrics | 1.5 | 1b.1 | `python eval/run_eval.py` prints a metrics table | DONE 2026-10-04 |
+| 1b.3 Calibrate abstention threshold: compute similarity score distributions for in-domain vs OOD questions from the golden set. Pick a threshold that maximizes F1 between abstention precision and recall. Record the chosen value in config. | 0.5 | 1b.2 | Threshold tuned; default updated in `config.yaml`; rationale documented in eval output | DONE 2026-10-04 |
+| 1b.4 Record Phase 1 baseline metrics in `eval/baselines/v0_baseline.json` | 0.25 | 1b.2 | Baseline file committed | DONE 2026-10-04 |
 
 **Total: ~3.75 engineer-days**
 **Demo checkpoint:** `python eval/run_eval.py` prints Recall@5, MRR, and abstention metrics against the starter set. Abstention threshold is calibrated.
@@ -1264,21 +1308,24 @@ videoqa/
 
 | Task | Est. (days) | Depends On | Definition of Done |
 |---|---|---|---|
-| 2.1 Implement `videoqa/utils/url_parser.py` (YouTube URL validation, video ID extraction, all formats) | 0.5 | — | Unit tests for 10+ URL formats pass |
-| 2.2 Implement `videoqa/core/downloader.py` (yt-dlp metadata fetch, caption download, audio download) | 2 | Phase 0 | Can fetch metadata, download captions, download audio for a public YT video |
-| 2.3 Caption-first strategy: VTT/SRT parser → segment JSON format | 1 | 2.2 | Captions parsed into same schema as Whisper output |
-| 2.4 Audio splitting for long videos (≥ 30 min) with timestamp offset stitching | 1.5 | Phase 0 | 1-hour audio produces correct timestamps across segments |
-| 2.5 Language auto-detection (first 30 s of audio) | 0.5 | Phase 0 | Correct language detected for Hindi, English, Spanish test files |
-| 2.6 Replace `openai-whisper` with `faster-whisper` in transcriber; keep config for fallback | 1 | Phase 0 | Transcription produces same-quality output, 4× faster |
-| 2.7 Implement `videoqa/core/ingestion.py` orchestrator (download → transcribe → chunk → embed with state machine) | 2 | 2.2–2.6, Phase 1 | Full pipeline completes for YouTube URL |
-| 2.8 Implement deduplication check (video_id lookup) | 0.5 | Phase 1 | Duplicate URL returns `already_indexed` |
-| 2.9 FastAPI app with `/api/ingest/url`, `/api/jobs/{id}`, `/api/videos`, `/api/query` endpoints | 2 | 2.7, Phase 1 | API passes Postman/curl smoke tests |
-| 2.10 Background task runner with progress updates (status + progress_pct written to DB) | 1 | 2.9 | `/api/jobs/{id}` returns current stage and progress |
-| 2.11 Retry logic (3 retries, exponential backoff) and cancellation | 1 | 2.10 | Failed job retries; cancelled job cleans up |
-| 2.12 Duration limit enforcement (reject > 4 hours at metadata stage) | 0.25 | 2.2 | Long video rejected with error |
-| 2.13 Integration tests for full URL ingestion flow | 1 | 2.1–2.12 | End-to-end test: URL → indexed → queryable |
+| 2.1 Implement `videoqa/utils/url_parser.py` (YouTube URL validation, video ID extraction, all formats) | 0.5 | — | Unit tests for 10+ URL formats pass | DONE 2026-10-04 |
+| 2.2 Implement `videoqa/core/downloader.py` (yt-dlp metadata fetch, caption download, audio download) | 2 | Phase 0 | Can fetch metadata, download captions, download audio for a public YT video | DONE 2026-10-04 |
+| 2.3 Caption-first strategy: VTT/SRT parser → segment JSON format | 1 | 2.2 | Captions parsed into same schema as Whisper output | DONE 2026-10-04 |
+| 2.4 Audio splitting for long videos (≥ 30 min) with timestamp offset stitching | 1.5 | Phase 0 | 1-hour audio produces correct timestamps across segments | DONE 2026-10-04 |
+| 2.5 Language auto-detection (first 30 s of audio) | 0.5 | Phase 0 | Correct language detected for Hindi, English, Spanish test files | DONE 2026-10-04 |
+| 2.6 Replace `openai-whisper` with `faster-whisper` in transcriber; keep config for fallback | 1 | Phase 0 | Transcription produces same-quality output, 4× faster | DONE 2026-10-04 |
+| 2.7 Implement `videoqa/core/ingestion.py` orchestrator (download → transcribe → chunk → embed with state machine) | 2 | 2.2–2.6, Phase 1 | Full pipeline completes for YouTube URL | DONE 2026-10-04 |
+| 2.8 Implement deduplication check (video_id lookup) | 0.5 | Phase 1 | Duplicate URL returns `already_indexed` | DONE 2026-10-04 |
+| 2.9 FastAPI app with `/api/ingest/url`, `/api/jobs/{id}`, `/api/videos`, `/api/query` endpoints | 2 | 2.7, Phase 1 | API passes Postman/curl smoke tests | DONE 2026-10-04 |
+| 2.10 Background task runner with progress updates (status + progress_pct written to DB) | 1 | 2.9 | `/api/jobs/{id}` returns current stage and progress | DONE 2026-10-04 |
+| 2.11 Retry logic (3 retries, exponential backoff) and cancellation | 1 | 2.10 | Failed job retries; cancelled job cleans up | DONE 2026-10-04 |
+| 2.12 Duration limit enforcement (reject > 4 hours at metadata stage) | 0.25 | 2.2 | Long video rejected with error | DONE 2026-10-04 |
+| 2.13 Integration tests for full URL ingestion flow | 1 | 2.1–2.12 | End-to-end test: URL → indexed → queryable | DONE 2026-10-04 |
+| 2.14 DELETE `/api/videos/{video_id}` | 0.5 | 2.9 | Removes SQLite rows, FTS entries, Chroma vectors and media with nothing orphaned | DONE 2026-10-04 |
+| 2.15 `/api/query` as SSE | 1 | 2.9, Phase 1 | SSE implementation per A-9: meta {grounded}, token events, done event {grounded, answer_source, citations, closest_matches, max_similarity_score, timings} with general fallback | DONE 2026-10-04 |
+| 2.16 GET `/api/health` | 0.25 | 2.9 | Health endpoint returns 200 OK | DONE 2026-10-04 |
 
-**Total: ~14.25 engineer-days**
+**Total: ~16 engineer-days**
 **Demo checkpoint:** Paste a YouTube URL into a curl command, poll job status until "ready", then query it and get an answer with a YouTube deep link.
 
 ---
@@ -1291,13 +1338,12 @@ videoqa/
 | 3.1 Adaptive chunking (150–250 words, pause-aware boundaries) | 2 | Phase 1 | Chunks average 180 words; boundaries prefer ≥ 2 s pauses |
 | 3.2 Overlapping chunks (20 % stride) | 1 | 3.1 | Adjacent chunks share ~40 words of overlap |
 | 3.3 Hybrid search: RRF fusion of ChromaDB dense + SQLite FTS5 sparse | 2 | Phase 1 (1.6) | Hybrid retrieval returns better results on keyword queries (measured on eval set) |
-| 3.4 Abstention threshold (configurable, default 0.35) — strengthened version of Phase 0 fix | 0.5 | Phase 1 | OOD questions get canned response; in-domain questions pass through |
 | 3.5 Cross-encoder reranking with `BAAI/bge-reranker-v2-m3` (multilingual, optional, behind config flag) | 1.5 | 3.3 | MRR improves ≥ 5 % on eval set when enabled |
 | 3.6 Citation verification post-processing | 1 | Phase 2 | LLM-generated timestamps validated against chunk metadata |
 | 3.7 Improved system prompt (few-shot examples, structured citation format) | 0.5 | Phase 2 | Faithfulness metric ≥ 0.90 on eval set |
 | 3.8 Benchmark and tune: run eval harness, record baseline, iterate | 1 | 3.1–3.7 | All metrics meet A-3 targets |
 
-**Total: ~9.5 engineer-days**
+**Total: ~9.0 engineer-days**
 **Demo checkpoint:** Side-by-side comparison on 10 queries: Phase 2 answers vs Phase 3 answers, showing improved relevance and fewer hallucinations.
 
 ---
@@ -1307,18 +1353,19 @@ videoqa/
 
 | Task | Est. (days) | Depends On | Definition of Done |
 |---|---|---|---|
-| 4.1 Initialize Next.js project, configure API proxy | 0.5 | Phase 2 | `npm run dev` shows a page that calls the backend |
-| 4.2 Landing page: URL input, file drop zone, library grid | 2 | 4.1 | User can paste URL, see library cards |
-| 4.3 Ingestion progress bar (polls `/api/jobs/{id}`) | 1 | 4.2 | Progress bar shows stages, ETA |
-| 4.4 Chat page: split layout (player left, chat right) | 2 | 4.1 | Chat messages render with Markdown |
-| 4.5 SSE streaming for answer tokens | 1 | 4.4, Phase 2 (FR-GEN-3) | Tokens appear progressively |
-| 4.6 YouTube embedded player (iframe) with seek-on-citation-click | 1 | 4.4 | Clicking `[05:12]` seeks the YT player to 312 s |
-| 4.7 HTML5 `<video>` player for uploaded files with seek | 1 | 4.4 | Uploaded .mp4 plays and seeks on citation click |
-| 4.8 Video library page: list, delete, re-chat | 1 | 4.2 | CRUD operations work |
-| 4.9 Responsive design, dark mode, polish | 2 | 4.2–4.8 | Looks good on 1024px and 1440px+ |
-| 4.10 Accessibility pass (keyboard nav, ARIA labels, contrast) | 1 | 4.9 | WCAG AA compliance for core flows |
+| 4.1 Initialize Next.js project, configure API proxy | 0.5 | Phase 2 | `npm run dev` shows a page that calls the backend | DONE 2026-10-04 |
+| 4.2 Landing page: URL input, file drop zone, library grid | 2 | 4.1 | User can paste URL, see library cards | DONE 2026-10-04 |
+| 4.3 Ingestion progress bar (polls `/api/jobs/{id}`) | 1 | 4.2 | Progress bar shows stages, ETA | DONE 2026-10-04 |
+| 4.4 Chat page: split layout (player left, chat right) | 2 | 4.1 | Chat messages render with Markdown | DONE 2026-10-04 |
+| 4.5 SSE streaming for answer tokens | 1 | 4.4, Phase 2 (FR-GEN-3) | Tokens appear progressively | DONE 2026-10-04 |
+| 4.6 YouTube embedded player (iframe) with seek-on-citation-click | 1 | 4.4 | Clicking `[05:12]` seeks the YT player to 312 s | DONE 2026-10-04 |
+| 4.8 Video library page: list, delete, re-chat | 1 | 4.2 | CRUD operations work | DONE 2026-10-04 |
+| 4.9 Responsive design, dark mode, polish | 2 | 4.2–4.8 | Looks good on 1024px and 1440px+ | DONE 2026-10-04 |
+| 4.10 Accessibility pass (keyboard nav, ARIA labels, contrast) | 1 | 4.9 | WCAG AA compliance for core flows | DONE 2026-10-04 |
+| 4.11 POST `/api/ingest/file` and GET `/api/videos/{id}/media` | 1 | Phase 2 | HTTP Range media streaming for local lectures & uploads; rejects path traversal | DONE 2026-10-04 |
+| 4.7 HTML5 `<video>` player for local lectures & uploaded files with seek | 1 | 4.11 | Local .webm/.mp4 plays and seeks on citation click | DONE 2026-10-04 |
 
-**Total: ~12.5 engineer-days**
+**Total: ~13.5 engineer-days**
 **Demo checkpoint:** Screen recording of: paste URL → watch progress → ask question → click citation → video jumps to right moment.
 
 ---
@@ -1437,7 +1484,7 @@ volumes:
 
 All timings below are **estimates to be benchmarked** on actual hardware during Phase 0/2.
 
-| Stage | Consumer GPU (RTX 3060 6 GB) | CPU-only (8-core) | Cloud (OpenAI API) |
+| Stage | Consumer GPU (RTX 3060 6 GB) | CPU-only (Local benchmark) | Cloud (OpenAI API) |
 |---|---|---|---|
 | Download (yt-dlp) | ~30 s | ~30 s | ~30 s |
 | Audio extraction (FFmpeg) | ~10 s | ~10 s | ~10 s |
@@ -1448,7 +1495,7 @@ All timings below are **estimates to be benchmarked** on actual hardware during 
 
 ### Cloud Mode Cost Estimates
 
-> **Note:** Prices below were verified against public pricing pages on 2026-10-01. Confirm against the current [OpenAI pricing page](https://openai.com/api/pricing/) before relying on them for budgeting.
+> **Note:** Prices below were verified against public pricing pages on 2026-10-01. Confirm against the current [OpenAI pricing page](https://openai.com/api/pricing/) before relying on them for budgeting. Note that the hosted Whisper API limits files to 25 MB. Additionally, gpt-4o-mini-transcribe is cheaper than whisper-1.
 
 | Service | Rate | Per Hour of Video |
 |---|---|---|
@@ -1555,7 +1602,7 @@ stateDiagram-v2
 | **C-4** | Multi-video library with cross-video search | 5 | 3 | Medium | **v1.0** | Arjun (course creator) persona needs this. Core value prop for multi-lecture courses. |
 | **C-5** | Auto-generated chapters and video summary | 4 | 3 | Low | **v2.0** | High perceived value. LLM summarizes each chunk group → chapters with timestamps. Medium effort. |
 | **C-6** | Exportable study notes (Markdown/PDF with timestamps) | 3 | 2 | Low | **v2.0** | Nice-to-have. Riya saves study notes. Low effort to add. |
-| **C-7** | Playlist and channel ingestion | 4 | 2.5 | Medium | **v2.0** | Multiplier for Arjun's use case. yt-dlp supports `--flat-playlist`; mostly orchestration. |
+| **C-7** | Playlist and channel ingestion | 4 | 2.5 | Medium | **v1.0** | Multiplier for Arjun's use case. yt-dlp supports `--flat-playlist`; mostly orchestration. |
 | **C-8** | Quiz and flashcard generation | 3 | 3 | Medium | **v2.0** | Educational value. LLM generates from transcript chunks. Needs quality validation. |
 | **C-9** | Speaker diarization | 3 | 4 | High | **v2.0** | Critical for Priya (meeting reviewer). pyannote.audio works but needs GPU and tuning. |
 | **C-10** | Visual understanding (keyframe + OCR/vision) | 5 | 5 | High | **v3.0** | Biggest quality unlock for slides/code. Requires vision model (LLaVA or GPT-4o). High effort and compute. |
@@ -1587,27 +1634,27 @@ gantt
 
     section v1.0 (Phases 3-5, ~6 wk)
     Retrieval quality (Phase 3)                     :p3, after p2, 2w
-    Web UI + player (Phase 4)                       :p4, after p2, 2.5w
+    Web UI + player (Phase 4)                       :p4, after p3, 2.5w
     C-2  Streaming answers                          :after p4, 0.5w
     C-1  Multi-turn chat                            :after p4, 1w
     C-3  Feedback loop                              :after p4, 0.5w
-    C-4  Cross-video search                         :after p3, 1w
+    C-4  Cross-video search                         :after p4, 1w
+    C-7  Playlist ingestion                         :after p4, 1w
     C-13 Transcript search                          :after p4, 0.5w
     C-14 Model picker UI                            :after p4, 0.5w
 
     section v2.0 (Phase 6-7, ~4 wk)
     Full eval harness + hardening (Phase 6)         :p6, 2027-03, 2w
     C-5  Auto chapters + summary                    :after p6, 1w
-    C-7  Playlist ingestion                         :after p6, 1w
     C-6  Export notes                               :after p6, 0.5w
     C-8  Quiz generation                            :after p6, 1w
     C-9  Speaker diarization                        :after p6, 1.5w
     C-15 Suggested questions                        :after p6, 0.5w
 
     section v3.0 (stretch)
-    C-10 Visual understanding                       :2027-06, 2w
-    C-11 Browser extension                          :2027-06, 2w
-    C-12 Multi-user accounts                        :2027-07, 3w
+    C-10 Visual understanding                       :after p6, 2w
+    C-11 Browser extension                          :after p6, 2w
+    C-12 Multi-user accounts                        :after p6, 3w
 ```
 
 ---
@@ -1624,6 +1671,18 @@ gantt
 | Fixed 5-segment chunking → adaptive + overlap | Fixes inconsistency I-2, improves retrieval quality | Low: new chunker is a replacement, not a migration. Re-embed once. |
 | `process_json.py` reads `jsons/` → reads `newjsons/` | Fixes inconsistency I-1; merged chunks are what should be embedded | Low: one-line path change + re-embed. |
 | Prompt-only OOD → similarity threshold | Fixes inconsistency I-4; programmatic guardrail is more reliable. Threshold to be calibrated in Phase 1b, not hardcoded. | Low: ~10 lines of code in retriever. |
+
+---
+
+## Decision Log
+- **2026-10-04**: Task 0.10 completed. Changed to read threshold from config, not hardcode 0.35. Task 3.4 removed.
+- **2026-10-04**: Task 5.6 (Playlist ingestion) moved to v1.0. Task 3.5 (Reranking) marked as optional config-flagged v1.0 feature.
+- **2026-10-04**: Gantt chart made sequential. Added note on Whisper API 25MB limits, and gpt-4o-mini-transcribe cost.
+- **2026-10-04**: Added missing Phase 2 API endpoints (2.14, 2.15, 2.16) based on A-9 contract.
+- **2026-10-04**: Added file-upload ingest endpoints (4.11) to Phase 4.
+- **2026-10-04**: Reconciled ledger: Verified Phase 0 (0.1–0.12) and Phase 1 (1.1–1.7) tasks by live command execution (row counts: 932 chunks, 15 videos, 4628 segments; pytest 5 passed; forEach and OOD retrieval; FTS sync triggers; zero delete orphans; restart persistence). Marked DONE in ledger (commit d409dd4).
+- **2026-10-04**: Amended FR-RET-4 and Task 2.15: Below threshold, stream general model answer via separate system prompt instead of canned refusal (governed by `general_fallback.enabled`, default true). Emits standardized SSE events: `meta` ({grounded}), `token`, and `done` ({grounded, answer_source, citations, closest_matches, max_similarity_score, timings}).
+- **2026-10-04**: Local lecture playback added to Phase 4: Media served via `GET /api/videos/{id}/media` with HTTP Range support; local file path stored in `videos.file_path`; HTML5 player seek on citation click (Task 4.7 depends on 4.11; 4.11 depends on Phase 2).
 
 ---
 

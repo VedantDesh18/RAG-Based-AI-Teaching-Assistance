@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import json
 from pathlib import Path
 from videoqa.config import config
 
@@ -38,24 +39,131 @@ def upsert_video(video: dict):
     conn = get_connection()
     try:
         conn.execute("""
-            INSERT INTO videos (id, video_id, source_type, title, duration_seconds, status, created_at, updated_at)
-            VALUES (:id, :video_id, :source_type, :title, :duration_seconds, :status, :created_at, :updated_at)
+            INSERT INTO videos (
+                id, video_id, source_type, source_url, title, channel, duration_seconds, 
+                thumbnail_url, upload_date, description, detected_language, file_path, 
+                status, error_message, created_at, updated_at
+            )
+            VALUES (
+                :id, :video_id, :source_type, :source_url, :title, :channel, :duration_seconds, 
+                :thumbnail_url, :upload_date, :description, :detected_language, :file_path, 
+                :status, :error_message, :created_at, :updated_at
+            )
             ON CONFLICT(video_id) DO UPDATE SET
                 title=excluded.title,
+                channel=excluded.channel,
                 duration_seconds=excluded.duration_seconds,
+                thumbnail_url=excluded.thumbnail_url,
+                upload_date=excluded.upload_date,
+                description=excluded.description,
+                detected_language=excluded.detected_language,
+                file_path=excluded.file_path,
                 status=excluded.status,
+                error_message=excluded.error_message,
                 updated_at=excluded.updated_at
-        """, video)
+        """, {
+            'id': video.get('id'),
+            'video_id': video.get('video_id'),
+            'source_type': video.get('source_type'),
+            'source_url': video.get('source_url'),
+            'title': video.get('title'),
+            'channel': video.get('channel'),
+            'duration_seconds': video.get('duration_seconds', 0.0),
+            'thumbnail_url': video.get('thumbnail_url'),
+            'upload_date': video.get('upload_date'),
+            'description': video.get('description'),
+            'detected_language': video.get('detected_language'),
+            'file_path': video.get('file_path'),
+            'status': video.get('status', 'queued'),
+            'error_message': video.get('error_message'),
+            'created_at': video.get('created_at'),
+            'updated_at': video.get('updated_at')
+        })
         conn.commit()
     finally:
         conn.close()
 
-def delete_video_sqlite(video_id: str):
+def delete_video_sqlite(video_id: str) -> int:
+    conn = get_connection()
+    try:
+        chunk_count = conn.execute("SELECT COUNT(*) FROM chunks WHERE video_id = ?", (video_id,)).fetchone()[0]
+        conn.execute("DELETE FROM chat_messages WHERE session_id IN (SELECT session_id FROM chat_sessions WHERE video_id = ?)", (video_id,))
+        conn.execute("DELETE FROM chat_sessions WHERE video_id = ?", (video_id,))
+        conn.execute("DELETE FROM chunks WHERE video_id = ?", (video_id,))
+        conn.execute("DELETE FROM transcript_segments WHERE video_id = ?", (video_id,))
+        conn.execute("DELETE FROM videos WHERE video_id = ?", (video_id,))
+        conn.commit()
+        return chunk_count
+    finally:
+        conn.close()
+
+def get_video(video_id: str):
+    conn = get_connection()
+    try:
+        cursor = conn.execute("SELECT * FROM videos WHERE video_id = ?", (video_id,))
+        row = cursor.fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+def list_videos() -> list[dict]:
+    """Return lightweight video records with authoritative chunk counts."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute("""
+            SELECT v.*, COUNT(c.id) AS calculated_chunk_count
+            FROM videos v
+            LEFT JOIN chunks c ON c.video_id = v.video_id
+            GROUP BY v.video_id
+            ORDER BY v.created_at DESC
+        """)
+        videos = []
+        for row in cursor.fetchall():
+            item = dict(row)
+            item['chunk_count'] = item.pop('calculated_chunk_count', 0)
+            videos.append(item)
+        return videos
+    finally:
+        conn.close()
+
+def get_transcript_segments(video_id: str) -> list[dict]:
+    conn = get_connection()
+    try:
+        cursor = conn.execute("""
+            SELECT segment_index, start_seconds, end_seconds, text_original, text_english, language
+            FROM transcript_segments
+            WHERE video_id = ?
+            ORDER BY segment_index ASC
+        """, (video_id,))
+        return [dict(row) for row in cursor.fetchall()]
+    finally:
+        conn.close()
+
+def reset_video_content(video_id: str) -> None:
+    """Remove derived data before a real ingestion retry recreates it."""
     conn = get_connection()
     try:
         conn.execute("DELETE FROM chunks WHERE video_id = ?", (video_id,))
         conn.execute("DELETE FROM transcript_segments WHERE video_id = ?", (video_id,))
-        conn.execute("DELETE FROM videos WHERE video_id = ?", (video_id,))
+        conn.execute("UPDATE videos SET chunk_count = 0 WHERE video_id = ?", (video_id,))
+        conn.commit()
+    finally:
+        conn.close()
+
+def increment_retry_count(video_id: str) -> int:
+    conn = get_connection()
+    try:
+        conn.execute("UPDATE videos SET retry_count = COALESCE(retry_count, 0) + 1 WHERE video_id = ?", (video_id,))
+        row = conn.execute("SELECT retry_count FROM videos WHERE video_id = ?", (video_id,)).fetchone()
+        conn.commit()
+        return int(row[0]) if row else 0
+    finally:
+        conn.close()
+
+def set_chunk_count(video_id: str, count: int) -> None:
+    conn = get_connection()
+    try:
+        conn.execute("UPDATE videos SET chunk_count = ? WHERE video_id = ?", (count, video_id))
         conn.commit()
     finally:
         conn.close()
@@ -120,5 +228,64 @@ def upsert_chat_session(session: dict):
             ON CONFLICT(session_id) DO UPDATE SET updated_at=excluded.updated_at
         """, session)
         conn.commit()
+    finally:
+        conn.close()
+
+def get_chat_session(session_id: str) -> dict | None:
+    conn = get_connection()
+    try:
+        row = conn.execute("SELECT * FROM chat_sessions WHERE session_id = ?", (session_id,)).fetchone()
+        return dict(row) if row else None
+    finally:
+        conn.close()
+
+def insert_chat_message(session_id: str, role: str, content: str, created_at: str, citations: list | None = None) -> None:
+    conn = get_connection()
+    try:
+        conn.execute("""
+            INSERT INTO chat_messages (session_id, role, content, citations, created_at)
+            VALUES (?, ?, ?, ?, ?)
+        """, (session_id, role, content, json.dumps(citations or []), created_at))
+        conn.execute("UPDATE chat_sessions SET updated_at = ? WHERE session_id = ?", (created_at, session_id))
+        conn.commit()
+    finally:
+        conn.close()
+
+def get_chat_messages(session_id: str, limit: int | None = None) -> list[dict]:
+    conn = get_connection()
+    try:
+        sql = "SELECT id, role, content, citations, created_at FROM chat_messages WHERE session_id = ? ORDER BY id ASC"
+        params: list = [session_id]
+        if limit:
+            sql = """SELECT * FROM (
+                SELECT id, role, content, citations, created_at
+                FROM chat_messages WHERE session_id = ? ORDER BY id DESC LIMIT ?
+            ) ORDER BY id ASC"""
+            params.append(limit)
+        rows = conn.execute(sql, params).fetchall()
+        messages = []
+        for row in rows:
+            item = dict(row)
+            try:
+                item['citations'] = json.loads(item['citations'] or '[]')
+            except json.JSONDecodeError:
+                item['citations'] = []
+            messages.append(item)
+        return messages
+    finally:
+        conn.close()
+
+def list_chat_sessions() -> list[dict]:
+    conn = get_connection()
+    try:
+        rows = conn.execute("""
+            SELECT s.session_id, s.video_id, s.created_at, s.updated_at, v.title AS video_title,
+                (SELECT content FROM chat_messages WHERE session_id = s.session_id AND role = 'user' ORDER BY id DESC LIMIT 1) AS last_question,
+                (SELECT content FROM chat_messages WHERE session_id = s.session_id AND role = 'assistant' ORDER BY id DESC LIMIT 1) AS last_answer
+            FROM chat_sessions s
+            LEFT JOIN videos v ON v.video_id = s.video_id
+            ORDER BY s.updated_at DESC
+        """).fetchall()
+        return [dict(row) for row in rows]
     finally:
         conn.close()

@@ -1,0 +1,28 @@
+# ==============================================================================
+# Optional NVIDIA GPU Compose Override
+# Usage: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up --build
+# Requires NVIDIA Container Toolkit installed on the host.
+# ==============================================================================
+
+services:
+  backend:
+    environment:
+      - WHISPER_DEVICE=cuda
+      - WHISPER_COMPUTE_TYPE=float16
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # If running the containerized Ollama profile with GPU:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

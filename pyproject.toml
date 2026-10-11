@@ -17,6 +17,9 @@ dependencies = [
     "faster-whisper",
     "chromadb",
     "pydantic",
+    "python-multipart",
+    "requests",
+    "webvtt-py",
     "joblib",
     "pandas",
     "scikit-learn",
@@ -27,6 +30,7 @@ dependencies = [
 test = ["pytest"]
 
 [tool.pytest.ini_options]
+testpaths = ["tests"]
 markers = [
     "live: marks tests requiring live Ollama"
 ]

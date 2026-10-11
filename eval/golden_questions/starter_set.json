@@ -1,0 +1,1870 @@
+[
+  {
+    "id": "q_1",
+    "question": "Where do you download the official Node.js installer and how do you choose a version?",
+    "video_id": "f7cc259539c",
+    "answer_spans": [
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 26.0,
+        "end_seconds": 74.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "b4075bcc-2bb6-5d3d-a6a4-80c6a66b6832"
+    ],
+    "expected_keywords": [
+      "NodeJS",
+      "download",
+      "version",
+      "browser"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_2",
+    "question": "How do you test your first JavaScript code using console.log in Node.js?",
+    "video_id": "f7cc259539c",
+    "answer_spans": [
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 223.0,
+        "end_seconds": 271.0
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 373.6,
+        "end_seconds": 375.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 495.6,
+        "end_seconds": 497.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 613.6,
+        "end_seconds": 615.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 747.6,
+        "end_seconds": 749.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 921.6,
+        "end_seconds": 923.6
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 38.0,
+        "end_seconds": 43.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 105.0,
+        "end_seconds": 109.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 111.0,
+        "end_seconds": 116.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 219.0,
+        "end_seconds": 227.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 294.0,
+        "end_seconds": 298.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 357.0,
+        "end_seconds": 361.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 626.0,
+        "end_seconds": 628.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 827.0,
+        "end_seconds": 829.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 899.0,
+        "end_seconds": 901.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 118.0,
+        "end_seconds": 120.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 174.0,
+        "end_seconds": 180.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 213.0,
+        "end_seconds": 216.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 65.0,
+        "end_seconds": 75.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 175.0,
+        "end_seconds": 177.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 243.0,
+        "end_seconds": 245.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 299.0,
+        "end_seconds": 301.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 353.0,
+        "end_seconds": 355.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 505.0,
+        "end_seconds": 507.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 783.0,
+        "end_seconds": 785.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1109.0,
+        "end_seconds": 1111.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1187.0,
+        "end_seconds": 1189.0
+      },
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 160.24,
+        "end_seconds": 162.24
+      },
+      {
+        "video_id": "645fa5c93f2",
+        "start_seconds": 115.0,
+        "end_seconds": 137.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 100.0,
+        "end_seconds": 102.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 160.0,
+        "end_seconds": 162.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 248.0,
+        "end_seconds": 250.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 282.0,
+        "end_seconds": 284.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 422.0,
+        "end_seconds": 424.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 252.0,
+        "end_seconds": 254.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 368.0,
+        "end_seconds": 370.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 433.0,
+        "end_seconds": 435.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 477.0,
+        "end_seconds": 479.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 607.0,
+        "end_seconds": 609.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 639.0,
+        "end_seconds": 641.0
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 429.34,
+        "end_seconds": 432.34
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 185.32,
+        "end_seconds": 187.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 378.32,
+        "end_seconds": 380.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 544.32,
+        "end_seconds": 546.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 716.32,
+        "end_seconds": 718.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 844.32,
+        "end_seconds": 846.32
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 41.5,
+        "end_seconds": 43.48
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 267.7,
+        "end_seconds": 270.7
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 321.2,
+        "end_seconds": 326.4
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 433.32,
+        "end_seconds": 435.06
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 579.76,
+        "end_seconds": 582.14
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 854.3,
+        "end_seconds": 857.3
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 1024.16,
+        "end_seconds": 1027.16
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 187.0,
+        "end_seconds": 190.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 259.0,
+        "end_seconds": 280.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 343.0,
+        "end_seconds": 346.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 397.0,
+        "end_seconds": 403.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 577.0,
+        "end_seconds": 580.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 610.0,
+        "end_seconds": 613.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 355.0,
+        "end_seconds": 357.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "d8bb29c1-382d-50e4-b394-57e00898c57e"
+    ],
+    "expected_keywords": [
+      "Console.log",
+      "output",
+      "JavaScript",
+      "print"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_3",
+    "question": "How do you declare variables in JavaScript using the let keyword?",
+    "video_id": "9a7545f5bbd",
+    "answer_spans": [
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 37.0,
+        "end_seconds": 101.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "de138fae-e894-53c2-bb3e-ba90e1733b33"
+    ],
+    "expected_keywords": [
+      "declare",
+      "variables",
+      "JavaScript",
+      "let"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_4",
+    "question": "How do you print variable values to the terminal using console.log?",
+    "video_id": "9a7545f5bbd",
+    "answer_spans": [
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 334.0,
+        "end_seconds": 379.0
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 373.6,
+        "end_seconds": 375.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 495.6,
+        "end_seconds": 497.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 613.6,
+        "end_seconds": 615.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 747.6,
+        "end_seconds": 749.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 921.6,
+        "end_seconds": 923.6
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 38.0,
+        "end_seconds": 43.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 105.0,
+        "end_seconds": 109.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 111.0,
+        "end_seconds": 116.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 219.0,
+        "end_seconds": 227.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 294.0,
+        "end_seconds": 298.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 357.0,
+        "end_seconds": 361.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 626.0,
+        "end_seconds": 628.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 827.0,
+        "end_seconds": 829.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 899.0,
+        "end_seconds": 901.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 118.0,
+        "end_seconds": 120.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 174.0,
+        "end_seconds": 180.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 213.0,
+        "end_seconds": 216.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 65.0,
+        "end_seconds": 75.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 175.0,
+        "end_seconds": 177.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 243.0,
+        "end_seconds": 245.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 299.0,
+        "end_seconds": 301.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 353.0,
+        "end_seconds": 355.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 505.0,
+        "end_seconds": 507.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 783.0,
+        "end_seconds": 785.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1109.0,
+        "end_seconds": 1111.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1187.0,
+        "end_seconds": 1189.0
+      },
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 160.24,
+        "end_seconds": 162.24
+      },
+      {
+        "video_id": "645fa5c93f2",
+        "start_seconds": 115.0,
+        "end_seconds": 137.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 100.0,
+        "end_seconds": 102.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 160.0,
+        "end_seconds": 162.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 248.0,
+        "end_seconds": 250.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 282.0,
+        "end_seconds": 284.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 422.0,
+        "end_seconds": 424.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 252.0,
+        "end_seconds": 254.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 368.0,
+        "end_seconds": 370.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 433.0,
+        "end_seconds": 435.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 477.0,
+        "end_seconds": 479.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 607.0,
+        "end_seconds": 609.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 639.0,
+        "end_seconds": 641.0
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 429.34,
+        "end_seconds": 432.34
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 185.32,
+        "end_seconds": 187.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 378.32,
+        "end_seconds": 380.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 544.32,
+        "end_seconds": 546.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 716.32,
+        "end_seconds": 718.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 844.32,
+        "end_seconds": 846.32
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 41.5,
+        "end_seconds": 43.48
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 267.7,
+        "end_seconds": 270.7
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 321.2,
+        "end_seconds": 326.4
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 433.32,
+        "end_seconds": 435.06
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 579.76,
+        "end_seconds": 582.14
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 854.3,
+        "end_seconds": 857.3
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 1024.16,
+        "end_seconds": 1027.16
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 187.0,
+        "end_seconds": 190.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 259.0,
+        "end_seconds": 280.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 397.0,
+        "end_seconds": 403.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 577.0,
+        "end_seconds": 580.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 610.0,
+        "end_seconds": 613.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 238.0,
+        "end_seconds": 241.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 264.0,
+        "end_seconds": 267.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 355.0,
+        "end_seconds": 357.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "a867bc29-4d49-56c8-8d73-187bb35dd61e"
+    ],
+    "expected_keywords": [
+      "Console.log",
+      "variable",
+      "print",
+      "name"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_5",
+    "question": "What is the difference between global scope of var and block scope of let and const?",
+    "video_id": "a19151b49f2",
+    "answer_spans": [
+      {
+        "video_id": "a19151b49f2",
+        "start_seconds": 17.0,
+        "end_seconds": 139.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "bdae192b-26c0-5912-8ca8-d5f5277d0e4b"
+    ],
+    "expected_keywords": [
+      "global scope",
+      "block scope",
+      "let",
+      "const",
+      "var"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_6",
+    "question": "What happens if you try to redeclare or reassign a const variable?",
+    "video_id": "a19151b49f2",
+    "answer_spans": [
+      {
+        "video_id": "a19151b49f2",
+        "start_seconds": 483.0,
+        "end_seconds": 554.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "ed6df6f2-23df-55fa-83f7-e06a77c3dcf1"
+    ],
+    "expected_keywords": [
+      "declaration",
+      "error",
+      "const",
+      "reassign"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_7",
+    "question": "What are the common primitive data types in JavaScript like number and string?",
+    "video_id": "645fa5c93f2",
+    "answer_spans": [
+      {
+        "video_id": "645fa5c93f2",
+        "start_seconds": 13.0,
+        "end_seconds": 67.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "7bc4312e-2924-5eb0-a02b-4836aa5e5e98"
+    ],
+    "expected_keywords": [
+      "data types",
+      "number",
+      "string",
+      "JavaScript"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_8",
+    "question": "How does JavaScript differentiate between numeric values and string text?",
+    "video_id": "645fa5c93f2",
+    "answer_spans": [
+      {
+        "video_id": "645fa5c93f2",
+        "start_seconds": 312.0,
+        "end_seconds": 331.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "857bd6fb-fc5f-5e17-b9fe-329207bd4add"
+    ],
+    "expected_keywords": [
+      "variable",
+      "number",
+      "string",
+      "characters"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_9",
+    "question": "How does type conversion work when converting a number to a string in JavaScript?",
+    "video_id": "77a4dcb2e30",
+    "answer_spans": [
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 443.0,
+        "end_seconds": 501.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "3fe36408-e54a-51f5-a2e6-3716ce1679b5"
+    ],
+    "expected_keywords": [
+      "convert",
+      "string",
+      "value",
+      "type"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_10",
+    "question": "How do you convert string data types into numbers using JavaScript conversion?",
+    "video_id": "77a4dcb2e30",
+    "answer_spans": [
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 783.0,
+        "end_seconds": 793.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "47d0af52-362f-5e5b-9733-0701bfab119b"
+    ],
+    "expected_keywords": [
+      "conversion",
+      "number",
+      "syntax",
+      "allowed"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_11",
+    "question": "What are arithmetic operators and how do you perform calculations in JavaScript?",
+    "video_id": "241a8ef7fa5",
+    "answer_spans": [
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 4.0,
+        "end_seconds": 127.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "3b12b6f2-f02a-5bbd-ba58-c3b1e3afc8ec"
+    ],
+    "expected_keywords": [
+      "operators",
+      "arithmetic",
+      "calculations",
+      "list"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_12",
+    "question": "How do comparison operators compare two values for equality or inequality in JavaScript?",
+    "video_id": "241a8ef7fa5",
+    "answer_spans": [
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 629.0,
+        "end_seconds": 805.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "8a66b260-9830-523c-b1da-439c58df91e8"
+    ],
+    "expected_keywords": [
+      "comparing",
+      "cases",
+      "false",
+      "value"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_13",
+    "question": "What is the purpose of string operators and concatenation in JavaScript?",
+    "video_id": "91f77563a0a",
+    "answer_spans": [
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 15.5,
+        "end_seconds": 89.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "673013ee-1349-5250-9cc8-2b23f35ebaab"
+    ],
+    "expected_keywords": [
+      "string operator",
+      "format",
+      "concatenation",
+      "output"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_14",
+    "question": "How do bitwise operators like AND and OR operate on binary numbers in JavaScript?",
+    "video_id": "91f77563a0a",
+    "answer_spans": [
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 579.0,
+        "end_seconds": 713.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "05708fe4-be52-5d39-b850-49cd1c8b9bb5"
+    ],
+    "expected_keywords": [
+      "bitwise operator",
+      "variable",
+      "binary",
+      "numbers"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_15",
+    "question": "How can I execute different blocks of code based on whether a specific condition is met or not?",
+    "video_id": "70dd9371bb7",
+    "answer_spans": [
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 4.0,
+        "end_seconds": 118.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "32311968-c63d-59f3-87fd-69bda1eed4a3"
+    ],
+    "expected_keywords": [
+      "conditions",
+      "if",
+      "else",
+      "satisfied"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_16",
+    "question": "When should you use a switch case statement instead of multiple if-else blocks?",
+    "video_id": "70dd9371bb7",
+    "answer_spans": [
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 474.0,
+        "end_seconds": 566.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "2934f703-b592-5c54-aba2-bd46cb4927e1"
+    ],
+    "expected_keywords": [
+      "different logic",
+      "switch",
+      "if else",
+      "conditions"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_17",
+    "question": "What are the standard ways to repeatedly execute a block of code?",
+    "video_id": "7e654e91748",
+    "answer_spans": [
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 5.0,
+        "end_seconds": 132.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "eb24afdb-de62-55f4-8dec-3b5f6cd64a91"
+    ],
+    "expected_keywords": [
+      "loops",
+      "divided",
+      "normal",
+      "JavaScript"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_18",
+    "question": "How do you construct a loop with console.log to print iterations in JavaScript?",
+    "video_id": "7e654e91748",
+    "answer_spans": [
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 522.0,
+        "end_seconds": 596.0
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 373.6,
+        "end_seconds": 375.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 495.6,
+        "end_seconds": 497.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 613.6,
+        "end_seconds": 615.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 747.6,
+        "end_seconds": 749.6
+      },
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 921.6,
+        "end_seconds": 923.6
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 38.0,
+        "end_seconds": 43.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 105.0,
+        "end_seconds": 109.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 111.0,
+        "end_seconds": 116.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 219.0,
+        "end_seconds": 227.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 294.0,
+        "end_seconds": 298.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 357.0,
+        "end_seconds": 361.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 626.0,
+        "end_seconds": 628.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 827.0,
+        "end_seconds": 829.0
+      },
+      {
+        "video_id": "241a8ef7fa5",
+        "start_seconds": 899.0,
+        "end_seconds": 901.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 118.0,
+        "end_seconds": 120.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 174.0,
+        "end_seconds": 180.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 213.0,
+        "end_seconds": 216.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 65.0,
+        "end_seconds": 75.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 175.0,
+        "end_seconds": 177.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 243.0,
+        "end_seconds": 245.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 299.0,
+        "end_seconds": 301.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 353.0,
+        "end_seconds": 355.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 505.0,
+        "end_seconds": 507.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 783.0,
+        "end_seconds": 785.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1109.0,
+        "end_seconds": 1111.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1187.0,
+        "end_seconds": 1189.0
+      },
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 160.24,
+        "end_seconds": 162.24
+      },
+      {
+        "video_id": "645fa5c93f2",
+        "start_seconds": 115.0,
+        "end_seconds": 137.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 100.0,
+        "end_seconds": 102.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 160.0,
+        "end_seconds": 162.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 248.0,
+        "end_seconds": 250.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 282.0,
+        "end_seconds": 284.0
+      },
+      {
+        "video_id": "70dd9371bb7",
+        "start_seconds": 422.0,
+        "end_seconds": 424.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 252.0,
+        "end_seconds": 254.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 368.0,
+        "end_seconds": 370.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 433.0,
+        "end_seconds": 435.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 477.0,
+        "end_seconds": 479.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 607.0,
+        "end_seconds": 609.0
+      },
+      {
+        "video_id": "77a4dcb2e30",
+        "start_seconds": 639.0,
+        "end_seconds": 641.0
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 429.34,
+        "end_seconds": 432.34
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 185.32,
+        "end_seconds": 187.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 378.32,
+        "end_seconds": 380.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 716.32,
+        "end_seconds": 718.32
+      },
+      {
+        "video_id": "7e654e91748",
+        "start_seconds": 844.32,
+        "end_seconds": 846.32
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 41.5,
+        "end_seconds": 43.48
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 267.7,
+        "end_seconds": 270.7
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 321.2,
+        "end_seconds": 326.4
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 433.32,
+        "end_seconds": 435.06
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 579.76,
+        "end_seconds": 582.14
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 854.3,
+        "end_seconds": 857.3
+      },
+      {
+        "video_id": "91f77563a0a",
+        "start_seconds": 1024.16,
+        "end_seconds": 1027.16
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 187.0,
+        "end_seconds": 190.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 259.0,
+        "end_seconds": 280.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 343.0,
+        "end_seconds": 346.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 397.0,
+        "end_seconds": 403.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 577.0,
+        "end_seconds": 580.0
+      },
+      {
+        "video_id": "9a7545f5bbd",
+        "start_seconds": 610.0,
+        "end_seconds": 613.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 238.0,
+        "end_seconds": 241.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 264.0,
+        "end_seconds": 267.0
+      },
+      {
+        "video_id": "f7cc259539c",
+        "start_seconds": 355.0,
+        "end_seconds": 357.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "c9a32fce-13b5-5295-bd52-0c119c75d4a1"
+    ],
+    "expected_keywords": [
+      "console.log",
+      "print",
+      "loop",
+      "iterations"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_19",
+    "question": "What is the benefit of using a list-like data structure to hold a collection of items rather than individual variables?",
+    "video_id": "3d763901fe2",
+    "answer_spans": [
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 9.0,
+        "end_seconds": 93.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 6.0,
+        "end_seconds": 13.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 53.0,
+        "end_seconds": 56.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 225.0,
+        "end_seconds": 229.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 287.0,
+        "end_seconds": 289.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 325.0,
+        "end_seconds": 369.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 407.0,
+        "end_seconds": 409.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 429.0,
+        "end_seconds": 439.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 457.0,
+        "end_seconds": 459.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 477.0,
+        "end_seconds": 491.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 509.0,
+        "end_seconds": 521.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 559.0,
+        "end_seconds": 625.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 671.0,
+        "end_seconds": 715.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 749.0,
+        "end_seconds": 759.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 775.0,
+        "end_seconds": 809.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 835.0,
+        "end_seconds": 849.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 867.0,
+        "end_seconds": 891.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 967.0,
+        "end_seconds": 973.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1007.0,
+        "end_seconds": 1077.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1099.0,
+        "end_seconds": 1115.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1157.0,
+        "end_seconds": 1159.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1175.0,
+        "end_seconds": 1217.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1241.0,
+        "end_seconds": 1243.0
+      },
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 8.8,
+        "end_seconds": 15.04
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 53.54,
+        "end_seconds": 56.54
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 181.16,
+        "end_seconds": 184.14
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "67beb85b-9963-5fd7-afc6-3ec207f400d0"
+    ],
+    "expected_keywords": [
+      "arrays",
+      "importance",
+      "multiple values",
+      "variable"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_20",
+    "question": "How does the delete keyword or methods remove elements from a JavaScript array?",
+    "video_id": "3d763901fe2",
+    "answer_spans": [
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 585.0,
+        "end_seconds": 649.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 6.0,
+        "end_seconds": 13.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 53.0,
+        "end_seconds": 56.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 5.0,
+        "end_seconds": 199.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 225.0,
+        "end_seconds": 229.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 287.0,
+        "end_seconds": 289.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 325.0,
+        "end_seconds": 369.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 407.0,
+        "end_seconds": 409.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 429.0,
+        "end_seconds": 439.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 457.0,
+        "end_seconds": 459.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 477.0,
+        "end_seconds": 491.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 509.0,
+        "end_seconds": 521.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 671.0,
+        "end_seconds": 715.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 749.0,
+        "end_seconds": 759.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 775.0,
+        "end_seconds": 809.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 835.0,
+        "end_seconds": 849.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 867.0,
+        "end_seconds": 891.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 967.0,
+        "end_seconds": 973.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1007.0,
+        "end_seconds": 1077.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1099.0,
+        "end_seconds": 1115.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1157.0,
+        "end_seconds": 1159.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1175.0,
+        "end_seconds": 1217.0
+      },
+      {
+        "video_id": "3d763901fe2",
+        "start_seconds": 1241.0,
+        "end_seconds": 1243.0
+      },
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 8.8,
+        "end_seconds": 15.04
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 53.54,
+        "end_seconds": 56.54
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 181.16,
+        "end_seconds": 184.14
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "38949d28-1b77-5f20-b965-3112f76a1a0e"
+    ],
+    "expected_keywords": [
+      "delete",
+      "keyword",
+      "array",
+      "difference"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_21",
+    "question": "What is the best way to group a set of instructions so they can be executed multiple times without rewriting them?",
+    "video_id": "02106c4bde3",
+    "answer_spans": [
+      {
+        "video_id": "02106c4bde3",
+        "start_seconds": 8.0,
+        "end_seconds": 37.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "a2a2d744-2df2-5864-8c0f-d8029ebcee9b"
+    ],
+    "expected_keywords": [
+      "reusability",
+      "function",
+      "instructions",
+      "task"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_22",
+    "question": "What is the advantage of associating data with descriptive string labels rather than relying on sequential numbers?",
+    "video_id": "40a80d83cb1",
+    "answer_spans": [
+      {
+        "video_id": "40a80d83cb1",
+        "start_seconds": 12.0,
+        "end_seconds": 45.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "cbbfa71e-726b-5a33-b9d8-a8956462105f"
+    ],
+    "expected_keywords": [
+      "objects",
+      "position number",
+      "index",
+      "key"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_23",
+    "question": "How do you use the forEach method and callback function to iterate through elements?",
+    "video_id": "7d8e4429f5e",
+    "answer_spans": [
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 338.0,
+        "end_seconds": 399.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "1f6864fa-155e-518d-ae5c-5c62fad64934"
+    ],
+    "expected_keywords": [
+      "for each",
+      "body",
+      "function",
+      "iterate"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_24",
+    "question": "How do you call the map and filter functions with arrow functions on an array?",
+    "video_id": "24350b15787",
+    "answer_spans": [
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 56.0,
+        "end_seconds": 139.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 3.0,
+        "end_seconds": 33.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 164.0,
+        "end_seconds": 168.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 229.0,
+        "end_seconds": 231.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 327.0,
+        "end_seconds": 350.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 383.0,
+        "end_seconds": 418.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 472.0,
+        "end_seconds": 478.0
+      },
+      {
+        "video_id": "24350b15787",
+        "start_seconds": 512.0,
+        "end_seconds": 515.0
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "863fa441-ba91-52f0-b3f4-b9c24c9523b3"
+    ],
+    "expected_keywords": [
+      "map",
+      "filter",
+      "arrow function",
+      "predefined"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_25",
+    "question": "What is a callback function and how do you pass a function as an argument in JavaScript?",
+    "video_id": "1fef318c007",
+    "answer_spans": [
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 6.0,
+        "end_seconds": 50.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 63.0,
+        "end_seconds": 70.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 247.0,
+        "end_seconds": 255.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 361.0,
+        "end_seconds": 397.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 415.0,
+        "end_seconds": 418.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 442.0,
+        "end_seconds": 445.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 473.0,
+        "end_seconds": 476.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 533.0,
+        "end_seconds": 539.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 563.0,
+        "end_seconds": 566.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 628.0,
+        "end_seconds": 631.0
+      },
+      {
+        "video_id": "1fef318c007",
+        "start_seconds": 682.0,
+        "end_seconds": 685.0
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 309.74,
+        "end_seconds": 315.74
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 356.38,
+        "end_seconds": 359.34
+      },
+      {
+        "video_id": "7d8e4429f5e",
+        "start_seconds": 742.9,
+        "end_seconds": 751.9
+      }
+    ],
+    "ground_truth_chunk_ids": [
+      "648478e4-8e77-511c-955f-826063764aaf"
+    ],
+    "expected_keywords": [
+      "callback function",
+      "pass",
+      "JavaScript",
+      "argument"
+    ],
+    "in_domain": true
+  },
+  {
+    "id": "q_26",
+    "question": "What is the capital of France and what is its population?",
+    "video_id": null,
+    "answer_spans": [],
+    "ground_truth_chunk_ids": [],
+    "expected_keywords": [
+      "Paris",
+      "France",
+      "capital"
+    ],
+    "in_domain": false,
+    "note": "Unrelated. Searched 'capital', 'france'. 0 hits."
+  },
+  {
+    "id": "q_27",
+    "question": "Who painted the Mona Lisa and in which museum is it displayed?",
+    "video_id": null,
+    "answer_spans": [],
+    "ground_truth_chunk_ids": [],
+    "expected_keywords": [
+      "Mona Lisa",
+      "Da Vinci",
+      "Louvre"
+    ],
+    "in_domain": false,
+    "note": "Unrelated. Searched 'mona lisa', 'louvre'. 0 hits."
+  },
+  {
+    "id": "q_28",
+    "question": "How do I manage state with React hooks like useState?",
+    "video_id": null,
+    "answer_spans": [],
+    "ground_truth_chunk_ids": [],
+    "expected_keywords": [
+      "react",
+      "hook",
+      "useState",
+      "state"
+    ],
+    "in_domain": false,
+    "note": "Searched 'react', 'hook'. 0 hits. Genuinely absent."
+  },
+  {
+    "id": "q_29",
+    "question": "What is the purpose of a Python decorator?",
+    "video_id": null,
+    "answer_spans": [],
+    "ground_truth_chunk_ids": [],
+    "expected_keywords": [
+      "python",
+      "decorator",
+      "function"
+    ],
+    "in_domain": false,
+    "note": "Searched 'python', 'decorator'. 0 hits. Genuinely absent."
+  },
+  {
+    "id": "q_30",
+    "question": "Can you explain the difference between INNER JOIN and LEFT JOIN in SQL?",
+    "video_id": null,
+    "answer_spans": [],
+    "ground_truth_chunk_ids": [],
+    "expected_keywords": [
+      "sql",
+      "join",
+      "inner",
+      "left"
+    ],
+    "in_domain": false,
+    "note": "Searched 'sql', 'join'. 0 hits. Genuinely absent."
+  }
+]

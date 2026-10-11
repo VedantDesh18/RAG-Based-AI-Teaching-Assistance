@@ -1,14 +1,39 @@
+# Legacy / raw data
 Project-2-RAG-based-ai/
 audios/
 videos/
+jsons/
+newjsons/
+scratch_media/
+
+# Generated artifacts
 prompt.txt
 response.txt
 output.json
 ollama_embed_response.txt
-jsons/
 embeddings.joblib
 embeddings_chunks.joblib
-newjsons/
-data/
-videoqa.egg-info/
+graph.json
+
+# Environment & secrets
+.env
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+videoqa.egg-info/
+.pytest_cache/
+
+# Data & persistence (managed by Docker volumes)
+data/
+
+# IDE & tooling
+.systemlens/
+
+# Node / Frontend build artifacts
+node_modules/
+.next/
+# Large partial download files
+scratch_media/*.part

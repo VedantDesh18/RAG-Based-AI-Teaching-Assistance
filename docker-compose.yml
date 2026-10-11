@@ -1,0 +1,77 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: videoqa-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OLLAMA_URL=${OLLAMA_URL:-http://host.docker.internal:11434}
+      - VIDEOQA_CORS_ORIGINS=${VIDEOQA_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      - WHISPER_MODEL=${WHISPER_MODEL:-large-v2}
+      - WHISPER_DEVICE=${WHISPER_DEVICE:-cpu}
+      - WHISPER_COMPUTE_TYPE=${WHISPER_COMPUTE_TYPE:-int8}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # Persistent application data (SQLite database, Chroma vector store, media uploads)
+      - ./data:/app/data
+      # Whisper / Hugging Face model cache (prevents redownloading large weights on restart)
+      - whisper_cache:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: videoqa-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      # Internal Docker network URL for Next.js server-side rewrites (/api/* -> backend:8000/api/*)
+      - BACKEND_URL=http://backend:8000
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-}
+    volumes:
+      # Bind mounts for hot reloading development changes
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      # Anonymous volumes to keep containerized node modules and build artifacts isolated
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Optional: In-Docker Ollama service (use when you do not run Ollama on the host machine)
+  # Run with: docker compose --profile with-ollama up --build
+  ollama:
+    image: ollama/ollama:latest
+    container_name: videoqa-ollama
+    profiles:
+      - with-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  whisper_cache:
+    name: videoqa_whisper_cache
+  ollama_data:
+    name: videoqa_ollama_data

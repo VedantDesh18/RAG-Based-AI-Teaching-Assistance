@@ -1,0 +1,61 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+
+# Large datasets, media and legacy files (mounted via volumes)
+data/media/*
+!data/media/.gitkeep
+data/chroma/*
+data/db/*
+videos/
+audios/
+scratch_media/
+jsons/
+newjsons/
+*.joblib
+Project-2-RAG-based-ai/
+
+# Frontend (built separately in frontend context)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# System / IDE
+.idea/
+.vscode/
+.systemlens/
+.DS_Store
+Thumbs.db
