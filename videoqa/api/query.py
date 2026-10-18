@@ -102,8 +102,12 @@ def stream_ollama(prompt: str):
 
 def run_query(req: QueryRequest):
     question = req.text
-    if req.video_id and not get_video(req.video_id):
-        raise HTTPException(status_code=404, detail="Video not found")
+    if req.video_id:
+        video = get_video(req.video_id)
+        if not video:
+            raise HTTPException(status_code=404, detail="Video not found")
+        if video.get("status") != "ready" or int(video.get("chunk_count") or 0) < 1:
+            raise HTTPException(status_code=409, detail="Chat becomes available after transcript chunks are indexed.")
 
     session_id = req.session_id or f"sess_{uuid.uuid4().hex[:16]}"
     existing_session = get_chat_session(session_id)

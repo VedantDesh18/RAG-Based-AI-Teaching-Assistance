@@ -11,7 +11,9 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - OLLAMA_URL=${OLLAMA_URL:-http://host.docker.internal:11434}
-      - VIDEOQA_CORS_ORIGINS=${VIDEOQA_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      - VIDEOQA_CORS_ORIGINS=${VIDEOQA_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001}
+      - MEDIA_ROOT=${MEDIA_ROOT:-/app/data/media}
+      - LEGACY_MEDIA_ROOT=/app/videos
       - WHISPER_MODEL=${WHISPER_MODEL:-large-v2}
       - WHISPER_DEVICE=${WHISPER_DEVICE:-cpu}
       - WHISPER_COMPUTE_TYPE=${WHISPER_COMPUTE_TYPE:-int8}
@@ -20,6 +22,8 @@ services:
     volumes:
       # Persistent application data (SQLite database, Chroma vector store, media uploads)
       - ./data:/app/data
+      # Read-only access to existing legacy videos for playback and migration.
+      - ./videos:/app/videos:ro
       # Whisper / Hugging Face model cache (prevents redownloading large weights on restart)
       - whisper_cache:/root/.cache/huggingface
     healthcheck:

@@ -1,7 +1,8 @@
 from datetime import datetime, timezone
 from fastapi import APIRouter, BackgroundTasks, HTTPException
-from videoqa.db.sqlite import get_video, increment_retry_count, upsert_video
+from videoqa.db.sqlite import get_video, update_video_status
 from videoqa.core.ingestion import ingest_url, ingest_file, reset_for_retry
+from videoqa.storage import resolve_media_path
 
 router = APIRouter(prefix="/api/jobs", tags=["jobs"])
 
@@ -35,9 +36,9 @@ def cancel_job(video_id: str):
         raise HTTPException(status_code=404, detail="Video job not found")
     if video.get('status') not in ACTIVE_STATUSES:
         raise HTTPException(status_code=409, detail="Only active jobs can be cancelled")
-    video['status'] = 'cancelled'
-    video['updated_at'] = datetime.now(timezone.utc).isoformat()
-    upsert_video(video)
+    changed = update_video_status(video_id, 'cancelled', datetime.now(timezone.utc).isoformat(), allowed_current_statuses=ACTIVE_STATUSES)
+    if not changed:
+        raise HTTPException(status_code=409, detail="Only active jobs can be cancelled")
     return {"job_id": video_id, "video_id": video_id, "status": "cancelled"}
 
 
@@ -46,17 +47,20 @@ def retry_job(video_id: str, background_tasks: BackgroundTasks):
     video = get_video(video_id)
     if not video:
         raise HTTPException(status_code=404, detail="Video job not found")
-    if video.get('retry_count', 0) >= 3:
+    if int(video.get('retry_count') or 0) >= 3:
         raise HTTPException(status_code=409, detail="This job has reached its retry limit")
+    if video.get('source_type') != 'file_upload' and not video.get('source_url'):
+        raise HTTPException(status_code=409, detail="The original source is no longer available for retry")
     try:
         video = reset_for_retry(video_id)
     except ValueError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
-    retry_count = increment_retry_count(video_id)
     if video.get('source_type') == 'file_upload':
-        if not video.get('file_path'):
-            raise HTTPException(status_code=409, detail="The original upload is no longer available for retry")
-        background_tasks.add_task(ingest_file, video['file_path'], video_id, video['title'])
+        source_path = resolve_media_path(video.get('file_path')) if video.get('file_path') else None
+        if not source_path:
+            update_video_status(video_id, 'failed', datetime.now(timezone.utc).isoformat(), "The original uploaded media file is missing.")
+            raise HTTPException(status_code=409, detail="The original uploaded media file is no longer available for retry")
+        background_tasks.add_task(ingest_file, str(source_path), video_id, video['title'])
     else:
         background_tasks.add_task(ingest_url, video['source_url'], video_id)
-    return {"job_id": video_id, "video_id": video_id, "status": "queued", "retry_count": retry_count}
+    return {"job_id": video_id, "video_id": video_id, "status": "queued", "retry_count": video.get('retry_count', 0)}

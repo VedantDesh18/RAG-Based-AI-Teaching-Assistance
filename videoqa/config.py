@@ -36,6 +36,16 @@ def load_config():
             cfg["paths"] = {}
         cfg["paths"]["db"] = os.getenv("DB_PATH")
 
+    media_root = os.getenv("MEDIA_ROOT")
+    legacy_media_root = os.getenv("LEGACY_MEDIA_ROOT")
+    if media_root or legacy_media_root:
+        if "paths" not in cfg:
+            cfg["paths"] = {}
+        if media_root:
+            cfg["paths"]["media"] = media_root
+        if legacy_media_root:
+            cfg["paths"]["legacy_media"] = legacy_media_root
+
     return cfg
 
 config = load_config()

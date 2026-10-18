@@ -1,9 +1,27 @@
 import os
 import re
 import json
+import logging
 import webvtt
 import tempfile
 from typing import List, Dict, Any
+
+# Ensure Hugging Face Hub uses standard reliable download instead of buggy Xet/CAS client
+os.environ["HF_HUB_DISABLE_XET"] = "1"
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+
+# Compatibility patch for PyAV 19 where metadata_errors kwarg was removed
+try:
+    import av
+    _orig_av_open = av.open
+    def _compat_av_open(*args, **kwargs):
+        kwargs.pop("metadata_errors", None)
+        return _orig_av_open(*args, **kwargs)
+    av.open = _compat_av_open
+except Exception:
+    pass
+
+logger = logging.getLogger(__name__)
 
 def parse_time_str(time_str: str) -> float:
     # 00:00:00.000
@@ -67,17 +85,44 @@ def parse_captions(file_path: str, video_id: str) -> List[Dict[str, Any]]:
         
     return segments
 
+_cached_whisper_model = None
+_cached_whisper_key = None
+
+def _get_whisper_model(model_name: str, device: str, compute_type: str):
+    global _cached_whisper_model, _cached_whisper_key
+    key = (model_name, device, compute_type)
+    if _cached_whisper_model is not None and _cached_whisper_key == key:
+        return _cached_whisper_model
+
+    from faster_whisper import WhisperModel
+    try:
+        model = WhisperModel(model_name, device=device, compute_type=compute_type)
+        _cached_whisper_model = model
+        _cached_whisper_key = key
+        return model
+    except Exception as exc:
+        if model_name != "small":
+            logger.warning(
+                "Failed to initialize Whisper model '%s' (%s). Falling back to locally cached 'small' model.",
+                model_name,
+                exc,
+            )
+            fallback_model = WhisperModel("small", device=device, compute_type=compute_type)
+            _cached_whisper_model = fallback_model
+            _cached_whisper_key = ("small", device, compute_type)
+            return fallback_model
+        raise
+
 def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_faster_whisper: bool = True) -> dict:
     """
     Transcribes audio. If offset > 0, shifts timestamps.
     Returns a dict with 'segments' and 'language'.
     """
     if use_faster_whisper:
-        from faster_whisper import WhisperModel
-        whisper_model_name = os.getenv("WHISPER_MODEL", "large-v2")
+        whisper_model_name = os.getenv("WHISPER_MODEL", "small")
         whisper_device = os.getenv("WHISPER_DEVICE", "cpu")
         whisper_compute = os.getenv("WHISPER_COMPUTE_TYPE", "int8")
-        model = WhisperModel(whisper_model_name, device=whisper_device, compute_type=whisper_compute)
+        model = _get_whisper_model(whisper_model_name, device=whisper_device, compute_type=whisper_compute)
         
         # Auto-detect language if needed, but faster-whisper does this automatically 
         # for the first 30s. We'll just run it.

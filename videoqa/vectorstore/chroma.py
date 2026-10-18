@@ -1,10 +1,10 @@
 import chromadb
 from chromadb.config import Settings
 import os
-from videoqa.config import config
+import videoqa.config as config_module
 
 def get_chroma_client():
-    chroma_path = config.get("paths", {}).get("chroma", "data/chroma")
+    chroma_path = config_module.config.get("paths", {}).get("chroma", "data/chroma")
     os.makedirs(chroma_path, exist_ok=True)
     return chromadb.PersistentClient(path=chroma_path, settings=Settings(allow_reset=True))
 

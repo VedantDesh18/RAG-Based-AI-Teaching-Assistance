@@ -2,10 +2,10 @@ import sqlite3
 import os
 import json
 from pathlib import Path
-from videoqa.config import config
+import videoqa.config as config_module
 
 def get_db_path():
-    db_path = config.get("paths", {}).get("db", "data/db/videoqa.db")
+    db_path = config_module.config.get("paths", {}).get("db", "data/db/videoqa.db")
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     return db_path
 
@@ -30,6 +30,12 @@ def run_migrations():
             with open(migration_dir / migration, "r", encoding="utf-8") as f:
                 sql = f.read()
             conn.executescript(sql)
+        # Ensure stored chunk_count reflects the authoritative count of actual indexed chunks
+        conn.execute("""
+            UPDATE videos
+            SET chunk_count = (SELECT COUNT(*) FROM chunks c WHERE c.video_id = videos.video_id)
+            WHERE chunk_count IS NULL OR chunk_count != (SELECT COUNT(*) FROM chunks c WHERE c.video_id = videos.video_id)
+        """)
         conn.commit()
     finally:
         conn.close()
@@ -57,7 +63,7 @@ def upsert_video(video: dict):
                 upload_date=excluded.upload_date,
                 description=excluded.description,
                 detected_language=excluded.detected_language,
-                file_path=excluded.file_path,
+                file_path=COALESCE(excluded.file_path, videos.file_path),
                 status=excluded.status,
                 error_message=excluded.error_message,
                 updated_at=excluded.updated_at
@@ -83,6 +89,124 @@ def upsert_video(video: dict):
     finally:
         conn.close()
 
+def insert_video_if_absent(video: dict) -> bool:
+    """Insert a newly uploaded video once, so duplicate uploads queue once."""
+    conn = get_connection()
+    try:
+        cursor = conn.execute(
+            """INSERT INTO videos (
+                id, video_id, source_type, source_url, title, channel, duration_seconds,
+                thumbnail_url, upload_date, description, detected_language, file_path,
+                status, error_message, created_at, updated_at
+            ) VALUES (
+                :id, :video_id, :source_type, :source_url, :title, :channel, :duration_seconds,
+                :thumbnail_url, :upload_date, :description, :detected_language, :file_path,
+                :status, :error_message, :created_at, :updated_at
+            ) ON CONFLICT(video_id) DO NOTHING""",
+            {
+                "id": video.get("id"),
+                "video_id": video.get("video_id"),
+                "source_type": video.get("source_type"),
+                "source_url": video.get("source_url"),
+                "title": video.get("title"),
+                "channel": video.get("channel"),
+                "duration_seconds": video.get("duration_seconds", 0.0),
+                "thumbnail_url": video.get("thumbnail_url"),
+                "upload_date": video.get("upload_date"),
+                "description": video.get("description"),
+                "detected_language": video.get("detected_language"),
+                "file_path": video.get("file_path"),
+                "status": video.get("status", "queued"),
+                "error_message": video.get("error_message"),
+                "created_at": video.get("created_at"),
+                "updated_at": video.get("updated_at"),
+            },
+        )
+        conn.commit()
+        return cursor.rowcount == 1
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+def update_video_file_path(video_id: str, file_path: str, updated_at: str) -> None:
+    conn = get_connection()
+    try:
+        conn.execute(
+            "UPDATE videos SET file_path = ?, updated_at = ? WHERE video_id = ?",
+            (file_path, updated_at, video_id),
+        )
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+def update_video_metadata(video_id: str, metadata: dict) -> None:
+    """Update extractor metadata without changing job status or media path."""
+    allowed = (
+        "source_url", "title", "channel", "duration_seconds", "thumbnail_url",
+        "upload_date", "description", "detected_language", "updated_at",
+    )
+    fields = [name for name in allowed if name in metadata]
+    if not fields:
+        return
+    assignments = ", ".join(f"{name} = ?" for name in fields)
+    values = [metadata[name] for name in fields]
+    conn = get_connection()
+    try:
+        conn.execute(f"UPDATE videos SET {assignments} WHERE video_id = ?", (*values, video_id))
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+def update_video_status(
+    video_id: str,
+    status: str,
+    updated_at: str,
+    error_message: str | None = None,
+    allowed_current_statuses: set[str] | None = None,
+) -> bool:
+    """Update job state only, preserving all video and media metadata."""
+    conn = get_connection()
+    try:
+        sql = "UPDATE videos SET status = ?, error_message = ?, updated_at = ? WHERE video_id = ?"
+        params: list = [status, error_message, updated_at, video_id]
+        if allowed_current_statuses is not None:
+            placeholders = ",".join("?" for _ in allowed_current_statuses)
+            sql += f" AND status IN ({placeholders})"
+            params.extend(sorted(allowed_current_statuses))
+        elif status != "cancelled":
+            # A cancellation racing an ingestion-stage update remains authoritative.
+            sql += " AND status != 'cancelled'"
+        cursor = conn.execute(sql, params)
+        conn.commit()
+        return cursor.rowcount == 1
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+def update_video_duration(video_id: str, duration_seconds: float, updated_at: str) -> None:
+    conn = get_connection()
+    try:
+        conn.execute(
+            "UPDATE videos SET duration_seconds = ?, updated_at = ? WHERE video_id = ?",
+            (duration_seconds, updated_at, video_id),
+        )
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
 def delete_video_sqlite(video_id: str) -> int:
     conn = get_connection()
     try:
@@ -100,9 +224,21 @@ def delete_video_sqlite(video_id: str) -> int:
 def get_video(video_id: str):
     conn = get_connection()
     try:
-        cursor = conn.execute("SELECT * FROM videos WHERE video_id = ?", (video_id,))
+        # Legacy and migrated rows can have a stale `videos.chunk_count` value.
+        # The chunks table is authoritative for both chat eligibility and query
+        # validation, just as it is for the library listing.
+        cursor = conn.execute("""
+            SELECT v.*,
+                   (SELECT COUNT(*) FROM chunks c WHERE c.video_id = v.video_id) AS calculated_chunk_count
+            FROM videos v
+            WHERE v.video_id = ?
+        """, (video_id,))
         row = cursor.fetchone()
-        return dict(row) if row else None
+        if not row:
+            return None
+        video = dict(row)
+        video['chunk_count'] = video.pop('calculated_chunk_count', 0)
+        return video
     finally:
         conn.close()
 
@@ -147,6 +283,33 @@ def reset_video_content(video_id: str) -> None:
         conn.execute("DELETE FROM transcript_segments WHERE video_id = ?", (video_id,))
         conn.execute("UPDATE videos SET chunk_count = 0 WHERE video_id = ?", (video_id,))
         conn.commit()
+    finally:
+        conn.close()
+
+def claim_video_retry(video_id: str, updated_at: str, max_retries: int = 3) -> dict | None:
+    """Atomically claim a failed/cancelled job and clear its derived rows."""
+    conn = get_connection()
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        cursor = conn.execute(
+            """UPDATE videos
+               SET status = 'queued', error_message = NULL,
+                   retry_count = COALESCE(retry_count, 0) + 1, updated_at = ?, chunk_count = 0
+               WHERE video_id = ? AND status IN ('failed', 'cancelled')
+                 AND COALESCE(retry_count, 0) < ?""",
+            (updated_at, video_id, max_retries),
+        )
+        if cursor.rowcount != 1:
+            conn.rollback()
+            return None
+        conn.execute("DELETE FROM chunks WHERE video_id = ?", (video_id,))
+        conn.execute("DELETE FROM transcript_segments WHERE video_id = ?", (video_id,))
+        row = conn.execute("SELECT * FROM videos WHERE video_id = ?", (video_id,)).fetchone()
+        conn.commit()
+        return dict(row) if row else None
+    except Exception:
+        conn.rollback()
+        raise
     finally:
         conn.close()
 
@@ -199,6 +362,11 @@ def insert_chunks(chunks: list[dict]):
                 word_count=excluded.word_count,
                 language=excluded.language
         """, chunks)
+        video_id = chunks[0]['video_id']
+        conn.execute(
+            "UPDATE videos SET chunk_count = (SELECT COUNT(*) FROM chunks WHERE video_id = ?) WHERE video_id = ?",
+            (video_id, video_id)
+        )
         conn.commit()
     finally:
         conn.close()

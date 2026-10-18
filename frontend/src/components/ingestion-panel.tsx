@@ -90,14 +90,15 @@ export function IngestionPanel({ onChanged }: { onChanged?: () => void }) {
 }
 
 function JobProgress({ job, pending, upload, error, onRetry, onCancel, onOpen }: { job: Job | null; pending: JobStart | null; upload: { loaded: number; total: number } | null; error: string | null; onRetry: () => void; onCancel: () => void; onOpen: () => void }) {
+  const uploadFailed = Boolean(error && !job && !pending && !upload);
   const status = job?.status ?? pending?.status ?? "queued";
-  const terminal = ["ready", "failed", "cancelled", "already_indexed"].includes(status);
+  const terminal = uploadFailed || ["ready", "failed", "cancelled", "already_indexed"].includes(status);
   const uploadPercent = upload && upload.total ? Math.round((upload.loaded / upload.total) * 100) : 0;
   return <div className={`job-panel ${error || status === "failed" ? "has-error" : ""}`} role={error ? "alert" : "status"}>
     <div className="job-panel-heading">
-      <div>{status === "ready" || status === "already_indexed" ? <CheckCircle2 className="job-state-icon success" /> : error || status === "failed" ? <XCircle className="job-state-icon failure" /> : <LoaderCircle className="job-state-icon spin" />}<div><strong>{upload ? `Uploading ${uploadPercent}%` : status === "ready" ? "Ready to chat" : status === "already_indexed" ? "Already indexed" : `${displayStatus(status)} your video`}</strong><p>{error ?? (upload ? "Your file is being transferred to the local backend." : "Stages update only when the backend confirms them.")}</p></div></div>
+      <div>{status === "ready" || status === "already_indexed" ? <CheckCircle2 className="job-state-icon success" /> : error || status === "failed" ? <XCircle className="job-state-icon failure" /> : <LoaderCircle className="job-state-icon spin" />}<div><strong>{upload ? `Uploading ${uploadPercent}%` : uploadFailed ? "Upload failed" : status === "ready" ? "Ready to chat" : status === "already_indexed" ? "Already indexed" : `${displayStatus(status)} your video`}</strong><p>{error ?? (upload ? "Your file is being transferred to the local backend." : "Stages update only when the backend confirms them.")}</p></div></div>
       <div className="job-actions">{!terminal && <button type="button" className="button button-ghost button-small" onClick={onCancel}>Cancel</button>}{(status === "failed" || status === "cancelled") && <button type="button" className="button button-secondary button-small" onClick={onRetry}><RotateCcw size={14} /> Retry</button>}{(status === "ready" || status === "already_indexed") && <button type="button" className="button button-primary button-small" onClick={onOpen}>Open video</button>}</div>
     </div>
-    {upload ? <div className="upload-progress"><div><span>Upload progress</span><strong>{uploadPercent}%</strong></div><progress max={upload.total} value={upload.loaded} /></div> : <ol className="stage-list" aria-label="Processing stages">{STAGES.map((stage) => <li key={stage} className={status === stage ? "current" : status === "ready" ? "complete" : ""}><span>{status === "ready" || status === stage ? <CheckCircle2 size={15} /> : <span />}</span>{displayStatus(stage)}</li>)}</ol>}
+    {upload ? <div className="upload-progress"><div><span>Upload progress</span><strong>{uploadPercent}%</strong></div><progress max={upload.total} value={upload.loaded} /></div> : !uploadFailed && <ol className="stage-list" aria-label="Processing stages">{STAGES.map((stage) => <li key={stage} className={status === stage ? "current" : status === "ready" ? "complete" : ""}><span>{status === "ready" || status === stage ? <CheckCircle2 size={15} /> : <span />}</span>{displayStatus(stage)}</li>)}</ol>}
   </div>;
 }

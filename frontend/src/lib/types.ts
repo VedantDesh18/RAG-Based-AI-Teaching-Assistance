@@ -20,6 +20,8 @@ export type VideoRecord = {
   description?: string | null;
   detected_language?: string | null;
   file_path?: string | null;
+  media_url?: string | null;
+  media_available?: boolean;
   status: VideoStatus;
   error_message?: string | null;
   retry_count?: number;
@@ -91,9 +93,10 @@ export type JobStart = {
   thumbnail_url?: string | null;
   status: VideoStatus | "already_indexed";
   message?: string;
+  retry_count?: number;
 };
 
 export type Health = {
   status: "ok" | "degraded";
-  services?: Record<string, "ok" | "unavailable">;
+  services?: Record<string, "ok" | "unavailable" | "missing">;
 };

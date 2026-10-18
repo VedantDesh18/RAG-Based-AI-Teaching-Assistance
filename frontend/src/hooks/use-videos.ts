@@ -26,6 +26,13 @@ export function useVideos() {
     return () => window.removeEventListener("videoqa:videos-changed", refresh);
   }, [refresh]);
 
+  useEffect(() => {
+    const hasActiveJobs = videos.some((video) => ["queued", "downloading", "transcribing", "chunking", "embedding"].includes(video.status));
+    if (!hasActiveJobs) return;
+    const timer = window.setInterval(() => void refresh(), 4000);
+    return () => window.clearInterval(timer);
+  }, [refresh, videos]);
+
   const remove = async (videoId: string) => {
     await api.removeVideo(videoId);
     setVideos((current) => current.filter((video) => video.video_id !== videoId));

@@ -7,6 +7,8 @@ paths:
   index: embeddings_chunks.joblib
   db: data/db/videoqa.db
   chroma: data/chroma
+  media: data/media
+  legacy_media: videos
 retrieval:
   top_k: 5
   abstention_threshold: 0.53
@@ -14,4 +16,5 @@ chunking:
   merge_window_size: 5
 ingestion:
   max_upload_bytes: 2147483648
+  max_duration_seconds: 14400
   supported_extensions: [".mp4", ".webm", ".mkv", ".mov", ".avi", ".mp3", ".wav", ".m4a"]

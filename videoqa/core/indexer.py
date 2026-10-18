@@ -3,11 +3,11 @@ import os
 import json
 import pandas as pd
 import joblib
-from videoqa.config import config
+import videoqa.config as config_module
 
 def create_embedding(text_list):
-    r = requests.post(f"{config['ollama_url']}/api/embed", json={
-        "model": config['model_names']['embedding'],
+    r = requests.post(f"{config_module.config['ollama_url']}/api/embed", json={
+        "model": config_module.config['model_names']['embedding'],
         "input": text_list
     })
     embedding = r.json()["embeddings"]

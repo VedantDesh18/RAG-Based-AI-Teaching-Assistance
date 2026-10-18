@@ -234,11 +234,13 @@ docker compose down -v
 | `WHISPER_MODEL` | `large-v2` | Whisper model size (`tiny` / `base` / `small` / `medium` / `large-v2` / `large-v3`) |
 | `WHISPER_DEVICE` | `cpu` | Inference device (`cpu` or `cuda`) |
 | `WHISPER_COMPUTE_TYPE` | `int8` | Quantization (`int8` for CPU, `float16` for GPU) |
-| `VIDEOQA_CORS_ORIGINS` | `http://localhost:3000,...` | Allowed CORS origins |
+| `VIDEOQA_CORS_ORIGINS` | `http://localhost:3000,...` | Exact allowed frontend origins (includes local ports 3000 and 3001) |
 | `BACKEND_URL` | `http://backend:8000` | Internal Docker URL for Next.js proxy |
 | `NEXT_PUBLIC_API_URL` | *(empty)* | Optional direct public API URL |
 | `CHROMA_PATH` | `data/chroma` | ChromaDB index storage path |
 | `DB_PATH` | `data/db/videoqa.db` | SQLite database path |
+| `MEDIA_ROOT` | `data/media` | Canonical writable storage for newly uploaded media |
+| `LEGACY_MEDIA_ROOT` | `videos` | Read-only root for existing local media |
 
 ---
 
@@ -250,8 +252,55 @@ All data survives container restarts via host-mounted bind mounts and named Dock
 |---|---|---|
 | SQLite database | `./data/db/videoqa.db` | Bind mount |
 | ChromaDB vectors | `./data/chroma/` | Bind mount |
-| Media files | `./data/media/` | Bind mount |
+| New uploads | `./data/media/` | Bind mount; canonical writable media root |
+| Legacy local videos | `./videos/` | Read-only bind mount in Docker; set `LEGACY_MEDIA_ROOT` when stored elsewhere |
 | Whisper model cache | `videoqa_whisper_cache` volume | Named volume |
+
+## 🎥 Local Media Playback and Recovery
+
+New uploads are written atomically under `MEDIA_ROOT` before a queued SQLite record is committed and background transcription starts. The database stores a portable reference such as `media/<generated-name>.mp4`; the public video API returns a media URL rather than a local filesystem path. Existing videos under `videos/` remain readable through `LEGACY_MEDIA_ROOT` and are not moved by migration.
+
+The upload endpoint is `POST /api/ingest/file`, with the file sent in the multipart field named `file`. By default, the browser calls the same-origin Next.js proxy, which forwards `/api/*` to `BACKEND_URL`. The browser creates the multipart boundary; clients must not set `Content-Type` manually for `FormData`. Next.js's rewrite proxy has a 10 MB default request-body limit, so `frontend/next.config.ts` raises `experimental.proxyClientMaxBodySize` just above the backend's configured 2 GiB upload limit. The player uses `GET /api/videos/{video_id}/media`; this route also supports `HEAD` and byte ranges for seeking. A stored file remains playable while its job is queued, processing, or failed. RAG chat becomes available after a video is ready and has indexed transcript chunks.
+
+If indexing fails, the video workspace shows the saved error and offers **Retry indexing**. Retry uses `POST /api/jobs/{video_id}/retry`, keeps the video ID and source file, and is limited to three attempts. It is enabled only while the saved source remains readable.
+
+To inspect legacy path repair, run the migration in dry-run mode first:
+
+```powershell
+python scripts/backfill_file_paths.py
+```
+
+Review every proposed match. The script never assigns an ambiguous candidate. When the report contains only intended matches, apply it:
+
+```powershell
+python scripts/backfill_file_paths.py --apply
+```
+
+Apply mode creates a timestamped SQLite backup beside the configured database before writing. The script is safe to rerun; it reports already-correct references and preserves video IDs, transcripts, chunks, and vector associations.
+
+For a local development restart, run the backend and frontend in separate PowerShell windows:
+
+```powershell
+# Repository root
+python -m uvicorn videoqa.main:app --host 127.0.0.1 --port 8000
+```
+
+```powershell
+# In a second window
+Set-Location frontend
+$env:BACKEND_URL = "http://127.0.0.1:8000"
+npm run dev
+```
+
+Verify a stored video's headers and seek response (replace the ID):
+
+```powershell
+$videoId = "f7cc259539c"
+curl.exe -I "http://127.0.0.1:8000/api/videos/$videoId/media"
+curl.exe -H "Range: bytes=0-1023" -o NUL -i "http://127.0.0.1:8000/api/videos/$videoId/media"
+```
+
+`GET /api/health` reports SQLite, ChromaDB, media storage, FFmpeg/ffprobe, faster-whisper, Ollama, and configured Ollama model availability separately. Optional transcription dependencies do not gate media playback.
 
 ---
 
@@ -309,9 +358,15 @@ The startup script runs **5 automated integration tests**:
 ### Unit & Integration Tests
 
 ```bash
-# Run from within the backend container
-docker compose exec backend pytest tests/
+# Run from the repository root
+python -m pytest -q
+
+# Check the production frontend build
+Set-Location frontend
+npm run build
 ```
+
+Latest upload/chat verification (2026-10-18): the full Python suite passed (56 tests, 2 dependency deprecation warnings); the Next.js production build and TypeScript check passed. A browser upload of an 11.47 MB synthetic MP4 through the Next.js proxy returned HTTP 202, and the exact bytes and portable SQLite reference were verified in an isolated test store. The video loaded in the browser after the synthetic worker failed, with the indexing error and retry action visible. After adding a test transcript chunk, the chat field enabled; Enter and Send both returned the deterministic answer and timestamp citation, and the saved session used the selected video ID. GET/HEAD/Range returned 200/200/206. Browser retrieval/generation were deterministic stubs; production Ollama/Chroma generation was not exercised by this browser run. `npm run lint` still reports existing React hook-rule errors in the history page and shared effects.
 
 ### Evaluation Harness
 
@@ -373,6 +428,16 @@ python eval/run_eval.py
 4. **Whisper model download is slow on first run:**
    - `large-v2` is ~3 GB, downloaded once and cached in the `videoqa_whisper_cache` volume.
    - For faster testing, set `WHISPER_MODEL=base` or `WHISPER_MODEL=small` in `.env`.
+
+5. **`GET /` returns 404 or uploads still use old backend behavior:**
+   - `GET /` is not an application page; use `GET /health` or `GET /api/health` for health checks. A root 404 does not diagnose the upload route.
+   - The Docker backend image does not bind-mount the Python source. After backend code changes, rebuild and recreate it with `docker compose up --build -d backend`. Check `docker compose ps backend` and `http://localhost:8000/api/health` afterward. Do not use `docker compose down -v` for this; it removes named data volumes.
+
+6. **Uploads larger than 10 MiB fail through the frontend:**
+   - Rebuild/restart the frontend so it loads `experimental.proxyClientMaxBodySize` from `frontend/next.config.ts`. Keep the file in multipart field `file` and let the browser set the multipart `Content-Type` boundary. If using a direct backend URL instead of the same-origin proxy, add that exact frontend origin to `VIDEOQA_CORS_ORIGINS` and restart the backend.
+
+7. **A ready video has disabled chat despite transcript chunks:**
+   - Chat eligibility uses the actual rows in the `chunks` table, not a stale cached `videos.chunk_count`. Rebuild/restart the backend so video detail and query validation calculate the count from indexed chunks.
 
 ---
 

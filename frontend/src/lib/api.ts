@@ -25,13 +25,38 @@ export class ApiError extends Error {
   }
 }
 
+function formatDetail(detail: unknown): string | null {
+  if (typeof detail === "string" && detail.trim()) return detail;
+  if (Array.isArray(detail)) {
+    const issues = detail.map((item) => {
+      if (!item || typeof item !== "object") return null;
+      const issue = item as { loc?: unknown; msg?: unknown };
+      const location = Array.isArray(issue.loc)
+        ? issue.loc.filter((part) => part !== "body").map(String).join(".")
+        : "";
+      const message = typeof issue.msg === "string" ? issue.msg : "Invalid request";
+      return location ? `${location}: ${message}` : message;
+    }).filter((item): item is string => Boolean(item));
+    if (issues.length) return issues.join("; ");
+  }
+  return null;
+}
+
 async function errorMessage(response: Response) {
   try {
-    const body = (await response.json()) as { detail?: string; message?: string };
-    return body.detail ?? body.message ?? "The request could not be completed.";
+    const body = (await response.json()) as { detail?: unknown; message?: unknown };
+    return formatDetail(body.detail) ?? formatDetail(body.message) ?? "The request could not be completed.";
   } catch {
     return "The request could not be completed.";
   }
+}
+
+function isJobStart(value: unknown): value is JobStart {
+  if (!value || typeof value !== "object") return false;
+  const result = value as Record<string, unknown>;
+  return typeof result.job_id === "string"
+    && typeof result.video_id === "string"
+    && typeof result.status === "string";
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -79,16 +104,26 @@ export function uploadVideo(
   const xhr = new XMLHttpRequest();
   const promise = new Promise<JobStart>((resolve, reject) => {
     xhr.open("POST", endpoint("/api/ingest/file"));
-    xhr.responseType = "json";
+    // Read text and parse explicitly so non-JSON proxy errors and FastAPI's
+    // structured 422 validation details are both surfaced to the user.
+    xhr.responseType = "text";
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) onProgress(event.loaded, event.total);
     };
     xhr.onerror = () => reject(new ApiError("VideoQA backend is unavailable. Check the connection and try again."));
     xhr.onabort = () => reject(new ApiError("Upload cancelled."));
     xhr.onload = () => {
-      const data = xhr.response as JobStart | { detail?: string } | null;
-      if (xhr.status >= 200 && xhr.status < 300 && data) resolve(data as JobStart);
-      else reject(new ApiError((data as { detail?: string } | null)?.detail ?? "Upload failed.", xhr.status));
+      const responseText = typeof xhr.response === "string" ? xhr.response : "";
+      let data: unknown = null;
+      try { data = responseText ? JSON.parse(responseText) : null; } catch { /* handled below */ }
+      if (xhr.status >= 200 && xhr.status < 300) {
+        if (isJobStart(data)) resolve(data);
+        else reject(new ApiError("The server returned an invalid upload response.", xhr.status));
+        return;
+      }
+      const body = data && typeof data === "object" ? data as { detail?: unknown; message?: unknown } : {};
+      const detail = formatDetail(body.detail) ?? formatDetail(body.message);
+      reject(new ApiError(detail ?? `Upload failed (HTTP ${xhr.status || "unknown"}).`, xhr.status));
     };
     const form = new FormData();
     form.append("file", file);

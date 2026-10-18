@@ -124,3 +124,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 440px) { .global-search { padding-left: 10px; }.global-search input::placeholder { color: transparent; }.feature-grid { gap: 9px; }.feature-card h2 { font-size: 11px; }.url-input { height: auto; flex-wrap: wrap; padding: 9px; }.url-input input { min-width: 76%; height: 29px; }.url-input .button { width: 100%; }.video-grid { grid-template-columns: 1fr; }.video-card { display: grid; grid-template-columns: 118px 1fr; min-height: 110px; }.video-cover { aspect-ratio: auto; height: 100%; }.video-actions { align-items: center; flex-direction: row; }.status-badge { font-size: 8px; }.video-action-buttons .button { padding: 0 7px; }.video-action-buttons .button svg { display: none; }.stage-list { grid-template-columns: 1fr; }.workspace-titlebar h1 { font-size: 17px; }.video-details-panel dl { display: grid; grid-template-columns: 1fr 1fr; }.chat-composer .composer-button span { display: none; }.chat-composer .composer-button { padding: 0 10px; }.history-card { gap: 10px; padding: 14px; }.history-card h2 { font-size: 13px; } }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
+
+.video-error { margin: 8px 0 0; color: var(--red); font-size: 12px; line-height: 1.45; }
+.workspace-notice { display: grid; gap: 5px; margin: 14px 0; padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text-muted); font-size: 13px; }
+.workspace-notice strong { color: var(--text); }
+.workspace-notice p { margin: 0; }
+.workspace-notice .button { justify-self: start; margin-top: 5px; }
