@@ -184,10 +184,11 @@ export async function streamAnswer(
   while (true) {
     const { done, value } = await reader.read();
     buffer += decoder.decode(value ?? new Uint8Array(), { stream: !done });
-    const frames = buffer.split("\n\n");
+    const normalized = buffer.replace(/\r\n/g, "\n");
+    const frames = normalized.split("\n\n");
     buffer = frames.pop() ?? "";
     frames.forEach(consumeEvent);
     if (done) break;
   }
-  if (buffer.trim()) consumeEvent(buffer);
+  if (buffer.trim()) consumeEvent(buffer.replace(/\r\n/g, "\n"));
 }

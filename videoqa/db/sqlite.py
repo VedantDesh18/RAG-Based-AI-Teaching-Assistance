@@ -337,9 +337,12 @@ def insert_transcript_segments(segments: list[dict]):
     conn = get_connection()
     try:
         conn.executemany("""
-            INSERT INTO transcript_segments (video_id, segment_index, start_seconds, end_seconds, text_original, text_english)
-            VALUES (:video_id, :segment_index, :start_seconds, :end_seconds, :text_original, :text_english)
-            ON CONFLICT(video_id, segment_index) DO NOTHING
+            INSERT INTO transcript_segments (video_id, segment_index, start_seconds, end_seconds, text_original, text_english, language)
+            VALUES (:video_id, :segment_index, :start_seconds, :end_seconds, :text_original, :text_english, :language)
+            ON CONFLICT(video_id, segment_index) DO UPDATE SET
+                text_original=excluded.text_original,
+                text_english=excluded.text_english,
+                language=excluded.language
         """, segments)
         conn.commit()
     finally:

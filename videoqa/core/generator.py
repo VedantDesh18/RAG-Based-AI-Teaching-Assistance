@@ -8,7 +8,7 @@ from videoqa.config import config
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_GEMINI_MODEL = "gemini-flash-latest"
+DEFAULT_GEMINI_MODEL = "gemini-flash-lite-latest"
 
 
 class GeminiError(Exception):
@@ -50,8 +50,8 @@ def get_llm_provider() -> str:
 
 
 def get_gemini_api_key() -> str:
-    """Retrieve the Gemini API key from config or environment without logging it."""
-    key = config.get("gemini_api_key") or os.getenv("GEMINI_API_KEY", "")
+    """Retrieve the Gemini API key from environment or config without logging it."""
+    key = os.getenv("GEMINI_API_KEY") or config.get("gemini_api_key", "")
     return str(key).strip().strip('"\'') if key else ""
 
 
@@ -98,8 +98,8 @@ def _handle_gemini_exception(e: Exception) -> Exception:
     code = getattr(e, "code", None)
 
     if errors and isinstance(e, errors.APIError):
-        if code == 429 or "RESOURCE_EXHAUSTED" in msg or "quota" in msg.lower() or "rate limit" in msg.lower():
-            return GeminiRateLimitError("Gemini API rate limit or quota exceeded. Please wait a moment and try again.")
+        if code in (429, 503) or "RESOURCE_EXHAUSTED" in msg or "quota" in msg.lower() or "rate limit" in msg.lower() or "high demand" in msg.lower():
+            return GeminiRateLimitError("Gemini API rate limit or high demand. Please wait a moment and try again.")
         if code in (401, 403) or (code == 400 and ("API_KEY_INVALID" in msg or "API key not valid" in msg or "api key" in msg.lower())):
             return GeminiAuthError("Gemini API authentication failed. Please verify your GEMINI_API_KEY.")
         if code in (408, 504) or "DEADLINE_EXCEEDED" in msg or "timeout" in msg.lower():
@@ -130,7 +130,18 @@ def generate_gemini(prompt: str) -> str:
         )
         return getattr(response, "text", None) or ""
     except Exception as e:
-        logger.warning("Gemini generation failed: %s", type(e).__name__)
+        logger.warning("Gemini generation failed on model %s: %s. Trying fallback...", model, type(e).__name__)
+        for fallback in ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-flash-latest"]:
+            if fallback == model:
+                continue
+            try:
+                response = client.models.generate_content(
+                    model=fallback,
+                    contents=prompt,
+                )
+                return getattr(response, "text", None) or ""
+            except Exception:
+                pass
         raise _handle_gemini_exception(e) from None
 
 
@@ -148,8 +159,26 @@ def stream_gemini(prompt: str) -> Iterator[str]:
             if token:
                 yield token
     except Exception as e:
-        logger.warning("Gemini streaming failed: %s", type(e).__name__)
-        raise _handle_gemini_exception(e) from None
+        logger.warning("Gemini streaming failed on model %s: %s. Trying fallback...", model, type(e).__name__)
+        succeeded = False
+        for fallback in ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-flash-latest"]:
+            if fallback == model:
+                continue
+            try:
+                stream = client.models.generate_content_stream(
+                    model=fallback,
+                    contents=prompt,
+                )
+                for chunk in stream:
+                    token = getattr(chunk, "text", None)
+                    if token:
+                        yield token
+                succeeded = True
+                break
+            except Exception:
+                pass
+        if not succeeded:
+            raise _handle_gemini_exception(e) from None
 
 
 def generate_ollama(prompt: str) -> str:

@@ -1,15 +1,21 @@
 import logging
 import mimetypes
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, BackgroundTasks, HTTPException
 from fastapi.responses import FileResponse
+from pydantic import BaseModel
 from videoqa.db.sqlite import delete_video_sqlite, get_video, get_transcript_segments, list_videos as list_video_records
 from videoqa.vectorstore.chroma import delete_video_chroma
+from videoqa.core.ingestion import ingest_file, ingest_url, reset_for_reprocess
 from pathlib import Path
 from videoqa.storage import media_file_is_readable, media_root, resolve_media_path
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/videos", tags=["videos"])
+
+
+class ReprocessRequest(BaseModel):
+    language: str | None = None
 
 def _add_media_url(video: dict) -> dict:
     """Expose playback availability without returning local filesystem paths."""
@@ -64,6 +70,40 @@ def delete_video(video_id: str):
         media_path.unlink()
 
     return {"deleted": True, "video_id": video_id, "chunks_removed": chunks_removed}
+
+
+@router.post("/{video_id}/reprocess")
+def reprocess_video_endpoint(
+    video_id: str,
+    background_tasks: BackgroundTasks,
+    req: ReprocessRequest = ReprocessRequest(),
+):
+    """
+    Safely reprocess/retranscribe an existing video with an optional explicit language
+    (e.g. language="hi" for Hindi in Devanagari script) without deleting the original video file.
+    """
+    video = get_video(video_id)
+    if not video:
+        raise HTTPException(status_code=404, detail="Video not found")
+    try:
+        video = reset_for_reprocess(video_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    if video.get('source_type') == 'file_upload':
+        source_path = resolve_media_path(video.get('file_path'))
+        background_tasks.add_task(ingest_file, str(source_path), video_id, video['title'], req.language)
+    else:
+        background_tasks.add_task(ingest_url, video['source_url'], video_id, req.language)
+
+    return {
+        "job_id": video_id,
+        "video_id": video_id,
+        "status": "queued",
+        "language": req.language,
+        "message": f"Reprocessing started for video {video_id} with language: {req.language or 'auto'}.",
+    }
+
 
 
 def _video_media_response(video_id: str):

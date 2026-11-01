@@ -267,3 +267,58 @@ def test_streamed_query_emits_structured_citations_not_model_authored_links(api_
     assert 'event: done' in response.text
     assert '"start_display": "01:12"' in response.text
     assert 'youtu.be/dQw4w9WgXcQ?t=72' in response.text
+
+
+def test_reprocess_video_resets_artifacts_and_queues_with_language(api_client):
+    from videoqa.db.sqlite import insert_chunks, insert_transcript_segments, get_transcript_segments
+
+    video_id = 'video-reprocess-test'
+    upsert_video({
+        'id': 'vid-rep-1',
+        'video_id': video_id,
+        'source_type': 'youtube',
+        'source_url': f'https://www.youtube.com/watch?v={video_id}',
+        'title': 'Reprocess Lesson',
+        'duration_seconds': 120,
+        'status': 'ready',
+        'created_at': '2026-10-05T00:00:00+00:00',
+        'updated_at': '2026-10-05T00:00:00+00:00',
+    })
+    set_chunk_count(video_id, 1)
+    insert_chunks([{
+        'chunk_id': 'chunk-old',
+        'video_id': video_id,
+        'chunk_index': 0,
+        'start_seconds': 0,
+        'end_seconds': 10,
+        'text': 'Old urdu/incorrect transcript',
+        'text_original': 'Old text',
+        'word_count': 4,
+        'language': 'ur',
+    }])
+    insert_transcript_segments([{
+        'segment_index': 0,
+        'video_id': video_id,
+        'start_seconds': 0,
+        'end_seconds': 10,
+        'text_original': 'Old text',
+        'text_english': 'Old text',
+        'language': 'ur',
+    }])
+
+    assert len(get_transcript_segments(video_id)) == 1
+
+    with patch('videoqa.api.videos.ingest_url') as mock_ingest, \
+         patch('videoqa.api.videos.delete_video_chroma'):
+        res = api_client.post(f'/api/videos/{video_id}/reprocess', json={'language': 'hi'})
+
+    assert res.status_code == 200
+    assert res.json()['status'] == 'queued'
+    assert res.json()['language'] == 'hi'
+
+    # Verify old transcript segments and chunks were cleared
+    assert len(get_transcript_segments(video_id)) == 0
+
+    # Verify ingest was triggered with language='hi'
+    mock_ingest.assert_called_once_with(f'https://www.youtube.com/watch?v={video_id}', video_id, 'hi')
+

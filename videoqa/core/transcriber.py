@@ -175,10 +175,20 @@ def _get_whisper_model(
             return fallback_model
         raise
 
-def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_faster_whisper: bool = True) -> dict:
+def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_faster_whisper: bool = True, language: str | None = None) -> dict:
     """
     Transcribes audio. If offset > 0, shifts timestamps.
     Returns a dict with 'segments' and 'language'.
+
+    Args:
+        audio_path: Path to the audio file to transcribe.
+        video_id: Identifier for the video being transcribed.
+        offset: Seconds to add to each segment timestamp (for split audio parts).
+        use_faster_whisper: Use faster_whisper (True) or openai-whisper (False).
+        language: Optional ISO-639-1 language code (e.g. ``"hi"`` for Hindi,
+                  ``"en"`` for English).  When provided, Whisper skips automatic
+                  language detection and transcribes in the specified language.
+                  Leave ``None`` for automatic detection.
 
     Environment variables for tuning:
         WHISPER_MODEL       – model size (default: ``base``).
@@ -194,6 +204,10 @@ def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_fa
         WHISPER_CPU_THREADS – CTranslate2 worker threads (default: ``2``).
         WHISPER_NUM_WORKERS – parallel model workers (default: ``1``).
     """
+    # Also allow language override from environment for Docker deployments
+    if language is None:
+        language = os.getenv("WHISPER_LANGUAGE") or None
+
     if use_faster_whisper:
         whisper_model_name = os.getenv("WHISPER_MODEL", "base")
         whisper_device = os.getenv("WHISPER_DEVICE", "cpu")
@@ -203,9 +217,9 @@ def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_fa
         num_workers = _bounded_env_int("WHISPER_NUM_WORKERS", 1, 1, 2)
 
         logger.info(
-            "Transcribing audio: video_id=%s model=%s device=%s compute=%s beam=%d threads=%d workers=%d offset=%.1f path=%s",
+            "Transcribing audio: video_id=%s model=%s device=%s compute=%s beam=%d threads=%d workers=%d offset=%.1f language=%s path=%s",
             video_id, whisper_model_name, whisper_device, whisper_compute, beam_size, cpu_threads, num_workers,
-            offset, os.path.basename(audio_path),
+            offset, language or "auto", os.path.basename(audio_path),
         )
 
         model = _get_whisper_model(
@@ -216,7 +230,19 @@ def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_fa
             num_workers=num_workers,
         )
 
-        segments_gen, info = model.transcribe(audio_path, beam_size=beam_size)
+        # Build transcription kwargs.  When a language is explicitly specified,
+        # pass it so Whisper does not auto-detect (which often confuses Hindi
+        # with Urdu).  Always use task="transcribe" to keep the original
+        # language — task="translate" would force English output.
+        transcribe_kwargs: dict = {"beam_size": beam_size, "task": "transcribe"}
+        if language:
+            transcribe_kwargs["language"] = language
+            if language == "hi":
+                # Condition the decoder on Devanagari script so shared Hindustani
+                # phonemes are transcribed in Devanagari rather than Perso-Arabic (Urdu) script.
+                transcribe_kwargs["initial_prompt"] = "यह वीडियो हिंदी में है।"
+
+        segments_gen, info = model.transcribe(audio_path, **transcribe_kwargs)
         detected_lang = info.language
 
         segments = []
@@ -242,7 +268,13 @@ def transcribe_audio(audio_path: str, video_id: str, offset: float = 0.0, use_fa
     else:
         import whisper
         model = whisper.load_model("large-v2")
-        result = model.transcribe(audio_path)
+        transcribe_kwargs_legacy: dict = {}
+        if language:
+            transcribe_kwargs_legacy["language"] = language
+            transcribe_kwargs_legacy["task"] = "transcribe"
+            if language == "hi":
+                transcribe_kwargs_legacy["initial_prompt"] = "यह वीडियो हिंदी में है।"
+        result = model.transcribe(audio_path, **transcribe_kwargs_legacy)
         detected_lang = result.get('language', 'en')
 
         segments = []

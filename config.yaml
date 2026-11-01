@@ -1,9 +1,9 @@
 model_names:
   embedding: bge-m3:latest
   llm: llama3.2
-  gemini: gemini-flash-latest
+  gemini: gemini-flash-lite-latest
 llm_provider: gemini
-gemini_model: gemini-flash-latest
+gemini_model: gemini-flash-lite-latest
 ollama_url: http://localhost:11434
 paths:
   data: data/

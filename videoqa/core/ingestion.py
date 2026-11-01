@@ -19,6 +19,7 @@ from videoqa.db.sqlite import (
     update_video_metadata,
     update_video_status,
     claim_video_retry,
+    reset_video_content,
 )
 from videoqa.vectorstore.chroma import delete_video_chroma
 from videoqa.storage import media_file_is_readable, media_reference, media_root, resolve_media_path
@@ -128,9 +129,14 @@ def _concise_error(error: Exception) -> str:
     message = re.sub(r"(?<![:/\w])/(?:[^\s]+)", "[local file]", message)
     return message[:400]
 
-def ingest_url(url: str, video_id: str | None = None):
+def ingest_url(url: str, video_id: str | None = None, language: str | None = None):
     """
     Orchestrates the ingestion pipeline for a URL.
+
+    Args:
+        language: Optional ISO-639-1 language code (e.g. ``"hi"`` for Hindi).
+                  Passed to Whisper to force transcription in this language
+                  instead of relying on automatic detection.
     """
     info = extract_video_info(url)
     resolved_video_id = video_id or info['video_id']
@@ -186,10 +192,13 @@ def ingest_url(url: str, video_id: str | None = None):
             split_parts = split_audio(audio_path, media_dir, max_duration_sec=max_seg)
 
             all_segments = []
+            detected_lang = language
             for part in split_parts:
                 ensure_job_active(resolved_video_id)
-                res = transcribe_audio(part['path'], resolved_video_id, offset=part['offset'], use_faster_whisper=True)
+                res = transcribe_audio(part['path'], resolved_video_id, offset=part['offset'], use_faster_whisper=True, language=language)
                 all_segments.extend(res['segments'])
+                if res.get('language'):
+                    detected_lang = res['language']
 
             segments = all_segments
 
@@ -202,6 +211,9 @@ def ingest_url(url: str, video_id: str | None = None):
             seg['video_id'] = resolved_video_id
 
         insert_transcript_segments(segments)
+        if detected_lang:
+            video['detected_language'] = detected_lang
+            update_video_metadata(resolved_video_id, {'detected_language': detected_lang, 'updated_at': datetime.now(timezone.utc).isoformat()})
 
         # 3. Chunking
         current_stage = "chunking"
@@ -245,7 +257,7 @@ def ingest_url(url: str, video_id: str | None = None):
                 logger.warning("Could not remove downloaded audio: %s", audio_path)
 
 
-def ingest_file(file_path: str, video_id: str, original_filename: str):
+def ingest_file(file_path: str, video_id: str, original_filename: str, language: str | None = None):
     video = get_video(video_id)
     if not video:
         reference = media_reference(file_path, "media")
@@ -273,10 +285,13 @@ def ingest_file(file_path: str, video_id: str, original_filename: str):
         logger.info("Audio split into %d part(s) for video_id=%s", len(split_parts), video_id)
 
         all_segments = []
+        detected_lang = language
         for part in split_parts:
             ensure_job_active(video_id)
-            res = transcribe_audio(part['path'], video_id, offset=part['offset'], use_faster_whisper=True)
+            res = transcribe_audio(part['path'], video_id, offset=part['offset'], use_faster_whisper=True, language=language)
             all_segments.extend(res['segments'])
+            if res.get('language'):
+                detected_lang = res['language']
 
         segments = all_segments
 
@@ -288,6 +303,9 @@ def ingest_file(file_path: str, video_id: str, original_filename: str):
             seg['video_id'] = video_id
 
         insert_transcript_segments(segments)
+        if detected_lang:
+            video['detected_language'] = detected_lang
+            update_video_metadata(video_id, {'detected_language': detected_lang, 'updated_at': datetime.now(timezone.utc).isoformat()})
 
         # --- Chunking -------------------------------------------------------
         current_stage = "chunking"
@@ -354,4 +372,27 @@ def reset_for_retry(video_id: str) -> dict:
         update_video_status(video_id, "failed", datetime.now(timezone.utc).isoformat(), "Unable to clear the previous index. Retry again after the vector store is available.")
         raise ValueError("The previous index could not be cleared") from exc
     return claimed
+
+
+def reset_for_reprocess(video_id: str) -> dict:
+    """Clear derived artifacts for retranscription while preserving the media file and metadata."""
+    video = get_video(video_id)
+    if not video:
+        raise ValueError("Video not found")
+    if video.get('source_type') == 'file_upload':
+        source_path = resolve_media_path(video.get('file_path')) if video.get('file_path') else None
+        if not source_path or not media_file_is_readable(source_path):
+            raise ValueError("The original uploaded media file is missing")
+    elif not video.get('source_url'):
+        raise ValueError("The video source URL is missing")
+
+    reset_video_content(video_id)
+    now = datetime.now(timezone.utc).isoformat()
+    update_video_status(video_id, 'queued', now, None)
+    try:
+        delete_video_chroma(video_id)
+    except Exception as exc:
+        logger.exception("Unable to clear old vectors before reprocessing %s", video_id)
+    return get_video(video_id)
+
 

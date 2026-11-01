@@ -1,4 +1,4 @@
-from fastapi import APIRouter, BackgroundTasks, HTTPException, UploadFile, File, Response, status
+from fastapi import APIRouter, BackgroundTasks, Form, HTTPException, UploadFile, File, Response, status
 from pydantic import BaseModel
 from videoqa.core.ingestion import ingest_url, ingest_file, make_queued_url_video, create_queued_file_video
 import videoqa.config as config_module
@@ -56,6 +56,7 @@ def _agent_dbg(hypothesis_id: str, location: str, message: str, data: dict) -> N
 
 class IngestUrlRequest(BaseModel):
     url: str
+    language: str | None = None
 
 
 MIME_TYPES = {
@@ -171,11 +172,14 @@ def ingest_url_endpoint(req: IngestUrlRequest, background_tasks: BackgroundTasks
         response.status_code = status.HTTP_200_OK
         return job_response(video, video['status'], "This video is already being processed.")
 
-    background_tasks.add_task(ingest_url, url, video['video_id'])
+    if req.language:
+        background_tasks.add_task(ingest_url, url, video['video_id'], req.language)
+    else:
+        background_tasks.add_task(ingest_url, url, video['video_id'])
     return job_response(video, "queued", "Ingestion started in the background.")
 
 @router.post("/file", status_code=status.HTTP_202_ACCEPTED)
-async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Response, file: UploadFile = File(...)):
+async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Response, file: UploadFile = File(...), language: str | None = Form(default=None)):
     # #region agent log
     _agent_dbg("A,D", "videoqa/api/ingest.py:ingest_file_endpoint:entry", "Python ingest endpoint received upload", {
         "filename": (file.filename or "")[:240],
@@ -283,7 +287,10 @@ async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Resp
             response.status_code = status.HTTP_200_OK
             return job_response(video, video.get("status") if video else "queued", "This exact file is already in your library.")
         record_committed = True
-        background_tasks.add_task(ingest_file, str(final_path), video_id, original_filename)
+        if language:
+            background_tasks.add_task(ingest_file, str(final_path), video_id, original_filename, language)
+        else:
+            background_tasks.add_task(ingest_file, str(final_path), video_id, original_filename)
         # #region agent log
         _agent_dbg("B,E", "videoqa/api/ingest.py:ingest_file_endpoint:success", "Upload persisted and processing queued", {
             "video_id": video_id,

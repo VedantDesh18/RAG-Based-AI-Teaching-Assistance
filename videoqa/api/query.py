@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 import json
+import logging
 import time
 import uuid
 
@@ -29,6 +30,8 @@ from videoqa.db.sqlite import (
     upsert_chat_session,
 )
 from videoqa.vectorstore.chroma import search_vectors
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api", tags=["query"])
 
@@ -202,12 +205,21 @@ def run_query(req: QueryRequest):
             message = 'The local AI service is unavailable. Check your service configuration and try again.'
             insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
             yield event('error', {'message': message, 'session_id': session_id})
-        except Exception:
+        except Exception as e:
+            logger.exception("Unexpected error in query stream: %s", e)
             message = 'Unable to answer this question right now. Please try again.'
             insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
             yield event('error', {'message': message, 'session_id': session_id})
 
-    return StreamingResponse(event_stream(), media_type='text/event-stream', headers={'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no'})
+    return StreamingResponse(
+        event_stream(),
+        media_type='text/event-stream',
+        headers={
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive',
+            'X-Accel-Buffering': 'no',
+        },
+    )
 
 
 @router.post('/query')
