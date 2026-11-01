@@ -5,18 +5,30 @@ services:
       dockerfile: Dockerfile
     container_name: videoqa-backend
     ports:
-      - "8000:8000"
+      - "${BACKEND_PORT:-8000}:8000"
     env_file:
       - .env
     environment:
       - PYTHONUNBUFFERED=1
+      - LLM_PROVIDER=${LLM_PROVIDER:-gemini}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-}
       - OLLAMA_URL=${OLLAMA_URL:-http://host.docker.internal:11434}
       - VIDEOQA_CORS_ORIGINS=${VIDEOQA_CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001}
       - MEDIA_ROOT=${MEDIA_ROOT:-/app/data/media}
       - LEGACY_MEDIA_ROOT=/app/videos
-      - WHISPER_MODEL=${WHISPER_MODEL:-large-v2}
+      # Conservative CPU defaults keep background video uploads usable on
+      # machines without enough RAM for the multi-gigabyte large-v2 model.
+      - WHISPER_MODEL=${WHISPER_MODEL:-base}
       - WHISPER_DEVICE=${WHISPER_DEVICE:-cpu}
       - WHISPER_COMPUTE_TYPE=${WHISPER_COMPUTE_TYPE:-int8}
+      - WHISPER_BEAM_SIZE=${WHISPER_BEAM_SIZE:-1}
+      - WHISPER_CPU_THREADS=${WHISPER_CPU_THREADS:-2}
+      - WHISPER_NUM_WORKERS=${WHISPER_NUM_WORKERS:-1}
+      - WHISPER_MAX_SEGMENT_SEC=${WHISPER_MAX_SEGMENT_SEC:-600}
+      - MKL_NUM_THREADS=${MKL_NUM_THREADS:-2}
+      - OMP_NUM_THREADS=${OMP_NUM_THREADS:-2}
+      - EMBEDDING_BATCH_SIZE=${EMBEDDING_BATCH_SIZE:-16}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -40,7 +52,7 @@ services:
       dockerfile: Dockerfile
     container_name: videoqa-frontend
     ports:
-      - "3000:3000"
+      - "${FRONTEND_PORT:-3000}:3000"
     env_file:
       - .env
     environment:
@@ -53,6 +65,7 @@ services:
       # Bind mounts for hot reloading development changes
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
+      - ./frontend/next.config.ts:/app/next.config.ts
       # Anonymous volumes to keep containerized node modules and build artifacts isolated
       - /app/node_modules
       - /app/.next

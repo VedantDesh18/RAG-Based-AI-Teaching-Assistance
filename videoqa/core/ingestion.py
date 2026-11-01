@@ -141,11 +141,15 @@ def ingest_url(url: str, video_id: str | None = None):
             return {"status": "already_indexed", "video_id": video['video_id']}
     elif video.get('status') == 'ready':
         return {"status": "already_indexed", "video_id": resolved_video_id}
-        
+
+    split_parts: list[dict] = []
+    audio_path: str | None = None
+    current_stage = "downloading"
+
     try:
         ensure_job_active(resolved_video_id)
         update_status(video, 'downloading')
-        
+
         # 1. Fetch Metadata
         metadata = fetch_metadata(url)
         if metadata:
@@ -156,140 +160,173 @@ def ingest_url(url: str, video_id: str | None = None):
             fields['updated_at'] = datetime.now(timezone.utc).isoformat()
             video['updated_at'] = fields['updated_at']
             update_video_metadata(resolved_video_id, fields)
-            
+
             # Duration limit: 4 hours
             if video.get('duration_seconds', 0) > 4 * 3600:
                 raise ValueError("Video duration exceeds 4-hour limit.")
-        
+
         media_dir = str(media_root())
-        
+
         # 2. Transcribe
+        current_stage = "transcribing"
         update_status(video, 'transcribing')
         segments = []
         caption_path = download_captions(url, media_dir)
-        
+
         if caption_path:
             logger.info("Parsing downloaded captions.")
             segments = parse_captions(caption_path, resolved_video_id)
-        
+
         if not segments:
             ensure_job_active(resolved_video_id)
             logger.info("Downloading audio for transcription.")
             audio_path = download_audio(url, media_dir)
-            
-            parts = split_audio(audio_path, media_dir, max_duration_sec=1800)
-            
+
+            max_seg = int(os.getenv("WHISPER_MAX_SEGMENT_SEC", "600"))
+            split_parts = split_audio(audio_path, media_dir, max_duration_sec=max_seg)
+
             all_segments = []
-            for part in parts:
+            for part in split_parts:
                 ensure_job_active(resolved_video_id)
                 res = transcribe_audio(part['path'], resolved_video_id, offset=part['offset'], use_faster_whisper=True)
                 all_segments.extend(res['segments'])
-                
+
             segments = all_segments
-            
-            # Cleanup media files
-            for part in parts:
-                if os.path.exists(part['path']):
-                    os.remove(part['path'])
-            if os.path.exists(audio_path):
-                os.remove(audio_path)
-                
+
         if not segments:
             raise ValueError("No transcript segments could be generated.")
-            
+
         # Re-index segments to be continuous
         for i, seg in enumerate(segments):
             seg['segment_index'] = i
             seg['video_id'] = resolved_video_id
-            
+
         insert_transcript_segments(segments)
-        
+
         # 3. Chunking
+        current_stage = "chunking"
         update_status(video, 'chunking')
         chunks = process_json_chunks(segments, video['title'], resolved_video_id)
-        
+
         # 4. Embedding
+        current_stage = "embedding"
         update_status(video, 'embedding')
         ensure_job_active(resolved_video_id)
         index_chunks(chunks)
-        
+
         # Done
         update_status(video, 'ready')
         return {"status": "success", "video_id": resolved_video_id}
-        
+
     except JobCancelled:
         logger.info("Ingestion cancelled for %s", resolved_video_id)
         return {"status": "cancelled", "video_id": resolved_video_id}
     except Exception as e:
-        logger.exception("Ingestion failed for %s", resolved_video_id)
+        logger.exception("Ingestion failed at stage '%s' for %s", current_stage, resolved_video_id)
         try:
-            message = _concise_error(e)
+            message = f"{current_stage}: {_concise_error(e)}"
             update_status(video, 'failed', message)
         except JobCancelled:
             return {"status": "cancelled", "video_id": resolved_video_id}
         return {"status": "failed", "video_id": resolved_video_id, "error": _concise_error(e)}
+    finally:
+        # Clean up split audio parts and downloaded audio
+        for part in split_parts:
+            try:
+                if part['path'] != audio_path and os.path.exists(part['path']):
+                    os.remove(part['path'])
+            except OSError:
+                logger.warning("Could not remove temporary audio part: %s", part['path'])
+        if audio_path:
+            try:
+                if os.path.exists(audio_path):
+                    os.remove(audio_path)
+            except OSError:
+                logger.warning("Could not remove downloaded audio: %s", audio_path)
+
 
 def ingest_file(file_path: str, video_id: str, original_filename: str):
     video = get_video(video_id)
     if not video:
         reference = media_reference(file_path, "media")
         video = make_queued_file_video(reference, video_id, original_filename)
-    
+
+    split_parts: list[dict] = []
+    current_stage = "initialising"
+
     try:
         ensure_job_active(video_id)
         from videoqa.core.audio import get_audio_duration
         duration = get_audio_duration(file_path)
         video['duration_seconds'] = duration
         update_video_duration(video_id, duration, datetime.now(timezone.utc).isoformat())
-        
+        logger.info("ingest_file: video_id=%s duration=%.1fs file=%s", video_id, duration, os.path.basename(file_path))
+
+        # --- Transcription --------------------------------------------------
+        current_stage = "transcribing"
         update_status(video, 'transcribing')
-        
+
         media_dir = str(media_root())
-        parts = split_audio(file_path, media_dir, max_duration_sec=1800)
-        
+        # Use 600s (10 min) segments to limit peak memory per transcription call
+        max_seg = int(os.getenv("WHISPER_MAX_SEGMENT_SEC", "600"))
+        split_parts = split_audio(file_path, media_dir, max_duration_sec=max_seg)
+        logger.info("Audio split into %d part(s) for video_id=%s", len(split_parts), video_id)
+
         all_segments = []
-        for part in parts:
+        for part in split_parts:
             ensure_job_active(video_id)
             res = transcribe_audio(part['path'], video_id, offset=part['offset'], use_faster_whisper=True)
             all_segments.extend(res['segments'])
-            
+
         segments = all_segments
-        
-        # Cleanup split parts (keep original file for playback)
-        for part in parts:
-            if part['path'] != file_path and os.path.exists(part['path']):
-                os.remove(part['path'])
-                
+
         if not segments:
             raise ValueError("No transcript segments could be generated.")
-            
+
         for i, seg in enumerate(segments):
             seg['segment_index'] = i
             seg['video_id'] = video_id
-            
+
         insert_transcript_segments(segments)
-        
+
+        # --- Chunking -------------------------------------------------------
+        current_stage = "chunking"
         update_status(video, 'chunking')
         chunks = process_json_chunks(segments, video['title'], video_id)
-        
+
+        # --- Embedding / Indexing -------------------------------------------
+        current_stage = "embedding"
         update_status(video, 'embedding')
         ensure_job_active(video_id)
         index_chunks(chunks)
-        
+
+        # --- Done -----------------------------------------------------------
         update_status(video, 'ready')
         return {"status": "success", "video_id": video_id}
-        
+
     except JobCancelled:
         logger.info("Ingestion cancelled for %s", video_id)
         return {"status": "cancelled", "video_id": video_id}
     except Exception as e:
-        logger.exception("Ingestion failed for %s", video_id)
+        logger.exception("Ingestion failed at stage '%s' for %s", current_stage, video_id)
         try:
-            message = _concise_error(e)
+            # Prefix the error with the failing stage so the UI and retry logic
+            # know exactly where to resume.
+            message = f"{current_stage}: {_concise_error(e)}"
             update_status(video, 'failed', message)
         except JobCancelled:
             return {"status": "cancelled", "video_id": video_id}
         return {"status": "failed", "video_id": video_id, "error": _concise_error(e)}
+    finally:
+        # Always clean up split audio parts (keep the original file for playback)
+        for part in split_parts:
+            if part['path'] != file_path:
+                try:
+                    if os.path.exists(part['path']):
+                        os.remove(part['path'])
+                except OSError:
+                    logger.warning("Could not remove temporary audio part: %s", part['path'])
+
 
 
 def reset_for_retry(video_id: str) -> dict:

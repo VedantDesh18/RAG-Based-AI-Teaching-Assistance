@@ -1,7 +1,7 @@
 import whisper
 import json
 
-model = whisper.load_model("large-v2")
+model = whisper.load_model("large-v3")
 
 result = model.transcribe(audio = "audios/sample.mp3", language = "hi", task = "translate", word_timestamps = False)
 

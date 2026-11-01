@@ -67,15 +67,27 @@ def health_check():
     services["faster_whisper"] = "ok" if importlib.util.find_spec("faster_whisper") else "unavailable"
     services["ollama"] = "unavailable"
     services["ollama_models"] = "unavailable"
+    llm_provider = config_module.config.get("llm_provider", "gemini")
+    services["llm_provider"] = llm_provider
+    if llm_provider == "gemini":
+        has_key = bool(config_module.config.get("gemini_api_key") or os.getenv("GEMINI_API_KEY"))
+        services["gemini_configured"] = "ok" if has_key else "missing_key"
+
     try:
         response = requests.get(f"{config_module.config['ollama_url']}/api/tags", timeout=1.5)
         if response.ok:
             services["ollama"] = "ok"
             available = {str(model.get("name", "")) for model in response.json().get("models", [])}
-            required = {
-                config_module.config.get("model_names", {}).get("llm", ""),
-                config_module.config.get("model_names", {}).get("embedding", ""),
-            }
+            if llm_provider == "ollama":
+                required = {
+                    config_module.config.get("model_names", {}).get("llm", ""),
+                    config_module.config.get("model_names", {}).get("embedding", ""),
+                }
+            else:
+                # When Gemini handles LLM generation, only embedding model is required in Ollama
+                required = {
+                    config_module.config.get("model_names", {}).get("embedding", ""),
+                }
             def is_installed(model_name: str) -> bool:
                 return not model_name or model_name in available or f"{model_name}:latest" in available
             services["ollama_models"] = "ok" if all(is_installed(name) for name in required) else "missing"

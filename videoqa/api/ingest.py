@@ -20,6 +20,40 @@ from datetime import datetime, timezone
 router = APIRouter(prefix="/api/ingest", tags=["ingest"])
 logger = logging.getLogger(__name__)
 
+# #region agent log
+def _agent_dbg(hypothesis_id: str, location: str, message: str, data: dict) -> None:
+    payload = {
+        "sessionId": "1ba419",
+        "hypothesisId": hypothesis_id,
+        "location": location,
+        "message": message,
+        "data": data,
+        "timestamp": int(datetime.now(timezone.utc).timestamp() * 1000),
+        "runId": "post-fix",
+    }
+    line = json.dumps(payload) + "\n"
+    for path in (
+        r"D:\RAG-Based AI Teaching Assistance\debug-1ba419.log",
+        "/app/data/debug-1ba419.log",
+    ):
+        try:
+            with open(path, "a", encoding="utf-8") as handle:
+                handle.write(line)
+        except Exception:
+            pass
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            "http://host.docker.internal:7306/ingest/2502a175-f3c0-451f-8de0-1648841abc44",
+            data=line.encode("utf-8"),
+            headers={"Content-Type": "application/json", "X-Debug-Session-Id": "1ba419"},
+            method="POST",
+        )
+        urllib.request.urlopen(req, timeout=1).close()
+    except Exception:
+        pass
+# #endregion
+
 class IngestUrlRequest(BaseModel):
     url: str
 
@@ -142,6 +176,13 @@ def ingest_url_endpoint(req: IngestUrlRequest, background_tasks: BackgroundTasks
 
 @router.post("/file", status_code=status.HTTP_202_ACCEPTED)
 async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Response, file: UploadFile = File(...)):
+    # #region agent log
+    _agent_dbg("A,D", "videoqa/api/ingest.py:ingest_file_endpoint:entry", "Python ingest endpoint received upload", {
+        "filename": (file.filename or "")[:240],
+        "content_type": file.content_type,
+        "has_filename": bool(file.filename),
+    })
+    # #endregion
     if not file.filename:
         raise HTTPException(status_code=422, detail="Choose a video or audio file to upload.")
 
@@ -179,6 +220,13 @@ async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Resp
             os.fsync(destination.fileno())
         if received_bytes == 0:
             raise HTTPException(status_code=422, detail="The uploaded file is empty.")
+        # #region agent log
+        _agent_dbg("C,D", "videoqa/api/ingest.py:ingest_file_endpoint:bytes", "Upload bytes written to temp file", {
+            "received_bytes": received_bytes,
+            "extension": extension,
+            "temp_exists": temporary_path.exists(),
+        })
+        # #endregion
 
         duration = _inspect_upload(temporary_path, extension, file.content_type)
         content_digest = digest.hexdigest()
@@ -236,14 +284,37 @@ async def ingest_file_endpoint(background_tasks: BackgroundTasks, response: Resp
             return job_response(video, video.get("status") if video else "queued", "This exact file is already in your library.")
         record_committed = True
         background_tasks.add_task(ingest_file, str(final_path), video_id, original_filename)
+        # #region agent log
+        _agent_dbg("B,E", "videoqa/api/ingest.py:ingest_file_endpoint:success", "Upload persisted and processing queued", {
+            "video_id": video_id,
+            "created": created,
+            "duration": duration,
+            "status": "queued",
+        })
+        # #endregion
         return job_response(video, "queued", "Upload complete. Processing has started.")
-    except HTTPException:
+    except HTTPException as http_exc:
+        # #region agent log
+        _agent_dbg("B,C", "videoqa/api/ingest.py:ingest_file_endpoint:http", "Upload raised HTTPException", {
+            "status_code": http_exc.status_code,
+            "detail": str(http_exc.detail)[:300],
+            "received_bytes": received_bytes,
+        })
+        # #endregion
         if temporary_path.exists():
             temporary_path.unlink()
         if not record_committed and created_final_path and created_final_path.exists():
             created_final_path.unlink()
         raise
     except Exception as exc:
+        # #region agent log
+        _agent_dbg("B,E", "videoqa/api/ingest.py:ingest_file_endpoint:error", "Unhandled exception during upload persistence", {
+            "exc_type": type(exc).__name__,
+            "exc_message": str(exc)[:400],
+            "received_bytes": received_bytes,
+            "record_committed": record_committed,
+        })
+        # #endregion
         if temporary_path.exists():
             temporary_path.unlink()
         if not record_committed and created_final_path and created_final_path.exists():

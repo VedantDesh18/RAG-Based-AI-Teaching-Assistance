@@ -1,0 +1,332 @@
+# Project-Wide QA, Gemini API Configuration, RAG Accuracy & Performance Optimization
+
+## Role
+Act as a senior Python/FastAPI engineer, Next.js engineer, RAG/LLM engineer, QA automation engineer, and performance engineer.
+
+Work directly in my existing **RAG-Based AI Teaching Assistant (VideoQA)** project. Your task is to audit, test, diagnose, fix, and optimize the actual application.
+
+Do not merely provide recommendations. Inspect the repository, execute appropriate tests, implement verified fixes, and produce an evidence-based final report.
+
+## 1. Protect the existing project
+
+Before changing anything:
+
+1. Inspect the repository structure, Git status, README, implementation plan, backend, frontend, configuration, database models, ingestion pipeline, retrieval pipeline, and existing tests.
+2. Identify uncommitted changes and preserve them.
+3. Do not delete, reset, overwrite, or recreate existing databases, ChromaDB collections, embeddings, uploaded videos, transcripts, or user data.
+4. Do not run destructive database migrations or `docker compose down -v`.
+5. Create a backup before any necessary database schema migration.
+6. Reuse existing architecture wherever possible. Avoid rewriting working components unnecessarily.
+7. Do not claim a test passed unless it was actually executed and its result was observed.
+
+## 2. Audit the complete application
+
+Trace the actual request and data flow for:
+
+- Frontend startup and backend connectivity.
+- User uploads of local video files.
+- YouTube URL ingestion.
+- Video file storage and media playback.
+- Transcription with the existing Whisper implementation.
+- Timestamped transcript generation.
+- Text cleaning, chunking, and metadata generation.
+- Embedding generation and ChromaDB storage.
+- SQLite video, transcript, and chunk records.
+- Query input, retrieval, prompt construction, LLM generation, and streamed responses.
+- Chat history and video selection.
+- Error handling, retries, timeouts, logging, and configuration loading.
+- Docker deployment and local development.
+
+For every feature, determine whether it works in the actual code and runtime. Separate verified behavior from assumptions and untested functionality.
+
+## 3. Create and execute a feature test matrix
+
+Test the following areas wherever the environment permits.
+
+### A. Startup and configuration
+- Backend starts without import or configuration errors.
+- Frontend starts and builds successfully.
+- `/api/health` returns the expected status.
+- `/docs` opens successfully.
+- Frontend can communicate with the configured backend.
+- Environment variables are loaded from the intended files.
+- Missing configuration produces useful errors rather than confusing failures.
+
+### B. Video ingestion
+- Upload a small valid video.
+- Upload a larger video.
+- Upload a supported video with a filename containing spaces.
+- Test an unsupported file type.
+- Test an empty or malformed upload.
+- Verify that the file is actually stored and its path is persisted in the database.
+- Verify that the frontend uses the exact field name expected by the backend.
+- Check the HTTP status code and response body for every failed request.
+- Check upload-size limits, proxy configuration, and request timeouts.
+- Verify that failed transcription does not silently lose the uploaded video.
+- Verify that indexing can be retried without creating duplicate records or chunks.
+
+Use synthetic test files where possible. Do not use private or production data unnecessarily.
+
+### C. Media playback
+- Verify that the media endpoint resolves the correct stored file.
+- Test normal playback, seeking, HTTP Range requests, and invalid video IDs.
+- Confirm that file paths remain valid after restarting the application.
+- Inspect legacy database records with missing `file_path` values.
+- If a migration is needed, provide a dry-run mode, back up the database, and make the migration idempotent.
+
+### D. Transcription and indexing
+- Verify the transcription model, device, compute type, and actual runtime configuration.
+- Confirm that transcripts contain valid text and timestamps.
+- Verify chunk creation and metadata, including video ID, title, start time, and end time.
+- Confirm that embeddings are stored in the expected ChromaDB collection.
+- Test empty transcripts, duplicate ingestion, interrupted indexing, and retry behavior.
+- Capture the exact stage and traceback for memory allocation failures or file reconstruction errors.
+- Ensure indexing status and errors are visible to the user.
+- Never mark a video as fully indexed if the required chunks or embeddings are missing.
+
+### E. Chat and question answering
+- Test questions about the currently selected video.
+- Test questions whose answers occur near the beginning, middle, and end of a video.
+- Test questions requiring multiple relevant chunks.
+- Test questions that have no answer in the available transcript.
+- Test vague, short, long, and follow-up questions.
+- Verify that retrieved chunks belong to the correct video or intended search scope.
+- Verify that answers do not invent information absent from the retrieved evidence.
+- Verify timestamp citations and links to the relevant video positions.
+- Test the Enter key and Send button.
+- Check whether input fields are incorrectly disabled.
+- Check loading states, error messages, and cancellation behavior.
+- Verify that the frontend displays streamed responses correctly.
+- Test chat after page refresh and application restart, where supported.
+
+If the application has a selected-video mode and a global-search mode, test both independently.
+
+## 4. Diagnose existing and recurring failures
+
+Search the repository and logs for these known symptoms, then determine whether they still occur:
+
+- `422 Unprocessable Content` during file upload.
+- `OPTIONS 405 Method Not Allowed`.
+- `GET /` returning 404.
+- `File reconstruction error` or CAS client errors.
+- `mkl_malloc: failed to allocate memory`.
+- Videos with a missing database `file_path`.
+- Local-video chat input remaining disabled.
+- Missing or stale chunk counts.
+- Duplicate video records or duplicate chunks.
+- Gemini API authentication, quota, timeout, and model errors.
+- Slow retrieval or delayed first-token generation.
+
+For every failure:
+1. Reproduce it where possible.
+2. Capture the relevant request, response body, logs, and traceback.
+3. Identify the root cause from evidence.
+4. Fix the cause rather than suppressing the error.
+5. Add a regression test.
+6. Verify the fix with a new test run.
+
+A root URL returning 404 is not automatically a functional failure if the application intentionally exposes its API under `/api`. Do not confuse unrelated warnings with the actual cause of an upload or chat failure.
+
+## 5. Correct Gemini API key configuration
+
+I intend to use Google's Gemini API for answer generation.
+
+First inspect the existing provider configuration and determine exactly where the backend reads its API key and model name. Do not guess file paths or create a second competing configuration system.
+
+Use a centralized backend configuration with environment variables similar to:
+
+```dotenv
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=
+GEMINI_MODEL=
+```
+
+The values above are placeholders. I will put my newly generated API key directly into the local backend `.env` file and select a currently supported Gemini model.
+
+Requirements:
+
+- Use the official `google-genai` Python SDK if compatible with the existing architecture.
+- Load the key from the backend environment using the project's existing settings/configuration mechanism.
+- If the current configuration uses a different variable name, either migrate it safely or support a documented compatibility alias.
+- Update `.env.example` with empty placeholders only.
+- Ensure `.env` is ignored by Git.
+- Never hardcode a key in Python, TypeScript, frontend environment variables, chat components, prompts, test fixtures, logs, screenshots, or documentation.
+- Never put a secret in a `NEXT_PUBLIC_*` variable.
+- Never paste a secret into a user-facing chat box or send it to the LLM as conversation content.
+- Redact API keys from logs and error messages.
+- Do not print the key to verify it. Report only whether it is present, absent, or invalid.
+- Check whether the key is loaded by the process that actually serves the backend, including inside Docker if applicable.
+- Restart or recreate the appropriate service after configuration changes.
+- If the key is missing, return a clear configuration error without exposing any secrets.
+- Do not create multiple redundant API keys or pretend that separate keys automatically increase quota.
+- Do not silently fall back to another provider when Gemini fails unless an explicit fallback policy already exists and is documented.
+
+IMPORTANT: A previously shared key may have been exposed. Do not reuse, print, or copy that key. I will revoke it and supply a replacement privately in `.env`.
+
+### API configuration tests
+
+Implement tests that verify:
+
+1. Gemini is selected when `LLM_PROVIDER=gemini`.
+2. The backend loads the key from its environment.
+3. Missing keys produce a clear and safe error.
+4. The frontend bundle and API responses never expose the key.
+5. The selected model is passed correctly to the SDK.
+6. Authentication errors, rate limits, timeouts, and network failures are handled safely.
+7. The existing Ollama/local provider continues working if the project supports it.
+8. Provider selection does not change the embedding model, ChromaDB collection, stored transcript, or existing vector data.
+
+Use mocked SDK responses for automated tests. Run a real Gemini API smoke test only if a valid replacement key and network access are available. Clearly distinguish mocked tests from real API tests.
+
+## 6. Improve answer quality and query speed
+
+Optimize the existing RAG pipeline before introducing additional services or replacing working components.
+
+### A. Measure first
+Instrument these stages independently:
+
+- Frontend request to backend.
+- Query preprocessing.
+- Query embedding.
+- Vector retrieval.
+- Optional reranking.
+- Prompt construction.
+- Time to first generated token.
+- Total generation time.
+- Total end-to-end response time.
+
+Record timings using a monotonic timer. Use structured logs and never log API keys or unnecessary private transcript content.
+
+### B. Improve retrieval relevance
+- Inspect current chunk sizes, overlap, metadata, and embedding model.
+- Verify that metadata filters use the correct video ID and search scope.
+- Tune `top_k` using a small representative evaluation dataset rather than guessing.
+- Avoid retrieving too many irrelevant chunks.
+- Deduplicate overlapping or repeated retrieved chunks.
+- Consider hybrid lexical and vector retrieval if it improves measured results.
+- Consider a lightweight reranker only if its accuracy improvement justifies its latency and memory cost.
+- Keep timestamps and source metadata intact throughout the pipeline.
+- Ensure that relevant evidence from multiple chunks can be combined.
+- Return a transparent insufficient-evidence response when retrieval does not support an answer.
+
+Do not change the embedding model while continuing to query old vectors as if they were compatible. If a different embedding model is justified, use a separate versioned collection and a controlled re-embedding plan. Do not re-embed the existing database without approval.
+
+### C. Reduce answer-generation latency
+- Keep the system prompt concise without removing grounding or citation requirements.
+- Limit retrieved context to relevant evidence.
+- Set reasonable output-token limits according to answer type.
+- Avoid unnecessary sequential model calls.
+- Stream generated answers to the frontend if supported by the existing architecture.
+- Reuse initialized clients and models rather than repeatedly loading them.
+- Use caching for deterministic, reusable preprocessing or embeddings when safe.
+- Cache retrieval results only when the cache key accounts for the question, selected video, filters, and relevant data version.
+- Do not return stale cached answers after video data changes.
+- Use bounded concurrency, connection reuse, and sensible timeouts.
+- Handle retries only for transient failures, with backoff and a retry limit.
+- Avoid sending large transcripts or the entire database to Gemini for every query.
+
+### D. Preserve answer correctness
+Speed improvements must not come at the expense of factual grounding.
+
+Maintain:
+- Answers based on retrieved transcript evidence.
+- Accurate timestamps.
+- Correct video references.
+- Clear uncertainty when evidence is missing.
+- Consistent response formatting.
+- Existing streaming and frontend compatibility.
+
+Do not claim a speed improvement without before-and-after measurements on the same representative queries.
+
+## 7. Build a repeatable evaluation dataset
+
+Create a small, version-controlled test fixture using synthetic or non-sensitive transcripts.
+
+Include questions with known expected answers and timestamps, questions requiring multiple chunks, ambiguous questions, and questions with no supporting answer.
+
+Evaluate:
+
+- Retrieval Recall@K where ground-truth evidence is known.
+- MRR or another appropriate ranking metric.
+- Answer correctness against expected evidence.
+- Citation/timestamp correctness.
+- Unsupported-claim or hallucination rate.
+- Median and p95 latency where enough runs exist.
+- Time to first token.
+- Error rate.
+
+Do not fabricate evaluation scores. Clearly label small-fixture results as preliminary rather than production benchmarks.
+
+Compare the existing configuration with the optimized configuration. Record settings, hardware, model, query count, and test limitations.
+
+## 8. Tests, fixes, and implementation quality
+
+- Run the existing backend tests.
+- Run the existing frontend type checks and production build.
+- Run relevant lint checks and report pre-existing failures separately.
+- Add regression tests for every verified bug fixed.
+- Add mocked tests for Gemini generation and streaming compatibility.
+- Add integration tests for upload, indexing, retrieval, and chat where the local environment permits.
+- Avoid live API calls in ordinary automated test suites.
+- Check for accidental secret exposure, unsafe file paths, and unbounded resource usage.
+- Keep changes focused and maintainable.
+- Update the README and `.env.example` to reflect the actual implementation.
+
+If a test cannot run because of missing credentials, unavailable services, insufficient memory, or network restrictions, report it as BLOCKED or NOT TESTED. Do not mark it PASS.
+
+## 9. Final deliverables
+
+Produce a final report with these sections:
+
+### A. Executive summary
+- Overall project status.
+- Main verified problems.
+- Main fixes completed.
+- Remaining blockers.
+
+### B. Working features
+For each feature, give the evidence that it works and the test used.
+
+### C. Broken or partially working features
+For each issue, include:
+- Severity: Critical / High / Medium / Low.
+- Reproduction steps.
+- Root cause and evidence.
+- Files changed.
+- Fix applied or reason it remains unresolved.
+- Regression test result.
+
+### D. Test results
+Use a table containing:
+- Test name.
+- Expected result.
+- Actual result.
+- PASS / FAIL / BLOCKED / NOT TESTED.
+- Evidence or relevant log location.
+
+### E. Gemini configuration
+Report the configuration file, variable names, provider selection, model configuration, and key-loading status. Never include the key value.
+
+### F. Performance before and after
+Report actual retrieval latency, time to first token, total response latency, retrieval metrics, and test conditions. Mark unavailable measurements as NOT MEASURED.
+
+### G. Files modified
+List each changed file and the reason for changing it.
+
+### H. Remaining work
+Prioritize unresolved tasks and provide exact commands to start, test, and run the application.
+
+### I. Final verdict
+Classify the project as:
+- READY FOR LOCAL TESTING
+- READY FOR CONTROLLED DEMO
+- READY FOR PRODUCTION
+- NOT READY
+
+Choose the classification based on evidence, not optimism.
+
+## Execution rule
+
+Start by inspecting the repository and Git status. Then establish a baseline, reproduce issues, implement focused fixes, rerun tests, and produce the report.
+
+Do not stop after generating a plan. Continue through implementation and verification wherever the environment permits. Ask me only when an action requires a missing secret, destructive approval, or an essential decision that cannot be safely inferred.

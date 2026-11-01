@@ -9,6 +9,16 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field, model_validator
 
 from videoqa.config import config
+from videoqa.core.generator import (
+    GeminiAPIError,
+    GeminiAuthError,
+    GeminiConfigurationError,
+    GeminiError,
+    GeminiRateLimitError,
+    GeminiTimeoutError,
+    stream_ollama,
+    stream_response,
+)
 from videoqa.core.indexer import create_embedding
 from videoqa.db.sqlite import (
     get_chat_messages,
@@ -144,7 +154,7 @@ def run_query(req: QueryRequest):
             conversation = '\n'.join(f"{m['role'].title()}: {m['content']}" for m in history[-6:])
             if grounded:
                 transcript_context = '\n\n'.join(
-                    f"[Source {index + 1}; {seconds_display(chunk['start_seconds'])}–{seconds_display(chunk['end_seconds'])}] {chunk['text']}"
+                    f"[Source {index + 1}; Video ID: {chunk.get('video_id', '')}; Title: {chunk.get('title') or (video or {}).get('title') or 'Video'}; {seconds_display(chunk['start_seconds'])}–{seconds_display(chunk['end_seconds'])}] {chunk['text']}"
                     for index, chunk in enumerate(chunks)
                 )
                 prompt = f"""You are VideoQA, a concise teaching assistant. Answer only from the supplied video transcript excerpts. Do not output timestamps, citations, links, source labels, or markdown links; the application renders verified evidence separately. If the excerpts do not support a claim, say that the video does not establish it.\n\nConversation context:\n{conversation or '(none)'}\n\nTranscript excerpts:\n{transcript_context}\n\nCurrent user question: {question}\nAnswer:"""
@@ -153,7 +163,7 @@ def run_query(req: QueryRequest):
                 prompt = f"""You are VideoQA. The indexed video did not contain enough evidence to answer the current question. Give a concise, helpful general answer if possible, clearly say it is not grounded in the selected video, and never invent a timestamp, citation, or link.\n\nCurrent user question: {question}\nAnswer:"""
 
             generation_started = time.perf_counter()
-            for token in stream_ollama(prompt):
+            for token in stream_response(prompt):
                 answer_parts.append(token)
                 yield event('token', {'text': token})
             generation_ms = round((time.perf_counter() - generation_started) * 1000)
@@ -168,8 +178,28 @@ def run_query(req: QueryRequest):
                 'timings': {'retrieval_ms': retrieval_ms, 'generation_ms': generation_ms},
                 'session_id': session_id,
             })
+        except GeminiConfigurationError:
+            message = 'Gemini API key is not configured. Please set GEMINI_API_KEY in your .env file.'
+            insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
+            yield event('error', {'message': message, 'session_id': session_id})
+        except GeminiRateLimitError:
+            message = 'Gemini API rate limit or quota exceeded. Please wait a moment and try again.'
+            insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
+            yield event('error', {'message': message, 'session_id': session_id})
+        except GeminiTimeoutError:
+            message = 'Gemini API request timed out. Please try again.'
+            insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
+            yield event('error', {'message': message, 'session_id': session_id})
+        except GeminiAuthError:
+            message = 'Gemini API authentication failed. Please verify your GEMINI_API_KEY.'
+            insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
+            yield event('error', {'message': message, 'session_id': session_id})
+        except (GeminiAPIError, GeminiError):
+            message = 'Gemini API error occurred while generating the answer. Please try again.'
+            insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
+            yield event('error', {'message': message, 'session_id': session_id})
         except requests.RequestException:
-            message = 'The local AI service is unavailable. Start Ollama and try again.'
+            message = 'The local AI service is unavailable. Check your service configuration and try again.'
             insert_chat_message(session_id, 'assistant', message, datetime.now(timezone.utc).isoformat(), [])
             yield event('error', {'message': message, 'session_id': session_id})
         except Exception:

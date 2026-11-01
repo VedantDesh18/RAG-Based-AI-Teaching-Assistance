@@ -110,12 +110,20 @@ export function uploadVideo(
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) onProgress(event.loaded, event.total);
     };
-    xhr.onerror = () => reject(new ApiError("VideoQA backend is unavailable. Check the connection and try again."));
+    xhr.onerror = () => {
+      // #region agent log
+      fetch("http://127.0.0.1:7306/ingest/2502a175-f3c0-451f-8de0-1648841abc44",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"1ba419"},body:JSON.stringify({sessionId:"1ba419",runId:"pre-fix",hypothesisId:"A",location:"frontend/src/lib/api.ts:xhr.onerror",message:"XHR network error before HTTP status",data:{readyState:xhr.readyState},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion
+      reject(new ApiError("VideoQA backend is unavailable. Check the connection and try again."));
+    };
     xhr.onabort = () => reject(new ApiError("Upload cancelled."));
     xhr.onload = () => {
       const responseText = typeof xhr.response === "string" ? xhr.response : "";
       let data: unknown = null;
       try { data = responseText ? JSON.parse(responseText) : null; } catch { /* handled below */ }
+      // #region agent log
+      fetch("http://127.0.0.1:7306/ingest/2502a175-f3c0-451f-8de0-1648841abc44",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"1ba419"},body:JSON.stringify({sessionId:"1ba419",runId:"pre-fix",hypothesisId:"A,C,D",location:"frontend/src/lib/api.ts:xhr.onload",message:"Upload XHR completed",data:{status:xhr.status,contentType:xhr.getResponseHeader("content-type"),responsePrefix:responseText.slice(0,180),parsedJson:Boolean(data && typeof data === "object"),fileName:file.name,fileSize:file.size,fileType:file.type},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion
       if (xhr.status >= 200 && xhr.status < 300) {
         if (isJobStart(data)) resolve(data);
         else reject(new ApiError("The server returned an invalid upload response.", xhr.status));
@@ -127,6 +135,9 @@ export function uploadVideo(
     };
     const form = new FormData();
     form.append("file", file);
+    // #region agent log
+    fetch("http://127.0.0.1:7306/ingest/2502a175-f3c0-451f-8de0-1648841abc44",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"1ba419"},body:JSON.stringify({sessionId:"1ba419",runId:"pre-fix",hypothesisId:"A,D",location:"frontend/src/lib/api.ts:xhr.send",message:"Sending multipart upload without manual Content-Type",data:{endpoint:endpoint("/api/ingest/file"),fieldName:"file",fileName:file.name,fileSize:file.size,fileType:file.type,apiRoot:API_ROOT || "(same-origin)"},timestamp:Date.now()})}).catch(()=>{});
+    // #endregion
     xhr.send(form);
   });
   return { promise, cancel: () => xhr.abort() };

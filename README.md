@@ -231,9 +231,14 @@ docker compose down -v
 | `OLLAMA_URL` | `http://host.docker.internal:11434` | Ollama HTTP API endpoint |
 | `EMBEDDING_MODEL` | `bge-m3:latest` | Ollama model for text embeddings |
 | `LLM_MODEL` | `llama3.2` | Ollama model for answer generation |
-| `WHISPER_MODEL` | `large-v2` | Whisper model size (`tiny` / `base` / `small` / `medium` / `large-v2` / `large-v3`) |
+| `WHISPER_MODEL` | `base` | Whisper model size (`tiny` / `base` / `small` / `medium` / `large-v2` / `large-v3`) |
 | `WHISPER_DEVICE` | `cpu` | Inference device (`cpu` or `cuda`) |
 | `WHISPER_COMPUTE_TYPE` | `int8` | Quantization (`int8` for CPU, `float16` for GPU) |
+| `WHISPER_BEAM_SIZE` | `1` | Decoding beam width; `1` minimizes CPU/RAM use during uploads |
+| `WHISPER_CPU_THREADS` / `WHISPER_NUM_WORKERS` | `2` / `1` | Bounds CTranslate2's transcription worker pool |
+| `WHISPER_MAX_SEGMENT_SEC` | `600` | Maximum source duration transcribed per piece |
+| `MKL_NUM_THREADS` / `OMP_NUM_THREADS` | `2` | Bounds CPU thread-pool memory used by transcription |
+| `EMBEDDING_BATCH_SIZE` | `16` | Number of chunks embedded and persisted per Ollama request |
 | `VIDEOQA_CORS_ORIGINS` | `http://localhost:3000,...` | Exact allowed frontend origins (includes local ports 3000 and 3001) |
 | `BACKEND_URL` | `http://backend:8000` | Internal Docker URL for Next.js proxy |
 | `NEXT_PUBLIC_API_URL` | *(empty)* | Optional direct public API URL |
@@ -262,7 +267,7 @@ New uploads are written atomically under `MEDIA_ROOT` before a queued SQLite rec
 
 The upload endpoint is `POST /api/ingest/file`, with the file sent in the multipart field named `file`. By default, the browser calls the same-origin Next.js proxy, which forwards `/api/*` to `BACKEND_URL`. The browser creates the multipart boundary; clients must not set `Content-Type` manually for `FormData`. Next.js's rewrite proxy has a 10 MB default request-body limit, so `frontend/next.config.ts` raises `experimental.proxyClientMaxBodySize` just above the backend's configured 2 GiB upload limit. The player uses `GET /api/videos/{video_id}/media`; this route also supports `HEAD` and byte ranges for seeking. A stored file remains playable while its job is queued, processing, or failed. RAG chat becomes available after a video is ready and has indexed transcript chunks.
 
-If indexing fails, the video workspace shows the saved error and offers **Retry indexing**. Retry uses `POST /api/jobs/{video_id}/retry`, keeps the video ID and source file, and is limited to three attempts. It is enabled only while the saved source remains readable.
+If indexing fails, the video workspace shows the saved error (including the failed processing stage) and offers **Retry indexing**. Retry uses `POST /api/jobs/{video_id}/retry`, keeps the video ID and source file, and is limited to three attempts. It is enabled only while the saved source remains readable.
 
 To inspect legacy path repair, run the migration in dry-run mode first:
 

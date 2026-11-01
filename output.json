@@ -1,17 +1,1 @@
-[
-    {
-        "start": 0.0,
-        "end": 3.3000000000000003,
-        "text": " hello friends welcome to the YTech Yogesh's channel"
-    },
-    {
-        "start": 3.3000000000000003,
-        "end": 7.0,
-        "text": " today we will talk about how to install nodejs"
-    },
-    {
-        "start": 7.0,
-        "end": 11.0,
-        "text": " nodejs is a package which you need to install"
-    }
-]
+[{"start": 0.0, "end": 3.0, "text": " Hello friends welcome to the ytech yogeshars channel"}, {"start": 3.0, "end": 7.0, "text": " and today we will talk about how to install nodejs"}, {"start": 7.0, "end": 10.0, "text": " nodejs is a package which you need to install"}]

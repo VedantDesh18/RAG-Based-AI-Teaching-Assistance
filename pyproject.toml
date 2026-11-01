@@ -23,7 +23,9 @@ dependencies = [
     "joblib",
     "pandas",
     "scikit-learn",
-    "pyyaml"
+    "pyyaml",
+    "google-genai",
+    "python-dotenv"
 ]
 
 [project.optional-dependencies]
@@ -32,7 +34,8 @@ test = ["pytest"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = [
-    "live: marks tests requiring live Ollama"
+    "live: marks tests requiring live Ollama",
+    "live_gemini: marks tests requiring live Gemini API key"
 ]
 
 [tool.setuptools.packages.find]

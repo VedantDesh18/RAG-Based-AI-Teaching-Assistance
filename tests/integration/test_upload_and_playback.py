@@ -301,7 +301,7 @@ class TestUploadPersistence:
         assert result["status"] == "failed"
         failed_record = get_video(video_id)
         assert failed_record["status"] == "failed"
-        assert failed_record["error_message"] == "faster-whisper model unavailable"
+        assert failed_record["error_message"] == "transcribing: faster-whisper model unavailable"
         assert source.is_file()
         playback = client.get(f"/api/videos/{video_id}/media")
         assert playback.status_code == 200

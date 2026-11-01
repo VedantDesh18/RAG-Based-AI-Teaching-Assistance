@@ -13,11 +13,13 @@ def test_client(tmp_path):
     original_chroma = config['paths']['chroma']
     original_media = config['paths'].get('media')
     original_legacy = config['paths'].get('legacy_media')
+    original_provider = config.get('llm_provider')
 
     config['paths']['db'] = str(tmp_path / 'videoqa.db')
     config['paths']['chroma'] = str(tmp_path / 'chroma')
     config['paths']['media'] = str(tmp_path / 'media')
     config['paths']['legacy_media'] = str(tmp_path / 'videos')
+    config['llm_provider'] = 'ollama'
     Path(config['paths']['media']).mkdir(parents=True, exist_ok=True)
     Path(config['paths']['legacy_media']).mkdir(parents=True, exist_ok=True)
     run_migrations()
@@ -28,6 +30,10 @@ def test_client(tmp_path):
 
     config['paths']['db'] = original_db
     config['paths']['chroma'] = original_chroma
+    if original_provider is None:
+        config.pop('llm_provider', None)
+    else:
+        config['llm_provider'] = original_provider
     if original_media is None:
         config['paths'].pop('media', None)
     else:
