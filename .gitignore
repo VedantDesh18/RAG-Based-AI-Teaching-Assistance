@@ -26,8 +26,15 @@ __pycache__/
 videoqa.egg-info/
 .pytest_cache/
 
-# Data & persistence (managed by Docker volumes)
-data/
+# Data & persistence (databases un-ignored)
+data/media/
+data/temp_chroma/
+data/videoqa.db
+data/db/temp_videoqa.db*
+data/db/*.backup.*
+*.db-wal
+*.db-shm
+data/*.log
 
 # IDE & tooling
 .systemlens/
